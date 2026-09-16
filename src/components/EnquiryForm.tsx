@@ -28,23 +28,28 @@ export default function EnquiryForm({
       ...Object.fromEntries(new FormData(form).entries()),
       source: window.location.pathname,
     };
-    const response = await fetch('/api/leads', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    });
-    const result = await response.json();
+    try {
+      const response = await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const result = await response.json();
 
-    if (result.success) {
-      setStatus('success');
-      form.reset();
-      if (onSuccess) {
-        // slight delay before calling onSuccess to let them see the success message
-        setTimeout(() => onSuccess(), 2000);
+      if (result.success) {
+        setStatus('success');
+        form.reset();
+        if (onSuccess) {
+          setTimeout(() => onSuccess(), 2000);
+        }
+      } else {
+        setStatus('error');
+        setErrorMessage(result.error || 'Something went wrong.');
       }
-    } else {
+    } catch (error) {
+      console.error('Lead submission failed:', error);
       setStatus('error');
-      setErrorMessage(result.error || 'Something went wrong.');
+      setErrorMessage('Unable to submit your enquiry. Please try again.');
     }
   };
 

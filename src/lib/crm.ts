@@ -61,7 +61,9 @@ export async function sendLeadToCrm(input: LeadInput) {
   const config = await prisma.crmConfig.findFirst();
   const endpoint = config?.endpointUrl || process.env.CRM_LEAD_URL;
   const apiKey = config?.apiKey || process.env.CRM_API_KEY;
-  if (!endpoint) return;
+  if (!endpoint) {
+    return { sent: false, configured: false };
+  }
 
   const lead = toCrmLead(input);
   const response = await fetch(endpoint, {
@@ -69,6 +71,7 @@ export async function sendLeadToCrm(input: LeadInput) {
     headers: {
       'Content-Type': 'application/json',
       ...(apiKey ? { Authorization: `Bearer ${apiKey}` } : {}),
+      ...(apiKey ? { 'X-API-Key': apiKey } : {}),
     },
     body: JSON.stringify(lead),
     cache: 'no-store',
@@ -77,4 +80,6 @@ export async function sendLeadToCrm(input: LeadInput) {
   if (!response.ok) {
     throw new Error(`CRM lead request failed with status ${response.status}`);
   }
+
+  return { sent: true, configured: true };
 }

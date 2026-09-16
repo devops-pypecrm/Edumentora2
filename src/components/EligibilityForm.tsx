@@ -21,20 +21,27 @@ export default function EligibilityForm({ className = 'space-y-6' }: Eligibility
     setShowPopup(true);
 
     const payload = Object.fromEntries(new FormData(form).entries());
-    const response = await fetch('/api/leads', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    });
-    const result = await response.json();
+    try {
+      const response = await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const result = await response.json();
 
-    if (result.success) {
-      setStatus('success');
-      setPopupState('success');
-      form.reset();
-    } else {
+      if (result.success) {
+        setStatus('success');
+        setPopupState('success');
+        form.reset();
+      } else {
+        setStatus('error');
+        setErrorMessage(result.error || 'Something went wrong.');
+        setPopupState('error');
+      }
+    } catch (error) {
+      console.error('Eligibility submission failed:', error);
       setStatus('error');
-      setErrorMessage(result.error || 'Something went wrong.');
+      setErrorMessage('Unable to submit your eligibility request. Please try again.');
       setPopupState('error');
     }
   };

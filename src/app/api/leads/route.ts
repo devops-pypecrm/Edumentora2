@@ -33,7 +33,7 @@ export async function POST(request: Request) {
       await prisma.enquiryList.create({ data });
     }
 
-    const notifications = await Promise.allSettled([
+    const [emailResult, crmResult] = await Promise.allSettled([
       sendLeadNotification({
         type: isEligibility ? 'Eligibility Request' : 'Enquiry',
         fields: {
@@ -49,11 +49,15 @@ export async function POST(request: Request) {
       sendLeadToCrm({ ...lead, source: data.source }),
     ]);
 
-    notifications
+    [emailResult, crmResult]
       .filter((result) => result.status === 'rejected')
       .forEach((result) => console.error('Lead notification failed:', result.reason));
 
-    return NextResponse.json({ success: true });
+    const crm = crmResult.status === 'fulfilled'
+      ? crmResult.value
+      : { sent: false, configured: true, error: 'CRM delivery failed.' };
+
+    return NextResponse.json({ success: true, crm });
   } catch (error) {
     console.error('Lead submission failed:', error);
     return NextResponse.json({ success: false, error: 'Failed to submit lead. Please try again later.' }, { status: 500 });
