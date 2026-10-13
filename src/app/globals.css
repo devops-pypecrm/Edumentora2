@@ -24,6 +24,16 @@ body {
   color: var(--foreground);
 }
 
+/* Keep the hero unchanged, then alternate calm background tones across the
+   homepage sections so neighboring content blocks remain visually distinct. */
+.home-section-alternation > section:nth-of-type(even) {
+  background-color: #faf7f0 !important;
+}
+
+.home-section-alternation > section:nth-of-type(odd):not(:first-of-type) {
+  background-color: #ffffff !important;
+}
+
 img {
   transition: transform 0.3s ease-in-out;
 }

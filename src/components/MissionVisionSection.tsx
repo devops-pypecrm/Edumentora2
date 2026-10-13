@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Target, Eye } from 'lucide-react';
 
 export default function MissionVisionSection() {
@@ -44,7 +43,7 @@ export default function MissionVisionSection() {
           }}
         />
 
-        <div className="relative z-10 space-y-4 w-full lg:w-[75%]">
+        <div className="relative z-10 space-y-4 w-full">
           {/* Heading — smaller on mobile, same text and same size from md: up */}
           <h2 className="text-[26px] md:text-[44px] lg:text-[50px] font-[Poppins] font-extrabold text-[#5C3A21] leading-[1.15] md:leading-[1.1] tracking-tight mb-2 md:mb-4">
             Empowering Students<br className="hidden md:block"/>
@@ -52,21 +51,21 @@ export default function MissionVisionSection() {
           </h2>
 
           {/* Desktop/tablet: original paragraph + Mission/Vision blocks, unchanged */}
-          <p className="hidden md:block text-[18px] text-[#3B2412]/90 leading-[1.8] w-full pr-4 lg:pr-12">
+          <p className="hidden md:block text-[18px] text-[#3B2412]/90 leading-[1.8] w-full">
             Resume your graduation or postgraduate education through Edumentora, a leading academic credit transfer institution. Transfer earned credits for B. Tech, engineering, and other programs to recognized universities, saving time and costs while achieving academic success.
           </p>
 
           <div className="hidden md:block space-y-2 pt-2">
             <h3 className="text-[24px] font-semibold text-[#5C3A21]">Our Mission</h3>
-            <p className="text-[15px] md:text-[16px] text-[#3B2412]/90 leading-[1.6] w-full pr-4 lg:pr-12 text-justify">
+            <p className="text-[15px] md:text-[16px] text-[#3B2412]/90 leading-[1.6] w-full text-justify">
               At Edumentora, our mission is to empower students to overcome academic setbacks by providing a seamless and fully supported pathway for credit transfers. We ensure that every previously earned credit is respected, helping learners transition to UGC-accredited universities. Through personalized guidance, we strive to save students valuable time and financial resources, turning educational interruptions into renewed opportunities for lifelong success.
             </p>
           </div>
 
           <div className="hidden md:block space-y-2 pt-2">
             <h3 className="text-[24px] font-semibold text-[#5C3A21]">Our Vision</h3>
-            <p className="text-[15px] md:text-[16px] text-[#3B2412]/90 leading-[1.6] w-full pr-4 lg:pr-12 text-justify">
-              Our vision at Edumentora is to create an inclusive educational landscape where no student is left behind due to past hurdles. We envision a future where every individual has unrestricted access to complete their higher education without having to start from scratch. By breaking down academic barriers and championing flexible learning pathways, we aim to be India's most trusted partner in transforming past progress into lasting achievement.
+            <p className="text-[15px] md:text-[16px] text-[#3B2412]/90 leading-[1.6] w-full text-justify">
+              Our vision at Edumentora is to create an inclusive educational landscape where no student is left behind due to past hurdles. We envision a future where every individual has unrestricted access to complete their higher education without having to start from scratch. By breaking down academic barriers and championing flexible learning pathways, we aim to be India&apos;s most trusted partner in transforming past progress into lasting achievement.
             </p>
           </div>
 
@@ -100,103 +99,6 @@ export default function MissionVisionSection() {
         </div>
       </div>
 
-      {/* hanging magnifying glass, swinging left to right */}
-      <motion.div
-          aria-hidden
-          style={{ transformOrigin: 'top center' }}
-          animate={{ rotate: [-18, 18, -18] }}
-          transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
-          className="pointer-events-none absolute top-0 right-6 sm:right-12 md:right-16 lg:right-24 z-20 hidden md:block"
-        >
-          <svg
-            viewBox="0 0 140 440"
-            className="w-20 h-56 sm:w-28 sm:h-72 md:w-36 md:h-[26rem] lg:w-40 lg:h-[30rem]"
-            fill="none"
-          >
-            <line x1="70" y1="0" x2="70" y2="270" stroke="#3b3226" strokeOpacity="0.5" strokeWidth="4" />
-            <circle cx="70" cy="330" r="60" stroke="#3b3226" strokeWidth="3" fill="rgba(255,255,255,0.15)" />
-            <line x1="112" y1="372" x2="134" y2="394" stroke="#3b3226" strokeWidth="14" strokeLinecap="round" />
-          </svg>
-        </motion.div>
-
-        {/* boy standing at the bottom, looking up at the hanging lens handle, eyes tracking the swing */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute bottom-0 right-8 sm:right-14 md:right-20 lg:right-28 z-20 hidden md:block"
-        >
-          <svg
-            viewBox="0 0 160 260"
-            className="w-12 h-20 sm:w-14 sm:h-24 md:w-16 md:h-28 lg:w-20 lg:h-32"
-            fill="none"
-          >
-            {/* ground shadow */}
-            <ellipse cx="80" cy="248" rx="38" ry="8" fill="#000000" opacity="0.15" />
-
-            {/* legs */}
-            <rect x="45" y="168" width="20" height="62" rx="8" fill="#002147" />
-            <rect x="95" y="168" width="20" height="62" rx="8" fill="#002147" />
-
-            {/* shoes */}
-            <ellipse cx="55" cy="234" rx="15" ry="8" fill="#2b2418" />
-            <ellipse cx="105" cy="234" rx="15" ry="8" fill="#2b2418" />
-
-            {/* body/shirt */}
-            <rect x="38" y="84" width="84" height="88" rx="22" fill="#D2B48C" />
-
-            {/* arms hanging at sides */}
-            <rect x="22" y="92" width="16" height="60" rx="8" fill="#f2c29c" />
-            <rect x="122" y="92" width="16" height="60" rx="8" fill="#f2c29c" />
-
-            {/* book held at chest height, forgotten mid-read while looking up */}
-            <g>
-              <rect x="48" y="128" width="64" height="26" rx="3" fill="#f4ecd8" stroke="#3b3226" strokeWidth="2" />
-              <line x1="80" y1="128" x2="80" y2="154" stroke="#3b3226" strokeWidth="2" />
-              <line x1="54" y1="136" x2="74" y2="136" stroke="#a89a80" strokeWidth="1.5" />
-              <line x1="54" y1="143" x2="74" y2="143" stroke="#a89a80" strokeWidth="1.5" />
-              <line x1="54" y1="150" x2="70" y2="150" stroke="#a89a80" strokeWidth="1.5" />
-              <line x1="86" y1="136" x2="106" y2="136" stroke="#a89a80" strokeWidth="1.5" />
-              <line x1="86" y1="143" x2="106" y2="143" stroke="#a89a80" strokeWidth="1.5" />
-              <line x1="86" y1="150" x2="102" y2="150" stroke="#a89a80" strokeWidth="1.5" />
-            </g>
-
-            {/* head group - stays still, looking up; only the eyes track the lens as it swings */}
-            <g>
-              {/* neck */}
-              <rect x="72" y="68" width="16" height="18" fill="#f2c29c" />
-
-              {/* head */}
-              <circle cx="80" cy="42" r="32" fill="#f2c29c" stroke="#3b3226" strokeWidth="3" />
-
-              {/* hair */}
-              <path d="M48,40 Q80,2 112,40" stroke="#2b2418" strokeWidth="16" fill="none" strokeLinecap="round" />
-
-              {/* eyebrows raised in awe */}
-              <path d="M60,26 Q67,20 74,25" stroke="#2b2418" strokeWidth="3" fill="none" strokeLinecap="round" />
-              <path d="M86,25 Q93,20 100,26" stroke="#2b2418" strokeWidth="3" fill="none" strokeLinecap="round" />
-
-              {/* eyes - whites stay fixed, pupils track the lens swinging left to right */}
-              <ellipse cx="68" cy="35" rx="6" ry="5" fill="white" stroke="#3b3226" strokeWidth="1.5" />
-              <ellipse cx="92" cy="35" rx="6" ry="5" fill="white" stroke="#3b3226" strokeWidth="1.5" />
-              <motion.circle
-                cy="32.5"
-                r="2.6"
-                fill="#2b2418"
-                animate={{ cx: [74.5, 66.5, 74.5] }}
-                transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
-              />
-              <motion.circle
-                cy="32.5"
-                r="2.6"
-                fill="#2b2418"
-                animate={{ cx: [98.5, 90.5, 98.5] }}
-                transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
-              />
-
-              {/* mouth open in wonder */}
-              <circle cx="80" cy="54" r="4" fill="#2b2418" />
-            </g>
-          </svg>
-        </div>
       </div>
     </section>
   );

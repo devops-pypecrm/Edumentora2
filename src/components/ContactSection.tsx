@@ -1,227 +1,84 @@
 'use client';
+
+import { useState } from 'react';
+import { CheckCircle2, Clock, MapPin, Phone } from 'lucide-react';
 import EnquiryForm from '@/components/EnquiryForm';
 
-import React, { useRef, useState, useEffect } from 'react';
-import { Clock, CheckCircle2, Phone, MapPin } from 'lucide-react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-
 export default function ContactSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  // Mobile-only: the enquiry form is collapsed by default behind a "Send
-  // Your Message" toggle, to keep the section compact; details are always shown.
   const [showForm, setShowForm] = useState(false);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'end start'],
-  });
-
-  // On mobile the "paper roll" scroll animation is skipped entirely — the
-  // section renders already fully open (as it would look once unrolled).
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    const mq = window.matchMedia('(max-width: 767px)');
-    const update = () => setIsMobile(mq.matches);
-    update();
-    mq.addEventListener('change', update);
-    return () => mq.removeEventListener('change', update);
-  }, []);
-
-  const revealPercent = useTransform(scrollYProgress, [0, 0.45, 0.55, 1], [100, 0, 0, 100]);
-  const clipPath = useTransform(revealPercent, (v) => (isMobile ? 'inset(0 0% 0 0)' : `inset(0 ${v}% 0 0)`));
-  const edgeLeft = useTransform(revealPercent, (v) => `${100 - v}%`);
-  const rodOpacity = useTransform(scrollYProgress, [0, 0.05, 0.95, 1], [0, 1, 1, 0]);
-  const rodSpin = useTransform(scrollYProgress, (v) => `${v * -600}px`);
-  const rodWidth = useTransform(revealPercent, (v) => 22 + (v / 100) * 70);
-  const rodWidthPx = useTransform(rodWidth, (w) => `${w}px`);
-  const rodMarginLeftPx = useTransform(rodWidth, (w) => `${-w / 2}px`);
-  const rodColor = '#E91D24';
 
   return (
-    <section ref={sectionRef} className="w-full max-w-7xl mx-auto px-4 md:px-8 pb-0 bg-white dot-grid">
-      <div className="relative max-w-5xl mx-auto">
-        <motion.div
-          style={{ clipPath }}
-          className="relative bg-gradient-to-br from-[#E91D24] via-[#D6181E] to-[#A81216] rounded-t-[40px] rounded-b-[40px] md:rounded-b-none p-6 md:p-10 flex flex-col lg:flex-row gap-8 text-white overflow-hidden shadow-2xl shadow-black/50"
-        >
-          {/* decorative glow accents */}
-          <div aria-hidden className="pointer-events-none absolute -top-24 -right-24 w-72 h-72 bg-white/10 rounded-full blur-3xl" />
+    <section className="w-full px-4 py-8 md:px-8 bg-white dot-grid">
+      <div className="relative w-full max-w-5xl mx-auto overflow-hidden rounded-[32px] border border-white/15 bg-gradient-to-br from-[#EF1B24] via-[#D8151D] to-[#A90E14] p-6 text-white shadow-[0_24px_65px_rgba(105,8,13,0.28)] md:p-10">
+        <div aria-hidden className="pointer-events-none absolute -right-24 -top-32 size-80 rounded-full border-[52px] border-white/[0.06]" />
+        <div aria-hidden className="pointer-events-none absolute -bottom-28 -left-20 size-64 rounded-full bg-[#002147]/20" />
+        <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-white/70 via-white/10 to-transparent" />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.12]"
+          style={{
+            backgroundImage: 'radial-gradient(rgba(255,255,255,0.65) 1px, transparent 1px)',
+            backgroundSize: '18px 18px',
+          }}
+        />
 
-          {/* subtle dot-grid texture */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 opacity-[0.15]"
-            style={{
-              backgroundImage: 'radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px)',
-              backgroundSize: '18px 18px',
-            }}
-          />
-
-          {/* soft cast shadow just ahead of the dowel onto the still-hidden paper */}
-          {!isMobile && (
-            <motion.div
-              aria-hidden
-              style={{ left: edgeLeft, opacity: rodOpacity }}
-              className="pointer-events-none absolute top-0 bottom-0 w-24 bg-gradient-to-r from-black/50 via-black/20 to-transparent blur-md z-10"
-            />
-          )}
-
-          {/* Left Side: Information — desktop/tablet, unchanged */}
-        <div className="relative z-10 w-full lg:w-1/2 hidden md:flex flex-col space-y-6">
-          <h2 className="text-xl md:text-3xl font-bold leading-tight whitespace-nowrap">
-            Ready To Grow with Edumentora
-          </h2>
-
-          <div className="border-l-4 border-white/40 pl-4">
-            <p className="text-white/90 text-sm leading-relaxed">
-              Edumentora makes restarting your education easy by transferring past credits to accredited universities, saving you time and money.
-            </p>
-          </div>
-
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <div className="bg-[#002147] p-1.5 rounded-full shadow-lg shadow-black/40">
-                <Clock className="w-4 h-4 text-white" />
-              </div>
-              <span className="text-sm font-medium">Fast Application Processing</span>
+        <div className="relative z-10 flex flex-col gap-8 lg:flex-row lg:gap-12">
+          <div className="flex w-full flex-col space-y-6 rounded-[24px] border border-white/15 bg-[#7E0B11]/30 p-5 md:p-6 lg:w-[42%]">
+            <div>
+              <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-white/65">Start your journey</p>
+              <h2 className="text-2xl font-bold leading-tight md:text-3xl">Ready To Grow with Edumentora</h2>
             </div>
-            <div className="flex items-center gap-3">
-              <div className="bg-[#002147] p-1.5 rounded-full shadow-lg shadow-black/40">
-                <CheckCircle2 className="w-4 h-4 text-white" />
+
+            <div className="border-l-4 border-white/40 pl-4">
+              <p className="text-sm leading-relaxed text-white/90">
+                Edumentora makes restarting your education easy by transferring past credits to accredited universities, saving you time and money.
+              </p>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+              <div className="flex items-center gap-3 rounded-xl bg-white/[0.08] p-3">
+                <div className="rounded-full bg-[#002147] p-2 shadow-lg shadow-black/20"><Clock className="size-4 text-white" /></div>
+                <span className="text-sm font-medium">Fast Application Processing</span>
               </div>
-              <span className="text-sm font-medium">Successful Transfers</span>
+              <div className="flex items-center gap-3 rounded-xl bg-white/[0.08] p-3">
+                <div className="rounded-full bg-[#002147] p-2 shadow-lg shadow-black/20"><CheckCircle2 className="size-4 text-white" /></div>
+                <span className="text-sm font-medium">Successful Transfers</span>
+              </div>
+            </div>
+
+            <div className="grid gap-4 pt-1 sm:grid-cols-2 lg:grid-cols-1">
+              <div className="flex items-center gap-4">
+                <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-[#002147] shadow-lg shadow-black/20"><Phone className="size-5 text-white" /></div>
+                <div><p className="text-xs font-medium text-white/70">Call Us Anytime</p><p className="font-bold">+91 974458 7777</p></div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-[#002147] shadow-lg shadow-black/20"><MapPin className="size-5 text-white" /></div>
+                <div><p className="text-xs font-medium text-white/70">Location</p><p className="font-bold">Calicut &amp; Kochi</p></div>
+              </div>
             </div>
           </div>
 
-          <div className="space-y-4 pt-2">
-            {/* Phone */}
-            <div className="flex items-center gap-4">
-              <div className="bg-[#002147] w-10 h-10 rounded-xl flex items-center justify-center shadow-lg shadow-black/40">
-                <Phone className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <p className="text-white/80 text-xs font-medium">Call Us Anytime</p>
-                <p className="font-bold text-base">+91 974458 7777</p>
-              </div>
-            </div>
+          <div className="hidden w-full flex-col justify-center rounded-[24px] border border-white/10 bg-white/[0.07] p-4 md:flex lg:w-[58%]">
+            <EnquiryForm className="space-y-4" isGrid={false} />
+          </div>
 
-            {/* Location */}
-            <div className="flex items-center gap-4">
-              <div className="bg-[#002147] w-10 h-10 rounded-xl flex items-center justify-center shadow-lg shadow-black/40">
-                <MapPin className="w-5 h-5 text-white" />
+          <div className="md:hidden">
+            <button
+              type="button"
+              onClick={() => setShowForm((visible) => !visible)}
+              aria-expanded={showForm}
+              className="w-full rounded-xl bg-[#002147] px-4 py-3 text-sm font-bold text-white shadow-lg shadow-black/30"
+            >
+              {showForm ? 'Hide Form' : 'Send Your Message'}
+            </button>
+
+            {showForm && (
+              <div className="mt-4 rounded-[20px] border border-white/10 bg-white/[0.07] p-3">
+                <EnquiryForm className="space-y-4" isGrid={false} />
               </div>
-              <div>
-                <p className="text-white/80 text-xs font-medium">Location</p>
-                <p className="font-bold text-base">Calicut & Kochi</p>
-              </div>
-            </div>
+            )}
           </div>
         </div>
-
-        {/* Right Side: Form — desktop/tablet, unchanged */}
-        <div className="relative z-10 w-full lg:w-1/2 hidden md:flex flex-col justify-center">
-          <EnquiryForm className="space-y-4" isGrid={false} />
-        </div>
-
-        {/* Mobile-only: compact — heading and details always shown, only the form is behind a toggle */}
-        <div className="relative z-10 w-full flex flex-col space-y-4 md:hidden">
-          <h2 className="text-xl font-bold leading-tight">
-            Ready To Grow with Edumentora
-          </h2>
-
-          <div className="border-l-4 border-white/40 pl-4">
-            <p className="text-white/90 text-sm leading-relaxed">
-              Edumentora makes restarting your education easy by transferring past credits to accredited universities, saving you time and money.
-            </p>
-          </div>
-
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <div className="bg-[#002147] p-1.5 rounded-full shadow-lg shadow-black/40">
-                <Clock className="w-4 h-4 text-white" />
-              </div>
-              <span className="text-sm font-medium">Fast Application Processing</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="bg-[#002147] p-1.5 rounded-full shadow-lg shadow-black/40">
-                <CheckCircle2 className="w-4 h-4 text-white" />
-              </div>
-              <span className="text-sm font-medium">Successful Transfers</span>
-            </div>
-          </div>
-
-          <div className="space-y-4 pt-2">
-            {/* Phone */}
-            <div className="flex items-center gap-4">
-              <div className="bg-[#002147] w-10 h-10 rounded-xl flex items-center justify-center shadow-lg shadow-black/40">
-                <Phone className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <p className="text-white/80 text-xs font-medium">Call Us Anytime</p>
-                <p className="font-bold text-base">+91 974458 7777</p>
-              </div>
-            </div>
-
-            {/* Location */}
-            <div className="flex items-center gap-4">
-              <div className="bg-[#002147] w-10 h-10 rounded-xl flex items-center justify-center shadow-lg shadow-black/40">
-                <MapPin className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <p className="text-white/80 text-xs font-medium">Location</p>
-                <p className="font-bold text-base">Calicut & Kochi</p>
-              </div>
-            </div>
-          </div>
-
-          <button
-            type="button"
-            onClick={() => setShowForm((v) => !v)}
-            aria-expanded={showForm}
-            className="w-full px-4 py-3 rounded-xl text-sm font-bold bg-[#002147] text-white shadow-lg shadow-black/40"
-          >
-            {showForm ? 'Hide Form' : 'Send Your Message'}
-          </button>
-
-          {showForm && <EnquiryForm className="space-y-4" isGrid={false} />}
-        </div>
-
-        </motion.div>
-
-        {/* Rolled-up rod core - solid brand color that shifts navy to red as it rolls, thickens when closed (fully wound) and thins down to a bare rod when fully open */}
-        {!isMobile && (
-          <motion.div
-            aria-hidden
-            style={{
-              left: edgeLeft,
-              opacity: rodOpacity,
-              width: rodWidthPx,
-              marginLeft: rodMarginLeftPx,
-              backgroundColor: rodColor,
-              backgroundImage:
-                'repeating-linear-gradient(45deg, rgba(255,255,255,0.22) 0px, rgba(255,255,255,0.22) 6px, rgba(0,0,0,0.12) 6px, rgba(0,0,0,0.12) 12px)',
-              backgroundPositionX: rodSpin,
-            }}
-            className="pointer-events-none absolute top-2 bottom-2 rounded-full z-20 shadow-[0_10px_30px_rgba(0,0,0,0.55)] ring-2 ring-black/30"
-          />
-        )}
-
-        {/* Small rope tied at the bottom of the stick, shaking continuously regardless of scroll (opposite phase from the top rope) */}
-        {!isMobile && (
-          <motion.div
-            aria-hidden
-            style={{
-              left: edgeLeft,
-              opacity: rodOpacity,
-              transformOrigin: 'top center',
-              backgroundColor: '#6b4423',
-              backgroundImage:
-                'repeating-linear-gradient(45deg, rgba(255,255,255,0.25) 0px, rgba(255,255,255,0.25) 2px, rgba(0,0,0,0.15) 2px, rgba(0,0,0,0.15) 4px)',
-            }}
-            animate={{ rotate: [14, -14, 14] }}
-            transition={{ duration: 1, repeat: Infinity, ease: 'easeInOut' }}
-            className="pointer-events-none absolute -bottom-[104px] -ml-1 w-2 h-28 rounded-full z-30 shadow-[0_2px_6px_rgba(0,0,0,0.4)]"
-          />
-        )}
       </div>
     </section>
   );

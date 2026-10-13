@@ -105,7 +105,7 @@ export default async function Home() {
   const ratingJsonLd = aggregateRatingJsonLd(reviews);
 
   return (
-    <main className="min-h-screen bg-white font-[Poppins]">
+    <main className="home-section-alternation min-h-screen bg-white font-[Poppins]">
       {ratingJsonLd && (
         <script
           type="application/ld+json"
