@@ -42,6 +42,20 @@ img:hover {
   transform: scale(1.05);
 }
 
+/* Full-bleed carousel backgrounds must remain fixed while the pointer moves
+   across the hero; the global image hover treatment is only for content art. */
+img.hero-carousel-image,
+img.hero-carousel-image:hover {
+  transform: none !important;
+  scale: 1 !important;
+}
+
+img.crop-reference-image,
+img.crop-reference-image:hover {
+  transform: none !important;
+  scale: 1 !important;
+}
+
 /* Animated dot-grid background texture, usable on any section.
    Add "dot-grid" (or "dot-grid dot-grid-light" on dark sections) to a
    `relative` (or `relative overflow-hidden`) element to apply it. */

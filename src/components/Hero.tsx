@@ -115,8 +115,12 @@ const LoopingTypewriterText = ({
   );
 };
 
-export default function Hero({ notifications = [] }: { notifications?: string[] }) {
+type HeroSlide = { id: string; imageUrl: string; altText: string };
+
+export default function Hero({ notifications = [], slides = [] }: { notifications?: string[]; slides?: HeroSlide[] }) {
   const shouldReduceMotion = useReducedMotion();
+  const [activeSlide, setActiveSlide] = useState(0);
+  const visibleSlideIndex = slides.length > 0 ? activeSlide % slides.length : 0;
   // Server-provided (src/app/page.tsx fetches these the same way it fetches
   // reviews/gallery/reels) so the current notifications are present in the
   // server-rendered HTML itself, not only after client hydration.
@@ -124,6 +128,14 @@ export default function Hero({ notifications = [] }: { notifications?: string[] 
   const marqueeBarRef = useRef<HTMLDivElement>(null);
   const [marqueeGap, setMarqueeGap] = useState(24);
   const [showEligibilityModal, setShowEligibilityModal] = useState(false);
+
+  useEffect(() => {
+    if (slides.length < 2 || shouldReduceMotion) return;
+    const timer = window.setInterval(() => {
+      setActiveSlide((current) => (current + 1) % slides.length);
+    }, 5000);
+    return () => window.clearInterval(timer);
+  }, [slides.length, shouldReduceMotion]);
 
   // Lock body scroll while the mobile eligibility modal is open
   useEffect(() => {
@@ -179,26 +191,63 @@ export default function Hero({ notifications = [] }: { notifications?: string[] 
 
       {/* Main hero area */}
       <div className="relative flex-1 h-full flex flex-col pt-32 lg:pt-[100px] pb-0 overflow-hidden bg-[#eaf1fb]">
-        <div className="absolute inset-0 z-0 pointer-events-none">
-          {heroDoodles.map((doodle, index) => (
-            <img
-              key={index}
-              src="/favcon/edumentora_favcon.png"
-              alt=""
-              className="absolute select-none"
-              style={{
-                left: doodle.left,
-                top: doodle.top,
-                width: doodle.width,
-                transform: `rotate(${doodle.rotate})`,
-                opacity: doodle.opacity,
-                filter: index % 2 === 0 ? 'saturate(1.4) brightness(1.2) contrast(1.1)' : 'saturate(1.1) brightness(1.15)',
-              }}
-            />
-          ))}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          {slides.length > 0 ? (
+            <>
+              {/* Preload every slide so switching never exposes the page background. */}
+              <div className="hidden" aria-hidden="true">
+                {slides.map((slide) => <img key={slide.id} src={slide.imageUrl} alt="" />)}
+              </div>
+              <AnimatePresence initial={false} mode="sync">
+                <motion.img
+                  key={slides[visibleSlideIndex].id}
+                  src={slides[visibleSlideIndex].imageUrl}
+                  alt={slides[visibleSlideIndex].altText}
+                  initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, x: '4%' }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: '-4%' }}
+                  transition={{ duration: shouldReduceMotion ? 0 : 0.65, ease: [0.22, 1, 0.36, 1] }}
+                  className="hero-carousel-image absolute inset-0 h-full w-full object-cover"
+                />
+              </AnimatePresence>
+            </>
+          ) : (
+            <div className="absolute inset-0 pointer-events-none">
+              {heroDoodles.map((doodle, index) => (
+                <img
+                  key={index}
+                  src="/favcon/edumentora_favcon.png"
+                  alt=""
+                  className="absolute select-none"
+                  style={{
+                    left: doodle.left,
+                    top: doodle.top,
+                    width: doodle.width,
+                    transform: `rotate(${doodle.rotate})`,
+                    opacity: doodle.opacity,
+                    filter: index % 2 === 0 ? 'saturate(1.4) brightness(1.2) contrast(1.1)' : 'saturate(1.1) brightness(1.15)',
+                  }}
+                />
+              ))}
+            </div>
+          )}
         </div>
-      {/* Softer, brighter overlay so doodles remain visible but text remains readable */}
-      <div className="absolute inset-0 bg-[#edf6ff]/65 z-[1]" />
+        {slides.length === 0 && <div className="absolute inset-0 z-[1] bg-[#edf6ff]/65" />}
+
+        {slides.length > 1 && (
+          <div className="absolute bottom-20 right-6 z-20 flex items-center gap-2 rounded-full bg-white/90 px-3 py-2 shadow-lg backdrop-blur-sm md:bottom-24 md:right-10">
+            {slides.map((slide, index) => (
+              <button
+                key={slide.id}
+                type="button"
+                onClick={() => setActiveSlide(index)}
+                aria-label={`Show hero image ${index + 1}`}
+                aria-current={index === visibleSlideIndex}
+                className={`h-2.5 rounded-full transition-all ${index === visibleSlideIndex ? 'w-7 bg-[#E91D24]' : 'w-2.5 bg-[#002147]/40 hover:bg-[#002147]/70'}`}
+              />
+            ))}
+          </div>
+        )}
 
       <div className="relative max-w-6xl mx-auto w-full px-4 md:px-8 z-10 flex-1 min-h-0 flex flex-col overflow-y-auto pb-6">
         <div className="flex flex-col md:flex-row flex-1 min-h-0 gap-8 lg:gap-10 items-stretch">
