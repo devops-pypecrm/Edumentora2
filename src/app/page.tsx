@@ -35,6 +35,17 @@ export const metadata = {
 };
 
 export default async function Home() {
+  let heroSlides: { id: string; imageUrl: string; altText: string }[] = [];
+  try {
+    heroSlides = await prisma.heroSlide.findMany({
+      where: { status: 'SHOW' },
+      orderBy: [{ order: 'asc' }, { createdAt: 'asc' }],
+      select: { id: true, imageUrl: true, altText: true },
+    });
+  } catch (error) {
+    console.error('Failed to fetch hero slides:', error);
+  }
+
   let reviews: any[] = [];
   try {
     const db = prisma as any;
@@ -113,7 +124,7 @@ export default async function Home() {
         />
       )}
       <Header />
-      <Hero notifications={notifications} />
+      <Hero notifications={notifications} slides={heroSlides} />
       <StatsSection universities={statUniversities} />
       <MissionVisionSection />
       <ContactSection />

@@ -17,6 +17,18 @@ model Notification {
   @@map("notifications")
 }
 
+model HeroSlide {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  imageUrl  String
+  altText   String
+  status    String   @default("SHOW")
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("hero_slides")
+}
+
 model Reel {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   category  String

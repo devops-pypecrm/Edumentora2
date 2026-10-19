@@ -141,7 +141,7 @@ export default function Header() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: isHidden ? -120 : 0, opacity: 1 }}
         transition={{ duration: 0.4, ease: 'easeInOut' }}
-        className={`pointer-events-auto w-fit max-w-7xl h-[82px] flex items-center justify-center gap-8 px-[5%] transition-colors duration-300 rounded-full ${
+        className={`pointer-events-auto w-full max-w-[68rem] h-[82px] flex items-center justify-between gap-5 px-6 lg:px-8 transition-colors duration-300 rounded-full ${
           isScrolled
             ? 'bg-white/90 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-100'
             : 'bg-white shadow-sm border border-transparent'
@@ -158,12 +158,12 @@ export default function Header() {
           <img
             src="/favcon/edumentora_logo.webp"
             alt="Edumentora logo"
-            className="w-auto h-[40px] object-contain"
+            className="w-auto h-9 xl:h-[40px] object-contain"
           />
         </Link>
 
         {/* Desktop Navigation */}
-        <nav ref={navRef} className="hidden lg:flex items-center justify-center gap-8 whitespace-nowrap text-[15px] font-bold text-[#002147] ml-[10%]">
+        <nav ref={navRef} className="hidden lg:flex items-center justify-end gap-4 xl:gap-7 whitespace-nowrap text-sm xl:text-[15px] font-bold text-[#002147]">
           {visibleNavItems.map((link) => {
             const childLinks = dropdownMap[link.href] ?? [];
             const hasDropdown = childLinks.length > 0;
