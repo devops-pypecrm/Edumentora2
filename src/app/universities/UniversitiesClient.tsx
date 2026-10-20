@@ -42,7 +42,7 @@ export default function UniversitiesClient({ universities }: { universities: Uni
     : universities.filter(item => item.name === activeFilter);
 
   return (
-    <main className="min-h-screen bg-[#faf9f6] font-[Poppins]">
+    <main className="min-h-screen bg-white font-[Poppins]">
       <Header />
       
       <PageBanner
@@ -53,7 +53,7 @@ export default function UniversitiesClient({ universities }: { universities: Uni
       />
 
       {/* Filter & Grid Section */}
-      <div className="max-w-[1400px] mx-auto px-4 md:px-8 py-20 bg-white dot-grid">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-8 py-20 bg-white">
         
         {/* Modern Filter Chips */}
         <div className="flex flex-wrap justify-center gap-4 mb-20 animate-in fade-in slide-in-from-bottom-4 duration-700">
@@ -63,7 +63,7 @@ export default function UniversitiesClient({ universities }: { universities: Uni
               onClick={() => setActiveFilter(filter)}
               className={`px-8 py-3 rounded-full font-medium text-[15px] tracking-wide transition-all duration-300 ${
                 activeFilter === filter
-                  ? 'bg-[#D2B48C] text-white shadow-[0_8px_20px_-6px_rgba(210, 180, 140,0.5)] transform -translate-y-0.5'
+                  ? 'bg-[#E91D24] text-white shadow-[0_8px_20px_-6px_rgba(233, 29, 36,0.5)] transform -translate-y-0.5'
                   : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-[#002147] shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] border border-gray-100 hover:border-gray-200'
               }`}
             >
@@ -109,7 +109,7 @@ export default function UniversitiesClient({ universities }: { universities: Uni
                 
                 {item.location && (
                   <div className="flex items-center text-gray-500 mb-5 text-[15px]">
-                    <MapPin className="w-4 h-4 mr-1.5 text-[#D2B48C]" />
+                    <MapPin className="w-4 h-4 mr-1.5 text-[#E91D24]" />
                     {item.location}
                   </div>
                 )}
@@ -151,7 +151,7 @@ export default function UniversitiesClient({ universities }: { universities: Uni
       </div>
 
       {/* Informational Text Section */}
-      <div className="bg-white border-t border-gray-100 py-24 dot-grid">
+      <div className="bg-white border-t border-gray-100 py-24">
         <div className="max-w-[1400px] mx-auto px-4 md:px-8 space-y-8 text-[17px] text-gray-600 leading-[1.8]">
           <h2 className="text-3xl font-bold text-[#002147] mb-8 text-center">Why Choose University Credit Transfer?</h2>
           <p>

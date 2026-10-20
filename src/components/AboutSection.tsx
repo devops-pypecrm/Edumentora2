@@ -30,7 +30,7 @@ export default function AboutSection() {
   const contentRotateY = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [90, 0, 0, 90]);
 
   return (
-    <section ref={sectionRef} className="w-full bg-white overflow-hidden mb-[10px] -mt-[60px] relative z-10 dot-grid">
+    <section ref={sectionRef} className="w-full bg-white overflow-hidden mb-[10px] -mt-[60px] relative z-10">
       <motion.div
         style={{ opacity: sectionOpacity }}
         className="max-w-7xl mx-auto px-8 pt-16 pb-24 flex flex-col lg:flex-row gap-16 lg:gap-24 items-center [perspective:1500px]"
@@ -84,7 +84,7 @@ export default function AboutSection() {
             About Edumentora
           </h2>
 
-          <div className="border-l-4 border-[#D2B48C] pl-6">
+          <div className="border-l-4 border-[#E91D24] pl-6">
             <p className="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
               Edumentora makes restarting your education easy by transferring past credits to accredited universities, saving you time and money.
             </p>
@@ -95,8 +95,8 @@ export default function AboutSection() {
           </p>
 
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-[#D2B48C]/10 rounded-xl flex items-center justify-center shadow-sm">
-              <Phone className="w-6 h-6 text-[#D2B48C]" />
+            <div className="w-12 h-12 bg-[#E91D24]/10 rounded-xl flex items-center justify-center shadow-sm">
+              <Phone className="w-6 h-6 text-[#E91D24]" />
             </div>
             <div>
               <p className="text-gray-500 text-sm font-medium">Call Us Anytime</p>

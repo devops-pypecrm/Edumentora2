@@ -27,8 +27,8 @@ export default function PageBanner({
   subtitle,
   bgImage: _bgImage,
   isGradientText: _isGradientText,
-  bgClassName = 'bg-[#F7EFE1]',
-  badgeClassName = 'text-[#D2B48C]',
+  bgClassName = 'bg-white',
+  badgeClassName = 'text-[#E91D24]',
   titleClassName = 'text-[#002147]',
   subtitleClassName = 'text-gray-600',
   borderClassName = 'border-[#002147]/10',
@@ -37,23 +37,7 @@ export default function PageBanner({
 }: PageBannerProps) {
   return (
     <div className={`w-full min-h-[300px] md:min-h-[400px] relative overflow-hidden border-b ${borderClassName} ${bgClassName}`}>
-      <style>{`
-        @keyframes bannerDotDrift {
-          0% { background-position: 0 0; }
-          100% { background-position: 26px 26px; }
-        }
-        .banner-dotgrid {
-          animation: bannerDotDrift 3s linear infinite;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .banner-dotgrid { animation: none !important; }
-        }
-      `}</style>
       {/* Dot-grid background texture — matches the Home page Hero section exactly, gently animated */}
-      <div
-        className="banner-dotgrid absolute inset-0 opacity-[0.08] pointer-events-none"
-        style={{ backgroundImage: 'radial-gradient(circle at 1.5px 1.5px, #002147 2.5px, transparent 0)', backgroundSize: '26px 26px' }}
-      />
       {/* Background fills all the way to the top, behind the fixed header; this padding clears the header for the content itself */}
       <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10 w-full pt-32 pb-12 md:pt-40 md:pb-20">
         {children ? (

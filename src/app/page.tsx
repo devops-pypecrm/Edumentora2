@@ -36,12 +36,18 @@ export const metadata = {
 
 export default async function Home() {
   let heroSlides: { id: string; imageUrl: string; altText: string }[] = [];
+  let showHeroContent = true;
   try {
-    heroSlides = await prisma.heroSlide.findMany({
-      where: { status: 'SHOW' },
-      orderBy: [{ order: 'asc' }, { createdAt: 'asc' }],
-      select: { id: true, imageUrl: true, altText: true },
-    });
+    const [slides, heroConfig] = await Promise.all([
+      prisma.heroSlide.findMany({
+        where: { status: 'SHOW' },
+        orderBy: [{ order: 'asc' }, { createdAt: 'asc' }],
+        select: { id: true, imageUrl: true, altText: true },
+      }),
+      prisma.heroConfig.findUnique({ where: { id: 'homepage-hero' } }),
+    ]);
+    heroSlides = slides;
+    showHeroContent = heroConfig?.showContent ?? true;
   } catch (error) {
     console.error('Failed to fetch hero slides:', error);
   }
@@ -124,8 +130,8 @@ export default async function Home() {
         />
       )}
       <Header />
-      <Hero notifications={notifications} slides={heroSlides} />
-      <StatsSection universities={statUniversities} />
+      <Hero notifications={notifications} slides={heroSlides} showContent={showHeroContent} />
+      <TestimonialSection reviews={reviews} galleryImages={galleryImages} promoVideos={promoVideos} successVideos={successVideos} />
       <MissionVisionSection />
       <ContactSection />
       <AboutInstituteSection />
@@ -134,7 +140,7 @@ export default async function Home() {
       <ProgramsSection />
       <WhyChooseUsSection />
       <SeoContentSection />
-      <TestimonialSection reviews={reviews} galleryImages={galleryImages} promoVideos={promoVideos} successVideos={successVideos} />
+      <StatsSection universities={statUniversities} />
       <Footer />
       <FloatingWhatsApp />
     </main>

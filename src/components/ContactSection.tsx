@@ -8,20 +8,11 @@ export default function ContactSection() {
   const [showForm, setShowForm] = useState(false);
 
   return (
-    <section className="w-full px-4 py-8 md:px-8 bg-white dot-grid">
+    <section className="w-full px-4 py-8 md:px-8 bg-white">
       <div className="relative w-full max-w-5xl mx-auto overflow-hidden rounded-[32px] border border-white/15 bg-gradient-to-br from-[#EF1B24] via-[#D8151D] to-[#A90E14] p-6 text-white shadow-[0_24px_65px_rgba(105,8,13,0.28)] md:p-10">
         <div aria-hidden className="pointer-events-none absolute -right-24 -top-32 size-80 rounded-full border-[52px] border-white/[0.06]" />
         <div aria-hidden className="pointer-events-none absolute -bottom-28 -left-20 size-64 rounded-full bg-[#002147]/20" />
         <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-white/70 via-white/10 to-transparent" />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.12]"
-          style={{
-            backgroundImage: 'radial-gradient(rgba(255,255,255,0.65) 1px, transparent 1px)',
-            backgroundSize: '18px 18px',
-          }}
-        />
-
         <div className="relative z-10 flex flex-col gap-8 lg:flex-row lg:gap-12">
           <div className="flex w-full flex-col space-y-6 rounded-[24px] border border-white/15 bg-[#7E0B11]/30 p-5 md:p-6 lg:w-[42%]">
             <div>

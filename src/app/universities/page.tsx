@@ -23,7 +23,7 @@ export default async function UniversitiesPage() {
   });
 
   return (
-    <React.Suspense fallback={<div className="min-h-screen bg-gray-50 pt-24 flex items-center justify-center text-gray-500 font-medium">Loading universities...</div>}>
+    <React.Suspense fallback={<div className="min-h-screen bg-white pt-24 flex items-center justify-center text-gray-500 font-medium">Loading universities...</div>}>
       <UniversitiesClient universities={universities} />
     </React.Suspense>
   );

@@ -29,7 +29,7 @@ export default async function BlogPage() {
   });
 
   return (
-    <main className="min-h-screen bg-[#F9F9F9] font-[Poppins]">
+    <main className="min-h-screen bg-white font-[Poppins]">
       <Header />
       
       <PageBanner 
@@ -49,7 +49,7 @@ export default async function BlogPage() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogs.map((blog) => (
-              <div key={blog.id} className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-[#DDC7A0] flex flex-col group">
+              <div key={blog.id} className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 flex flex-col group">
                 <div className="relative h-64 overflow-hidden bg-gray-100">
                   {blog.mainImage ? (
                     <Image
@@ -66,7 +66,7 @@ export default async function BlogPage() {
                     </div>
                   )}
                   <div className="absolute top-4 left-4">
-                    <span className="px-4 py-1.5 bg-[#D2B48C] text-white text-sm font-semibold rounded-full shadow-lg">
+                    <span className="px-4 py-1.5 bg-[#E91D24] text-white text-sm font-semibold rounded-full shadow-lg">
                       {blog.category}
                     </span>
                   </div>
@@ -74,7 +74,7 @@ export default async function BlogPage() {
                 
                 <div className="p-8 flex-1 flex flex-col">
                   <div className="flex items-center gap-2 text-gray-500 text-sm font-medium mb-4">
-                    <Calendar className="w-4 h-4 text-[#D2B48C]" />
+                    <Calendar className="w-4 h-4 text-[#E91D24]" />
                     {new Date(blog.date).toLocaleDateString('en-US', {
                       year: 'numeric',
                       month: 'long',
@@ -89,7 +89,7 @@ export default async function BlogPage() {
                   <div className="mt-auto pt-6">
                     <Link 
                       href={`/blog/${blog.id}`}
-                      className="inline-flex items-center gap-2 text-[#D2B48C] font-bold hover:text-[#002147] transition-colors group/link"
+                      className="inline-flex items-center gap-2 text-[#E91D24] font-bold hover:text-[#002147] transition-colors group/link"
                     >
                       Read Full Article 
                       <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />

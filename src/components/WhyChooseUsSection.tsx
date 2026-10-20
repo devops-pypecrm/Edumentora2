@@ -16,43 +16,43 @@ export default function WhyChooseUsSection() {
     {
       title: "Expert guidance",
       desc: "Our dedicated team offers tailored guidance, ensuring a seamless and successful academic credit transfer experience for each student.",
-      icon: <ClipboardCheck className="w-6 h-6 text-[#002147] group-hover:text-[#D2B48C] transition-colors duration-300" />,
-      glowColor: "bg-[#002147]/5 group-hover:bg-[#D2B48C]/10"
+      icon: <ClipboardCheck className="w-6 h-6 text-[#002147] group-hover:text-[#E91D24] transition-colors duration-300" />,
+      glowColor: "bg-[#002147]/5 group-hover:bg-[#E91D24]/10"
     },
     {
       title: "Flexible learning paths",
       desc: "We offer tailored programs that allow you to balance education with personal and professional commitments effectively.",
-      icon: <Lightbulb className="w-6 h-6 text-[#002147] group-hover:text-[#D2B48C] transition-colors duration-300" />,
-      glowColor: "bg-[#002147]/5 group-hover:bg-[#D2B48C]/10"
+      icon: <Lightbulb className="w-6 h-6 text-[#002147] group-hover:text-[#E91D24] transition-colors duration-300" />,
+      glowColor: "bg-[#002147]/5 group-hover:bg-[#E91D24]/10"
     },
     {
       title: "Personalized support",
       desc: "Our experienced team offers personalized support, guaranteeing a seamless and hassle-free academic credit transfer experience.",
-      icon: <HeartHandshake className="w-6 h-6 text-[#002147] group-hover:text-[#D2B48C] transition-colors duration-300" />,
-      glowColor: "bg-[#002147]/5 group-hover:bg-[#D2B48C]/10"
+      icon: <HeartHandshake className="w-6 h-6 text-[#002147] group-hover:text-[#E91D24] transition-colors duration-300" />,
+      glowColor: "bg-[#002147]/5 group-hover:bg-[#E91D24]/10"
     },
     {
       title: "Effortless credit transfer",
       desc: "Seamlessly transfer your earned credits to resume your education without losing progress or starting from scratch.",
-      icon: <MousePointerClick className="w-6 h-6 text-[#002147] group-hover:text-[#D2B48C] transition-colors duration-300" />,
-      glowColor: "bg-[#002147]/5 group-hover:bg-[#D2B48C]/10"
+      icon: <MousePointerClick className="w-6 h-6 text-[#002147] group-hover:text-[#E91D24] transition-colors duration-300" />,
+      glowColor: "bg-[#002147]/5 group-hover:bg-[#E91D24]/10"
     },
     {
       title: "Trusted university",
       desc: "Collaborations with Glocal University, Radha Govind University, and Arni University ensure globally recognized and accredited degrees.",
-      icon: <ShieldCheck className="w-6 h-6 text-[#002147] group-hover:text-[#D2B48C] transition-colors duration-300" />,
-      glowColor: "bg-[#002147]/5 group-hover:bg-[#D2B48C]/10"
+      icon: <ShieldCheck className="w-6 h-6 text-[#002147] group-hover:text-[#E91D24] transition-colors duration-300" />,
+      glowColor: "bg-[#002147]/5 group-hover:bg-[#E91D24]/10"
     },
     {
       title: "Save time and money",
       desc: "Resume your education from where you paused, saving valuable time and reducing overall financial expenses efficiently.",
-      icon: <Clock className="w-6 h-6 text-[#002147] group-hover:text-[#D2B48C] transition-colors duration-300" />,
-      glowColor: "bg-[#002147]/5 group-hover:bg-[#D2B48C]/10"
+      icon: <Clock className="w-6 h-6 text-[#002147] group-hover:text-[#E91D24] transition-colors duration-300" />,
+      glowColor: "bg-[#002147]/5 group-hover:bg-[#E91D24]/10"
     }
   ];
 
   return (
-    <section className="relative w-full py-16 overflow-hidden bg-[rgb(240,240,228)]">
+    <section className="relative w-full py-16 overflow-hidden bg-white">
       {/* Subtle Grid Pattern overlay */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDQwIEwgNDAgNDAgTCA0MCAwIiBmaWxsPSJub25lIiBzdHJva2U9InJnYmEoMjMsNDIsODMsMC4wMykiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-60 pointer-events-none" />
 
@@ -63,7 +63,7 @@ export default function WhyChooseUsSection() {
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#D2B48C]/10 border border-[#D2B48C]/25 text-[#D2B48C] font-semibold text-[10px] tracking-widest uppercase mb-4 shadow-sm"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#E91D24]/10 border border-[#E91D24]/25 text-[#E91D24] font-semibold text-[10px] tracking-widest uppercase mb-4 shadow-sm"
           >
             <ShieldCheck className="w-3 h-3" />
             Our Advantage
@@ -77,7 +77,7 @@ export default function WhyChooseUsSection() {
             className="text-3xl md:text-4xl lg:text-4xl font-extrabold text-[#002147] leading-tight"
           >
             Why We are the <br className="hidden md:block" />
-            <span className="text-[#D2B48C]">Right Choice</span>
+            <span className="text-[#E91D24]">Right Choice</span>
           </motion.h2>
         </div>
 
@@ -91,7 +91,7 @@ export default function WhyChooseUsSection() {
               transition={{ duration: 0.4, delay: index * 0.05 }}
               className="group relative h-full"
             >
-              <div className="relative h-full bg-white border-2 border-gray-100 rounded-[1.5rem] p-5 lg:p-6 transition-all duration-500 group-hover:-translate-y-2 group-hover:border-[#D2B48C] group-hover:shadow-[0_20px_40px_-15px_rgba(210, 180, 140,0.25)] overflow-hidden flex flex-col z-10">
+              <div className="relative h-full bg-white border-2 border-gray-100 rounded-[1.5rem] p-5 lg:p-6 transition-all duration-500 group-hover:-translate-y-2 group-hover:border-[#E91D24] group-hover:shadow-[0_20px_40px_-15px_rgba(233, 29, 36,0.25)] overflow-hidden flex flex-col z-10">
                 
                 {/* Decorative corner gradient */}
                 <div className={`absolute -top-16 -right-16 w-32 h-32 bg-gray-50 rounded-full group-hover:bg-red-50 transition-colors duration-500 ease-out`} />
@@ -101,7 +101,7 @@ export default function WhyChooseUsSection() {
                     {reason.icon}
                   </div>
                   
-                  <h3 className="text-lg font-bold text-[#002147] mb-2 group-hover:text-[#D2B48C] transition-colors duration-300">
+                  <h3 className="text-lg font-bold text-[#002147] mb-2 group-hover:text-[#E91D24] transition-colors duration-300">
                     {reason.title}
                   </h3>
                   

@@ -155,7 +155,7 @@ export default function ContactManager({ initialContacts }: { initialContacts: C
 
             {contact.description && (
               <p className="text-sm text-gray-500 mb-4 flex items-start gap-2">
-                <FileText className="w-4 h-4 text-[#D2B48C] flex-shrink-0 mt-0.5" />
+                <FileText className="w-4 h-4 text-[#E91D24] flex-shrink-0 mt-0.5" />
                 <span>{contact.description}</span>
               </p>
             )}

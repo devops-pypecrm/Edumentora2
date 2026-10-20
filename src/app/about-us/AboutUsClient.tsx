@@ -14,7 +14,7 @@ export default function AboutUsClient({ faqs }: { faqs: Faq[] }) {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <main className="min-h-screen bg-[#F9F9F9] font-[Poppins]">
+    <main className="min-h-screen bg-white font-[Poppins]">
       <Header />
 
       {/* Hero Section */}
@@ -28,7 +28,7 @@ export default function AboutUsClient({ faqs }: { faqs: Faq[] }) {
       <AboutSection />
 
       {/* Overview Section */}
-      <div className="bg-[linear-gradient(135deg,_#F7EFE1_0%,_#F0E3CC_50%,_#EAD9BA_100%)] py-24 border-y border-[#DDC7A0] dot-grid">
+      <div className="bg-white py-24 border-y border-gray-200">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <p className="text-lg md:text-xl text-[#002147]/90 leading-relaxed text-justify md:text-center font-medium">
             Edumentora is an innovative education service provider that specializes in academic credit transfer solutions, helping students across India restart and complete their discontinued degree programs. Whether due to financial hardship, personal setbacks, academic difficulties, or institutional issues, many students pause their education, but with Edumentora, they don’t have to start over. We make it possible to transfer previously earned college or university credits to UGC-recognized institutions, allowing students to pick up where they left off. Our goal is to ensure that prior academic efforts are not wasted and that every learner gets a second chance to earn a respected qualification. At Edumentora, we’re committed to turning past progress into future success through reliable, student-focused credit transfer services.
@@ -37,7 +37,7 @@ export default function AboutUsClient({ faqs }: { faqs: Faq[] }) {
       </div>
 
       {/* FAQ Section */}
-      <div className="bg-[#F9F9F9] py-24 border-t border-[#DDC7A0] dot-grid">
+      <div className="bg-white py-24 border-t border-gray-200">
         <div className="max-w-4xl mx-auto px-4 md:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-[#002147] text-center mb-12">
             Frequently Asked Questions
@@ -54,7 +54,7 @@ export default function AboutUsClient({ faqs }: { faqs: Faq[] }) {
                   <h3 className={`font-bold text-lg transition-colors pr-4 ${openFaq === index ? 'text-white' : 'text-[#002147] group-hover:text-white'}`}>
                     {faq.q}
                   </h3>
-                  <span className={`transform transition-all duration-300 flex-shrink-0 ${openFaq === index ? 'text-white rotate-180' : 'text-[#D2B48C] group-hover:text-white'}`}>
+                  <span className={`transform transition-all duration-300 flex-shrink-0 ${openFaq === index ? 'text-white rotate-180' : 'text-[#E91D24] group-hover:text-white'}`}>
                     ▼
                   </span>
                 </div>
@@ -73,7 +73,7 @@ export default function AboutUsClient({ faqs }: { faqs: Faq[] }) {
       </div>
 
       {/* Best Credit Transfer Institute Section */}
-      <div className="bg-[#F9F9F9] py-24 border-t border-[#DDC7A0] dot-grid">
+      <div className="bg-white py-24 border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-4 md:px-8 space-y-6 text-lg text-gray-700 leading-relaxed text-justify">
           <h2 className="text-3xl md:text-4xl font-bold text-[#002147] text-center mb-10">
             The Credit Transfer Institute

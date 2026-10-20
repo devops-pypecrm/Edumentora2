@@ -98,16 +98,8 @@ const LoopingTypewriterText = ({
           0% { transform: translateY(0); }
           100% { transform: translateY(-50%); }
         }
-        @keyframes heroDotDrift {
-          0% { background-position: 0 0; }
-          100% { background-position: var(--dot-size) var(--dot-size); }
-        }
-        .hero-dotgrid {
-          animation: heroDotDrift 3s linear infinite;
-        }
         @media (prefers-reduced-motion: reduce) {
           .hero-doodle { animation: none !important; }
-          .hero-dotgrid { animation: none !important; }
         }
       `}</style>
       <span className="inline-block w-[5px] h-[0.9em] bg-[#E91D24] ml-1 align-middle" style={{ marginTop: '-4px', animation: 'typeBlink 1s infinite' }}></span>
@@ -117,7 +109,7 @@ const LoopingTypewriterText = ({
 
 type HeroSlide = { id: string; imageUrl: string; altText: string };
 
-export default function Hero({ notifications = [], slides = [] }: { notifications?: string[]; slides?: HeroSlide[] }) {
+export default function Hero({ notifications = [], slides = [], showContent = true }: { notifications?: string[]; slides?: HeroSlide[]; showContent?: boolean }) {
   const shouldReduceMotion = useReducedMotion();
   const [activeSlide, setActiveSlide] = useState(0);
   const visibleSlideIndex = slides.length > 0 ? activeSlide % slides.length : 0;
@@ -252,6 +244,7 @@ export default function Hero({ notifications = [], slides = [] }: { notification
       <div className="relative max-w-6xl mx-auto w-full px-4 md:px-8 z-10 flex-1 min-h-0 flex flex-col overflow-y-auto pb-6">
         <div className="flex flex-col md:flex-row flex-1 min-h-0 gap-8 lg:gap-10 items-stretch">
 
+          {showContent && <>
           {/* Mobile-only: trust badge pinned at the very top-left, above the (independently shifted) content block */}
           <motion.div
             {...riseIn(0.05)}
@@ -343,6 +336,8 @@ export default function Hero({ notifications = [], slides = [] }: { notification
           </div>
 
           {/* 3: Check Your Eligibility Now form, with accent glow + doodles — hidden on mobile, replaced by a tap-to-open widget below */}
+          </>}
+
           <motion.div
             initial={{ opacity: 0, scale: shouldReduceMotion ? 1 : 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -387,7 +382,7 @@ export default function Hero({ notifications = [], slides = [] }: { notification
             aria-label="View all notifications"
             className="absolute inset-y-0 left-0 z-20 flex items-center pl-4 pr-8 bg-gradient-to-r from-[#002147] via-[#002147] to-transparent hover:opacity-80 transition-opacity"
           >
-            <Bell className="h-full w-auto max-h-9 text-[#D2B48C]" />
+            <Bell className="h-full w-auto max-h-9 text-[#E91D24]" />
           </Link>
         )}
         {displayMarqueeItems.length > 0 && (

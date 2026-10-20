@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 export default function AboutInstituteSection() {
   return (
-    <section className="w-full bg-[#ece3cd] py-16 mt-[30px]">
+    <section className="w-full bg-white py-16 mt-[30px]">
       <div className="max-w-7xl mx-auto px-4 md:px-8 text-[#2b2418]">
 
         {/* Masthead-style headline with double rule, like a newspaper front page */}

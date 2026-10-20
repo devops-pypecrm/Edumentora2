@@ -72,7 +72,7 @@ export default function TestimonialSection({ reviews = [], galleryImages = [], p
   }
 
   return (
-    <section className="w-full bg-gray-50 py-10 md:py-12 overflow-hidden dot-grid">
+    <section className="w-full bg-white py-10 md:py-12 overflow-hidden">
       <style>{`
         @keyframes scrollDown {
           0% { transform: translateY(-50%); }
@@ -139,7 +139,7 @@ export default function TestimonialSection({ reviews = [], galleryImages = [], p
                 <div className="flex flex-col items-start w-full">
                   <ScrollReveal delay={0.1}>
                     <div className="inline-flex items-center justify-center space-x-2 bg-white px-4 py-2 rounded-full mb-4 border border-gray-100 shadow-sm">
-                      <span className="w-2 h-2 rounded-full bg-[#D2B48C] animate-pulse"></span>
+                      <span className="w-2 h-2 rounded-full bg-[#E91D24] animate-pulse"></span>
                       <span className="text-[#002147] font-semibold text-sm tracking-wider uppercase">Campus Life</span>
                     </div>
                   </ScrollReveal>
@@ -151,7 +151,7 @@ export default function TestimonialSection({ reviews = [], galleryImages = [], p
                   </ScrollReveal>
 
                   <ScrollReveal delay={0.3}>
-                    <div className="w-24 h-1.5 bg-[#D2B48C] rounded-full mb-6"></div>
+                    <div className="w-24 h-1.5 bg-[#E91D24] rounded-full mb-6"></div>
                   </ScrollReveal>
 
                   <ScrollReveal delay={0.4}>

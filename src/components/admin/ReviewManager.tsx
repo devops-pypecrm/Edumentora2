@@ -172,7 +172,7 @@ export default function ReviewManager({ initialReviews }: { initialReviews: any[
       <div className={`bg-white p-6 rounded-2xl shadow-sm border transition-colors ${editingId ? 'border-yellow-400/50' : 'border-gray-100'}`}>
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-semibold text-[#002147] flex items-center gap-2">
-            <MessageSquare className="w-5 h-5 text-[#D2B48C]" />
+            <MessageSquare className="w-5 h-5 text-[#E91D24]" />
             {editingId ? 'Edit Review' : 'Add New Review'}
           </h2>
           

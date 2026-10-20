@@ -8,17 +8,20 @@ if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
 export const dynamic = 'force-dynamic';
 
 export default async function HeroCarouselAdminPage() {
-  const slides = await prisma.heroSlide.findMany({
-    orderBy: [{ order: 'asc' }, { createdAt: 'asc' }],
-    select: { id: true, imageUrl: true, altText: true, status: true, order: true },
-  });
+  const [slides, heroConfig] = await Promise.all([
+    prisma.heroSlide.findMany({
+      orderBy: [{ order: 'asc' }, { createdAt: 'asc' }],
+      select: { id: true, imageUrl: true, altText: true, status: true, order: true },
+    }),
+    prisma.heroConfig.findUnique({ where: { id: 'homepage-hero' } }),
+  ]);
 
   return (
     <div className="p-8 font-[Poppins] space-y-6">
       <div>
         <h1 className="text-3xl font-bold text-[#002147] mb-2">Hero Carousel</h1>
       </div>
-      <HeroCarouselManager initialSlides={slides} />
+      <HeroCarouselManager initialSlides={slides} showHeroContent={heroConfig?.showContent ?? true} />
     </div>
   );
 }

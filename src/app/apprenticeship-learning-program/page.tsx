@@ -16,7 +16,7 @@ export default function ApprenticeshipLearningProgram() {
   return (
     <main className="min-h-screen bg-white font-[Poppins]">
       <Header />
-      
+
       <PageBanner>
         <div className="grid md:grid-cols-2 gap-12 items-center pt-8">
           {/* Left: Text */}
@@ -31,12 +31,12 @@ export default function ApprenticeshipLearningProgram() {
               Know More
             </button>
           </div>
-          
+
           {/* Right: Image */}
           <div className="relative h-[300px] md:h-[400px] w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20">
-            <img 
-              src="/apprenticeship-hero.png" 
-              alt="Apprenticeship program at Edumentora" 
+            <img
+              src="/apprenticeship-hero.png"
+              alt="Apprenticeship program at Edumentora"
               className="object-cover w-full h-full transform hover:scale-105 transition-transform duration-700 ease-in-out"
             />
           </div>
@@ -44,12 +44,12 @@ export default function ApprenticeshipLearningProgram() {
       </PageBanner>
 
       {/* EALP Overview Section */}
-      <div className="bg-gray-50 dot-grid">
+      <div className="bg-white">
         <div className="max-w-4xl mx-auto px-4 md:px-8 py-20 text-center space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold text-[#002147]">
             Employee Apprenticeship-Learning Program (EALP)
           </h2>
-          <h3 className="text-xl md:text-2xl font-semibold text-[#D2B48C] leading-relaxed">
+          <h3 className="text-xl md:text-2xl font-semibold text-[#E91D24] leading-relaxed">
             Earn a Recognized Degree Faster by Converting Your Work Experience into Academic Credits
           </h3>
           <p className="text-lg text-gray-700 leading-relaxed text-justify md:text-center mt-6">
@@ -65,21 +65,21 @@ export default function ApprenticeshipLearningProgram() {
         </h2>
         <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-            <div className="w-14 h-14 bg-[#D2B48C]/10 text-[#D2B48C] rounded-2xl flex items-center justify-center font-black text-2xl mb-6 shadow-sm border border-[#D2B48C]/25">1</div>
+            <div className="w-14 h-14 bg-[#E91D24]/10 text-[#E91D24] rounded-2xl flex items-center justify-center font-black text-2xl mb-6 shadow-sm border border-[#E91D24]/25">1</div>
             <h3 className="text-xl font-bold text-[#002147] mb-4">Work Experience as Academic Credits</h3>
             <p className="text-gray-600 leading-relaxed">
               If you have 2+ years of work experience, it will be evaluated and counted as part of your degree. You don’t need to study subjects where you already have practical knowledge.
             </p>
           </div>
           <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-            <div className="w-14 h-14 bg-[#D2B48C]/10 text-[#D2B48C] rounded-2xl flex items-center justify-center font-black text-2xl mb-6 shadow-sm border border-[#D2B48C]/25">2</div>
+            <div className="w-14 h-14 bg-[#E91D24]/10 text-[#E91D24] rounded-2xl flex items-center justify-center font-black text-2xl mb-6 shadow-sm border border-[#E91D24]/25">2</div>
             <h3 className="text-xl font-bold text-[#002147] mb-4">Reduced Study Duration</h3>
             <p className="text-gray-600 leading-relaxed">
               Instead of the traditional 3–4-year degree, your work experience helps you complete the course faster. The exact duration depends on your experience and the course requirements.
             </p>
           </div>
           <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-            <div className="w-14 h-14 bg-[#D2B48C]/10 text-[#D2B48C] rounded-2xl flex items-center justify-center font-black text-2xl mb-6 shadow-sm border border-[#D2B48C]/25">3</div>
+            <div className="w-14 h-14 bg-[#E91D24]/10 text-[#E91D24] rounded-2xl flex items-center justify-center font-black text-2xl mb-6 shadow-sm border border-[#E91D24]/25">3</div>
             <h3 className="text-xl font-bold text-[#002147] mb-4">Flexible Learning Options</h3>
             <p className="text-gray-600 leading-relaxed">
               Study through online classes, weekend sessions, or a hybrid model while continuing your job. Course content is industry-relevant, ensuring practical learning.
@@ -89,28 +89,28 @@ export default function ApprenticeshipLearningProgram() {
       </div>
 
       {/* Programs and Eligibility Section */}
-      <div className="bg-[#F7EFE1] text-[#002147] py-20 dot-grid">
+      <div className="bg-white text-[#002147] py-20">
         <div className="max-w-7xl mx-auto px-4 md:px-8 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="space-y-16">
             {/* Available Programs */}
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-8">Available Degree Programs</h2>
-              <h3 className="text-xl font-semibold text-[#D2B48C] mb-6 border-b border-[#002147]/15 pb-4">Undergraduate Programs</h3>
+              <h3 className="text-xl font-semibold text-[#E91D24] mb-6 border-b border-[#002147]/15 pb-4">Undergraduate Programs</h3>
               <ul className="space-y-4 text-lg text-gray-600 mb-10">
-                <li className="flex items-start"><span className="text-[#D2B48C] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">BBA</strong> (Bachelor of Business Administration) – Ideal for business professionals</span></li>
-                <li className="flex items-start"><span className="text-[#D2B48C] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">B.Com</strong> (Bachelor of Commerce) – Perfect for accountants and finance experts</span></li>
-                <li className="flex items-start"><span className="text-[#D2B48C] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">BCA</strong> (Bachelor of Computer Applications) – Best for IT professionals</span></li>
-                <li className="flex items-start"><span className="text-[#D2B48C] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">B.Sc IT</strong> (Bachelor of Science in Information Technology) – For software and tech experts</span></li>
-                <li className="flex items-start"><span className="text-[#D2B48C] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">B.Tech</strong> (Bachelor of Technology) – Suitable for engineering professionals in various fields</span></li>
-                <li className="flex items-start"><span className="text-[#D2B48C] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">BA</strong> (Bachelor of Arts) – Various specializations in humanities and social sciences</span></li>
+                <li className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">BBA</strong> (Bachelor of Business Administration) – Ideal for business professionals</span></li>
+                <li className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">B.Com</strong> (Bachelor of Commerce) – Perfect for accountants and finance experts</span></li>
+                <li className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">BCA</strong> (Bachelor of Computer Applications) – Best for IT professionals</span></li>
+                <li className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">B.Sc IT</strong> (Bachelor of Science in Information Technology) – For software and tech experts</span></li>
+                <li className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">B.Tech</strong> (Bachelor of Technology) – Suitable for engineering professionals in various fields</span></li>
+                <li className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">BA</strong> (Bachelor of Arts) – Various specializations in humanities and social sciences</span></li>
               </ul>
 
-              <h3 className="text-xl font-semibold text-[#D2B48C] mb-6 border-b border-[#002147]/15 pb-4">Postgraduate Programs</h3>
+              <h3 className="text-xl font-semibold text-[#E91D24] mb-6 border-b border-[#002147]/15 pb-4">Postgraduate Programs</h3>
               <ul className="space-y-4 text-lg text-gray-600">
-                <li className="flex items-start"><span className="text-[#D2B48C] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">MBA</strong> (Master of Business Administration) – For career growth in management</span></li>
-                <li className="flex items-start"><span className="text-[#D2B48C] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">M.Com</strong> (Master of Commerce) – Advanced knowledge for commerce and finance professionals</span></li>
-                <li className="flex items-start"><span className="text-[#D2B48C] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">MCA</strong> (Master of Computer Applications) – Higher studies in IT and computer applications</span></li>
-                <li className="flex items-start"><span className="text-[#D2B48C] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">M.Tech</strong> (Master of Technology) – For engineers looking for specialization and advanced knowledge</span></li>
+                <li className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">MBA</strong> (Master of Business Administration) – For career growth in management</span></li>
+                <li className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">M.Com</strong> (Master of Commerce) – Advanced knowledge for commerce and finance professionals</span></li>
+                <li className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">MCA</strong> (Master of Computer Applications) – Higher studies in IT and computer applications</span></li>
+                <li className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">M.Tech</strong> (Master of Technology) – For engineers looking for specialization and advanced knowledge</span></li>
               </ul>
             </div>
 
@@ -118,19 +118,19 @@ export default function ApprenticeshipLearningProgram() {
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-8">Who Can Apply?</h2>
               <ul className="space-y-4 text-lg text-gray-600">
-                <li className="flex items-start"><span className="text-[#D2B48C] mr-3 font-bold text-xl">➤</span> <span>Working professionals who discontinued their studies and want to complete their degree.</span></li>
-                <li className="flex items-start"><span className="text-[#D2B48C] mr-3 font-bold text-xl">➤</span> <span>Employees with 2+ years of industry experience who want an academic qualification.</span></li>
-                <li className="flex items-start"><span className="text-[#D2B48C] mr-3 font-bold text-xl">➤</span> <span>People seeking career growth and better job opportunities.</span></li>
-                <li className="flex items-start"><span className="text-[#D2B48C] mr-3 font-bold text-xl">➤</span> <span>Corporate professionals who want to upskill and move up the career ladder.</span></li>
+                <li className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span>Working professionals who discontinued their studies and want to complete their degree.</span></li>
+                <li className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span>Employees with 2+ years of industry experience who want an academic qualification.</span></li>
+                <li className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span>People seeking career growth and better job opportunities.</span></li>
+                <li className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span>Corporate professionals who want to upskill and move up the career ladder.</span></li>
               </ul>
             </div>
           </div>
 
           {/* Image */}
           <div className="relative h-[600px] w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-[#002147]/15">
-            <img 
-              src="/apprenticeship-professionals.png" 
-              alt="Working professionals studying" 
+            <img
+              src="/apprenticeship-professionals.png"
+              alt="Working professionals studying"
               className="object-cover w-full h-full transform hover:scale-105 transition-transform duration-700 ease-in-out"
             />
           </div>
@@ -138,7 +138,7 @@ export default function ApprenticeshipLearningProgram() {
       </div>
 
       {/* Why Choose EALP Section */}
-      <div className="bg-white py-20 dot-grid">
+      <div className="bg-white py-20">
         <div className="max-w-4xl mx-auto px-4 md:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-[#002147] text-center mb-10">
             Why Choose EALP?
@@ -146,23 +146,23 @@ export default function ApprenticeshipLearningProgram() {
           <div className="bg-gray-50 border border-gray-100 rounded-3xl p-8 md:p-12 shadow-sm">
             <ul className="space-y-5 text-lg text-gray-700 mb-10">
               <li className="flex items-start">
-                <span className="text-[#D2B48C] mr-3 font-bold text-xl">➤</span> 
+                <span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span>
                 <span><strong>Complete Your Degree Faster</strong> – Work experience reduces study time.</span>
               </li>
               <li className="flex items-start">
-                <span className="text-[#D2B48C] mr-3 font-bold text-xl">➤</span> 
+                <span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span>
                 <span><strong>Work & Study Together</strong> – No need to quit your job.</span>
               </li>
               <li className="flex items-start">
-                <span className="text-[#D2B48C] mr-3 font-bold text-xl">➤</span> 
+                <span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span>
                 <span><strong>Flexible Learning</strong> – Online, weekend, or hybrid classes available.</span>
               </li>
               <li className="flex items-start">
-                <span className="text-[#D2B48C] mr-3 font-bold text-xl">➤</span> 
+                <span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span>
                 <span><strong>Recognized Degree</strong> – Accepted for jobs, promotions, and further studies.</span>
               </li>
               <li className="flex items-start">
-                <span className="text-[#D2B48C] mr-3 font-bold text-xl">➤</span> 
+                <span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span>
                 <span><strong>Industry-Relevant Curriculum</strong> – Courses designed to match your field of work.</span>
               </li>
             </ul>
@@ -174,7 +174,7 @@ export default function ApprenticeshipLearningProgram() {
       </div>
 
       {/* Contact Form Section */}
-      <div className="bg-gray-50 dot-grid">
+      <div className="bg-white">
         <div className="max-w-3xl mx-auto px-4 md:px-8 py-24">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold text-[#002147]">
@@ -184,7 +184,7 @@ export default function ApprenticeshipLearningProgram() {
               Fill out the form below and our experts will get back to you shortly.
             </p>
           </div>
-          
+
           <div className="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100">
             <EnquiryForm className="space-y-6" isGrid={false} />
           </div>

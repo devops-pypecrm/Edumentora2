@@ -192,7 +192,7 @@ export default function Header() {
               >
                 <button
                   onClick={(e) => { e.preventDefault(); setOpenDropdown(openDropdown === link.name ? null : link.name); }}
-                  className={`relative flex items-center gap-1 cursor-pointer py-2 group ${openDropdown === link.name ? 'text-[#D2B48C]' : 'hover:text-[#D2B48C] transition-colors duration-200'}`}
+                  className={`relative flex items-center gap-1 cursor-pointer py-2 group ${openDropdown === link.name ? 'text-[#E91D24]' : 'hover:text-[#E91D24] transition-colors duration-200'}`}
                 >
                   {link.name} <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${openDropdown === link.name ? 'rotate-180' : 'group-hover:rotate-180'}`} />
                 </button>
@@ -207,7 +207,7 @@ export default function Header() {
                       onClick={() => setOpenDropdown(null)}
                     >
                       {childLinks.map((child) => (
-                        <Link key={child.name} href={child.href} className="block px-5 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#D2B48C] transition-colors">{child.name}</Link>
+                        <Link key={child.name} href={child.href} className="block px-5 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#E91D24] transition-colors">{child.name}</Link>
                       ))}
                     </motion.div>
                   )}
@@ -220,7 +220,7 @@ export default function Header() {
             href="/students-login"
             className="ml-4 rounded-xl bg-[#E91D24] px-5 py-3 text-sm font-bold text-white shadow-md transition-colors hover:bg-[#B8151B]"
           >
-            Students Login
+            Login
           </Link>
 
           {visibleNavItems.length === 0 && fallbackNavLinks.map((link) => (
@@ -235,7 +235,7 @@ export default function Header() {
 
         {/* Mobile Hamburger Button */}
         <button
-          className="lg:hidden flex items-center justify-center p-2 text-gray-700 hover:text-[#D2B48C] transition-colors"
+          className="lg:hidden flex items-center justify-center p-2 text-gray-700 hover:text-[#E91D24] transition-colors"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -257,7 +257,7 @@ export default function Header() {
                 const childLinks = dropdownMap[link.href] ?? [];
                 if (childLinks.length === 0) {
                   return (
-                    <Link key={link.name} href={link.href} onClick={closeMobileMenu} className={`py-3 transition-colors border-b border-gray-50 ${isActive(link.href) ? 'text-[#D2B48C]' : 'hover:text-[#D2B48C]'}`}>
+                    <Link key={link.name} href={link.href} onClick={closeMobileMenu} className={`py-3 transition-colors border-b border-gray-50 ${isActive(link.href) ? 'text-[#E91D24]' : 'hover:text-[#E91D24]'}`}>
                       {link.name}
                     </Link>
                   );
@@ -267,7 +267,7 @@ export default function Header() {
                   <div key={link.name} className="py-2 border-b border-gray-50">
                     <button
                       onClick={() => setMobileOpenDropdown(mobileOpenDropdown === link.name ? null : link.name)}
-                      className="flex items-center justify-between w-full py-2 hover:text-[#D2B48C] transition-colors"
+                      className="flex items-center justify-between w-full py-2 hover:text-[#E91D24] transition-colors"
                     >
                       {link.name} <ChevronDown className={`w-5 h-5 transition-transform ${mobileOpenDropdown === link.name ? 'rotate-180' : ''}`} />
                     </button>
@@ -281,7 +281,7 @@ export default function Header() {
                           className="flex flex-col pl-4 mt-2 space-y-3 text-sm text-gray-600 border-l-2 border-red-100 overflow-hidden"
                         >
                           {childLinks.map((child) => (
-                            <Link key={child.name} href={child.href} onClick={closeMobileMenu} className="hover:text-[#D2B48C] transition-colors py-1">{child.name}</Link>
+                            <Link key={child.name} href={child.href} onClick={closeMobileMenu} className="hover:text-[#E91D24] transition-colors py-1">{child.name}</Link>
                           ))}
                         </motion.div>
                       )}
@@ -291,7 +291,7 @@ export default function Header() {
               })}
 
               {visibleNavItems.length === 0 && fallbackNavLinks.map((link) => (
-                <Link key={link.name} href={link.href} onClick={closeMobileMenu} className={`py-3 transition-colors border-b border-gray-50 ${isActive(link.href) ? 'text-[#D2B48C]' : 'hover:text-[#D2B48C]'}`}>
+                <Link key={link.name} href={link.href} onClick={closeMobileMenu} className={`py-3 transition-colors border-b border-gray-50 ${isActive(link.href) ? 'text-[#E91D24]' : 'hover:text-[#E91D24]'}`}>
                   {link.name}
                 </Link>
               ))}
@@ -301,7 +301,7 @@ export default function Header() {
                 onClick={closeMobileMenu}
                 className="mt-4 flex w-full items-center justify-center rounded-xl bg-[#E91D24] px-6 py-3 font-medium text-white shadow-md transition-colors hover:bg-[#B8151B]"
               >
-                Students Login
+                Login
               </Link>
 
               <Link href="/contact" onClick={closeMobileMenu} className="flex items-center justify-center mt-4 w-full px-6 py-3 bg-[#E91D24] text-white font-medium rounded-xl shadow-md hover:bg-[#B8151B] transition-colors">

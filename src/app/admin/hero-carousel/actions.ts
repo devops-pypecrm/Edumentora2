@@ -53,6 +53,16 @@ export async function setHeroSlideStatus(id: string, status: HeroSlideStatus) {
   refreshCarousel();
 }
 
+export async function setHeroContentVisibility(showContent: boolean) {
+  await requireAdmin();
+  await prisma.heroConfig.upsert({
+    where: { id: 'homepage-hero' },
+    update: { showContent },
+    create: { id: 'homepage-hero', showContent },
+  });
+  refreshCarousel();
+}
+
 export async function moveHeroSlide(id: string, direction: 'up' | 'down') {
   await requireAdmin();
   const slides = await prisma.heroSlide.findMany({ orderBy: [{ order: 'asc' }, { createdAt: 'asc' }] });

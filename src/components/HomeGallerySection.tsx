@@ -38,7 +38,7 @@ export default function HomeGallerySection() {
   };
 
   return (
-    <section className="py-12 md:py-16 bg-white relative overflow-hidden dot-grid">
+    <section className="py-12 md:py-16 bg-white relative overflow-hidden">
       <style>{`
         @keyframes scrollUpGallery {
           0% { transform: translateY(0); }
@@ -63,7 +63,7 @@ export default function HomeGallerySection() {
         <div className="text-left flex flex-col items-start justify-center">
           <ScrollReveal delay={0.1}>
             <div className="inline-flex items-center justify-center space-x-2 bg-gray-50 px-4 py-2 rounded-full mb-4 border border-gray-100">
-              <span className="w-2 h-2 rounded-full bg-[#D2B48C] animate-pulse"></span>
+              <span className="w-2 h-2 rounded-full bg-[#E91D24] animate-pulse"></span>
               <span className="text-[#002147] font-semibold text-sm tracking-wider uppercase">Campus Life</span>
             </div>
           </ScrollReveal>
@@ -75,7 +75,7 @@ export default function HomeGallerySection() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.3}>
-            <div className="w-24 h-1.5 bg-[#D2B48C] rounded-full mb-6"></div>
+            <div className="w-24 h-1.5 bg-[#E91D24] rounded-full mb-6"></div>
           </ScrollReveal>
 
           <ScrollReveal delay={0.4}>

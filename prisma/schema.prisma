@@ -29,6 +29,14 @@ model HeroSlide {
   @@map("hero_slides")
 }
 
+model HeroConfig {
+  id          String   @id @map("_id")
+  showContent Boolean  @default(true)
+  updatedAt   DateTime @updatedAt
+
+  @@map("hero_config")
+}
+
 model Reel {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   category  String

@@ -24,13 +24,8 @@ body {
   color: var(--foreground);
 }
 
-/* Keep the hero unchanged, then alternate calm background tones across the
-   homepage sections so neighboring content blocks remain visually distinct. */
-.home-section-alternation > section:nth-of-type(even) {
-  background-color: #faf7f0 !important;
-}
-
-.home-section-alternation > section:nth-of-type(odd):not(:first-of-type) {
+/* Keep every homepage section on one consistent white background. */
+.home-section-alternation > section {
   background-color: #ffffff !important;
 }
 
@@ -54,44 +49,6 @@ img.crop-reference-image,
 img.crop-reference-image:hover {
   transform: none !important;
   scale: 1 !important;
-}
-
-/* Animated dot-grid background texture, usable on any section.
-   Add "dot-grid" (or "dot-grid dot-grid-light" on dark sections) to a
-   `relative` (or `relative overflow-hidden`) element to apply it. */
-@keyframes siteDotDrift {
-  0% { background-position: 0 0; }
-  100% { background-position: 26px 26px; }
-}
-
-.dot-grid {
-  position: relative;
-}
-
-.dot-grid::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.08;
-  background-image: radial-gradient(circle at 1.5px 1.5px, #002147 2.5px, transparent 0);
-  background-size: 26px 26px;
-  animation: siteDotDrift 3s linear infinite;
-}
-
-.dot-grid-light::before {
-  opacity: 0.07;
-  background-image: radial-gradient(circle at 1.5px 1.5px, #ffffff 2.5px, transparent 0);
-}
-
-.dot-grid > * {
-  position: relative;
-  z-index: 1;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .dot-grid::before { animation: none; }
 }
 
 /* Hero section bottom marquee — all notifications flow continuously in one

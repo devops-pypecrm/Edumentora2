@@ -35,7 +35,7 @@ function renderInlineLinks(text: string, keyPrefix: string) {
   while ((match = linkPattern.exec(text)) !== null) {
     if (match.index > lastIndex) nodes.push(text.slice(lastIndex, match.index));
     nodes.push(
-      <Link key={`${keyPrefix}-link-${i++}`} href={match[2]} className="text-[#8B0000] font-semibold underline decoration-[#D2B48C] underline-offset-2 hover:text-[#5C0000]">
+      <Link key={`${keyPrefix}-link-${i++}`} href={match[2]} className="text-[#8B0000] font-semibold underline decoration-[#E91D24] underline-offset-2 hover:text-[#5C0000]">
         {match[1]}
       </Link>
     );
@@ -197,7 +197,7 @@ export default async function BlogDetailPage(props: { params: Promise<{ id: stri
   ]);
 
   return (
-    <main className="min-h-screen bg-gray-50 font-[Poppins]">
+    <main className="min-h-screen bg-white font-[Poppins]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
@@ -303,7 +303,7 @@ export default async function BlogDetailPage(props: { params: Promise<{ id: stri
                         </div>
                       )}
                       <div>
-                        <h4 className="text-sm font-bold text-[#002147] line-clamp-2 group-hover:text-[#D2B48C] transition-colors mb-1">
+                        <h4 className="text-sm font-bold text-[#002147] line-clamp-2 group-hover:text-[#E91D24] transition-colors mb-1">
                           {recent.sectionDis}
                         </h4>
                         <div className="text-xs text-gray-500 flex items-center gap-1">

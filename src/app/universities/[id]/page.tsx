@@ -68,7 +68,7 @@ export default async function UniversityDetailPage(props: { params: Promise<{ id
   const courseListLd = courseListJsonLd(university, universityPrograms);
 
   return (
-    <main className="min-h-screen bg-gray-50 font-[Poppins]">
+    <main className="min-h-screen bg-white font-[Poppins]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
@@ -104,7 +104,7 @@ export default async function UniversityDetailPage(props: { params: Promise<{ id
           
           {university.location && (
             <div className="flex items-center text-[#002147]/90 text-lg">
-              <MapPin className="w-5 h-5 mr-2 text-[#D2B48C]" />
+              <MapPin className="w-5 h-5 mr-2 text-[#E91D24]" />
               {university.location}
             </div>
           )}

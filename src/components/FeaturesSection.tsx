@@ -31,7 +31,7 @@ export default function FeaturesSection() {
   ];
 
   return (
-    <section className="w-full max-w-7xl mx-auto px-4 md:px-8 py-5 bg-white dot-grid">
+    <section className="w-full max-w-7xl mx-auto px-4 md:px-8 py-5 bg-white">
       <div className="mb-10">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}

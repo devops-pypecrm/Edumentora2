@@ -8,6 +8,7 @@ import {
   createHeroSlide,
   deleteHeroSlide,
   moveHeroSlide,
+  setHeroContentVisibility,
   setHeroSlideStatus,
   updateHeroSlide,
 } from '@/app/admin/hero-carousel/actions';
@@ -59,7 +60,7 @@ async function cropImage(source: string, cropArea: PixelCrop, renderedWidth: num
   return canvas.toDataURL('image/webp', 0.84);
 }
 
-export default function HeroCarouselManager({ initialSlides }: { initialSlides: HeroSlide[] }) {
+export default function HeroCarouselManager({ initialSlides, showHeroContent }: { initialSlides: HeroSlide[]; showHeroContent: boolean }) {
   const [isPending, startTransition] = useTransition();
   const [isCreateOpen, setIsCreateOpen] = useState(false);
   const [editingSlide, setEditingSlide] = useState<HeroSlide | null>(null);
@@ -129,6 +130,22 @@ export default function HeroCarouselManager({ initialSlides }: { initialSlides: 
 
   return (
     <div className="space-y-6">
+      <div className="flex items-center justify-between rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
+        <div>
+          <h2 className="font-semibold text-[#002147]">Hero content</h2>
+          <p className="mt-1 text-sm text-gray-500">Show the heading, description and buttons on the left side.</p>
+        </div>
+        <label className="flex cursor-pointer items-center gap-2 text-sm font-semibold text-[#002147]">
+          <input
+            type="checkbox"
+            checked={showHeroContent}
+            disabled={isPending}
+            onChange={(event) => startTransition(() => setHeroContentVisibility(event.target.checked))}
+            className="size-4 accent-[#E91D24]"
+          />
+          Show content
+        </label>
+      </div>
       <div className="flex flex-col gap-4 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h2 className="text-xl font-semibold text-[#002147]">Hero images <span className="ml-2 text-sm font-medium text-gray-400">{activeCount}/{initialSlides.length}</span></h2>

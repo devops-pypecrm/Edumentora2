@@ -82,7 +82,7 @@ function BulletListEditor({
       <div className="space-y-2">
         {items.map((item, i) => (
           <div key={i} className="flex gap-2 items-center">
-            <span className="text-[#D2B48C] font-bold">•</span>
+            <span className="text-[#E91D24] font-bold">•</span>
             <input
               type="text"
               value={item}

@@ -35,7 +35,7 @@ export default function AdminLogin() {
     <div className="relative min-h-screen flex items-center justify-center p-4 font-[Poppins] overflow-hidden bg-[#002147]">
       {/* Blurred decorative backdrop — nothing else is shown behind the form */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-24 -left-24 w-[420px] h-[420px] bg-[#D2B48C]/40 rounded-full blur-[100px]" />
+        <div className="absolute -top-24 -left-24 w-[420px] h-[420px] bg-[#E91D24]/40 rounded-full blur-[100px]" />
         <div className="absolute -bottom-24 -right-24 w-[420px] h-[420px] bg-[#8B0000]/40 rounded-full blur-[100px]" />
         <div className="absolute inset-0 backdrop-blur-2xl bg-[#002147]/40" />
       </div>
@@ -43,7 +43,7 @@ export default function AdminLogin() {
       <div className="relative z-10 w-full max-w-md bg-white rounded-3xl shadow-xl border border-gray-100 p-8">
         <div className="flex justify-center mb-8">
           <div className="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center">
-            <Lock className="w-8 h-8 text-[#D2B48C]" />
+            <Lock className="w-8 h-8 text-[#E91D24]" />
           </div>
         </div>
         
@@ -57,7 +57,7 @@ export default function AdminLogin() {
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-3 pr-12 rounded-xl border border-gray-200 text-[#002147] placeholder-[#002147] focus:outline-none focus:ring-2 focus:ring-[#D2B48C]/20 focus:border-[#D2B48C] transition-colors"
+              className="w-full px-4 py-3 pr-12 rounded-xl border border-gray-200 text-[#002147] placeholder-[#002147] focus:outline-none focus:ring-2 focus:ring-[#E91D24]/20 focus:border-[#E91D24] transition-colors"
               required
             />
             <button

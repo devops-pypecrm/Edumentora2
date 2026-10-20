@@ -42,7 +42,7 @@ export default async function NotificationsPage() {
         {/* Left: Current Notifications — status SHOW in admin, latest first */}
         <div>
           <h2 className="flex items-center gap-2.5 text-2xl font-bold text-[#002147] mb-6">
-            <Bell className="w-6 h-6 text-[#D2B48C]" />
+            <Bell className="w-6 h-6 text-[#E91D24]" />
             Current Notifications
           </h2>
           {current.length === 0 ? (
@@ -50,7 +50,7 @@ export default async function NotificationsPage() {
           ) : (
             <ul className="space-y-4">
               {current.map((n) => (
-                <li key={n.id} className="rounded-xl border border-[#002147]/15 bg-[#F7EFE1] px-5 py-4 text-[#002147] font-medium">
+                <li key={n.id} className="rounded-xl border border-[#002147]/15 bg-white px-5 py-4 text-[#002147] font-medium">
                   {n.text}
                 </li>
               ))}
@@ -61,7 +61,7 @@ export default async function NotificationsPage() {
         {/* Right: Previous Notifications */}
         <div>
           <h2 className="flex items-center gap-2.5 text-2xl font-bold text-[#002147] mb-6">
-            <Clock className="w-6 h-6 text-[#D2B48C]" />
+            <Clock className="w-6 h-6 text-[#E91D24]" />
             Previous Notifications
           </h2>
           {previous.length === 0 ? (

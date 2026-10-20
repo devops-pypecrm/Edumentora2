@@ -114,7 +114,7 @@ export default function EnquiryForm({
   );
 
   return (
-    <form className={className} onSubmit={handleSubmit}>
+    <form className={`w-full ${className}`} style={{ display: 'block' }} onSubmit={handleSubmit}>
       {status === 'error' && (
         <div className="bg-red-50 border border-red-200 text-red-700 p-4 rounded-xl text-center mb-6">
           {errorMessage}

@@ -53,7 +53,7 @@ export default function AchievementsSection() {
   ];
 
   return (
-    <section className="w-full bg-[rgb(240,240,228)] pt-16 pb-24 -mt-[20px] relative z-10 dot-grid">
+    <section className="w-full bg-white pt-16 pb-24 -mt-[20px] relative z-10">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
       <motion.div
         initial={{ opacity: 0, y: 30 }}

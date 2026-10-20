@@ -29,7 +29,7 @@ export default function UniversitiesSection() {
   ];
 
   return (
-    <section className="w-full bg-[#D2B48C] pt-24 pb-0 mt-5 relative z-10 dot-grid">
+    <section className="w-full bg-[#E91D24] pt-24 pb-0 mt-5 relative z-10">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -69,7 +69,7 @@ export default function UniversitiesSection() {
       <div className="mt-12 pb-12 flex justify-center">
         <a 
           href="/universities" 
-          className="bg-white text-[#D2B48C] font-bold py-3.5 px-8 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center gap-2"
+          className="bg-white text-[#E91D24] font-bold py-3.5 px-8 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center gap-2"
         >
           Show all universities
           <span className="text-xl">→</span>

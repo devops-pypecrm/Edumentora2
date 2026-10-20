@@ -47,7 +47,7 @@ export default function ContactClient({ contacts }: { contacts: Contact[] }) {
   };
 
   return (
-    <main className="min-h-screen bg-[#F9F9F9] font-[Poppins]">
+    <main className="min-h-screen bg-white font-[Poppins]">
       <Header />
       <div id="contact-hero" className="scroll-mt-24">
         <PageBanner
@@ -64,9 +64,9 @@ export default function ContactClient({ contacts }: { contacts: Contact[] }) {
         <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
 
           {/* Calicut Section */}
-          <div className="bg-[linear-gradient(135deg,_#F7EFE1_0%,_#F0E3CC_50%,_#EAD9BA_100%)] rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-[#DDC7A0] flex flex-col h-full transform hover:-translate-y-1 transition-transform duration-300">
+          <div className="bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-200 flex flex-col h-full transform hover:-translate-y-1 transition-transform duration-300">
             <h2 className="text-2xl font-bold text-[#002147] mb-4 flex items-center gap-3">
-              <span className="w-8 h-1.5 bg-[#D2B48C] rounded-full inline-block"></span>
+              <span className="w-8 h-1.5 bg-[#E91D24] rounded-full inline-block"></span>
               CALICUT
             </h2>
             <div className="text-gray-700 leading-relaxed mb-8 flex-grow text-lg">
@@ -97,9 +97,9 @@ export default function ContactClient({ contacts }: { contacts: Contact[] }) {
           </div>
 
           {/* Kochi Section */}
-          <div className="bg-[linear-gradient(135deg,_#F7EFE1_0%,_#F0E3CC_50%,_#EAD9BA_100%)] rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-[#DDC7A0] flex flex-col h-full transform hover:-translate-y-1 transition-transform duration-300">
+          <div className="bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-200 flex flex-col h-full transform hover:-translate-y-1 transition-transform duration-300">
             <h2 className="text-2xl font-bold text-[#002147] mb-4 flex items-center gap-3">
-              <span className="w-8 h-1.5 bg-[#D2B48C] rounded-full inline-block"></span>
+              <span className="w-8 h-1.5 bg-[#E91D24] rounded-full inline-block"></span>
               KOCHI
             </h2>
             <div className="text-gray-700 leading-relaxed mb-8 flex-grow text-lg">
@@ -137,7 +137,7 @@ export default function ContactClient({ contacts }: { contacts: Contact[] }) {
         <div id="contacts-section" className="max-w-7xl mx-auto px-4 md:px-8 py-16 border-t border-gray-100">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[#002147] mb-4">Contacts</h2>
-            <div className="w-24 h-1.5 bg-[#D2B48C] rounded-full mx-auto"></div>
+            <div className="w-24 h-1.5 bg-[#E91D24] rounded-full mx-auto"></div>
           </div>
           
           <div className="flex flex-wrap justify-center gap-8 mb-8">
@@ -158,7 +158,7 @@ export default function ContactClient({ contacts }: { contacts: Contact[] }) {
                 <div className="space-y-2 w-full">
                   {contact.lanphone && (
                     <div className="flex items-center justify-center gap-2 text-gray-700">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#D2B48C]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#E91D24]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                       </svg>
                       <span className="font-medium text-base">{contact.lanphone}</span>
@@ -167,7 +167,7 @@ export default function ContactClient({ contacts }: { contacts: Contact[] }) {
 
                   {contact.mob && (
                     <div className="flex items-center justify-center gap-2 text-gray-700">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#D2B48C]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#E91D24]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                       </svg>
                       <span className="font-medium text-base">{contact.mob}</span>
@@ -176,7 +176,7 @@ export default function ContactClient({ contacts }: { contacts: Contact[] }) {
 
                   {contact.email && (
                     <div className="flex items-center justify-center gap-2 text-gray-700 break-all">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#D2B48C]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-[#E91D24]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                       <span className="font-medium text-base">{contact.email}</span>
@@ -190,12 +190,12 @@ export default function ContactClient({ contacts }: { contacts: Contact[] }) {
       )}
 
       {/* Contact Form Section */}
-      <div className="bg-[#F9F9F9] py-16 lg:py-24 border-t border-[#DDC7A0] dot-grid">
+      <div className="bg-white py-16 lg:py-24 border-t border-gray-200">
         <div className="max-w-4xl mx-auto px-4 md:px-8">
-          <div className="bg-[linear-gradient(135deg,_#F7EFE1_0%,_#F0E3CC_50%,_#EAD9BA_100%)] rounded-3xl p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-[#DDC7A0]">
+          <div className="bg-white rounded-3xl p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-200">
             <div className="text-center mb-10">
               <h2 className="text-3xl md:text-4xl font-bold text-[#002147] mb-4">Start Your Journey with Edumentora</h2>
-              <div className="w-24 h-1.5 bg-[#D2B48C] rounded-full mx-auto mb-4"></div>
+              <div className="w-24 h-1.5 bg-[#E91D24] rounded-full mx-auto mb-4"></div>
               <p className="text-gray-600 text-lg">Fill out the form below and our academic advisors will get back to you shortly.</p>
             </div>
 

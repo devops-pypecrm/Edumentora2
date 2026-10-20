@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export default function SeoContentSection() {
   return (
-    <section className="w-full bg-[#F7EFE1] py-5 dot-grid">
+    <section className="w-full bg-white py-5">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

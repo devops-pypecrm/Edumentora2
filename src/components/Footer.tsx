@@ -56,11 +56,12 @@ export default function Footer() {
 
   return (
     <footer className="w-full relative font-sans flex flex-col">
+      <div aria-hidden="true" className="h-0.5 w-full shrink-0 bg-[#001F5C]" />
       
       {/* ========================================================
           SECTION 1: TOP FOOTER (LARGE CONTENT AREA)
           ======================================================== */}
-      <div className="flex flex-col lg:flex-row relative bg-[#001F5C] w-full min-h-[500px] overflow-hidden">
+      <div className="flex flex-col lg:flex-row relative bg-white w-full min-h-[500px] overflow-hidden">
 
         {/* LEFT SIDE (72%) - FOUR COLUMNS */}
         <div className="w-full lg:w-[72%] relative z-10 py-20 px-8 lg:px-12 xl:px-16 flex flex-col justify-center">
@@ -68,15 +69,15 @@ export default function Footer() {
             
             {/* Column 1: Quick Links */}
             <div className="lg:pl-4">
-              <h4 className="text-white font-bold text-xl mb-8 relative inline-block pb-3">
+              <h4 className="text-black font-bold text-xl mb-8 relative inline-block pb-3">
                 Quick Links
-                <span className="absolute bottom-0 left-0 w-10 h-1 bg-[#D2042D]"></span>
+                <span className="absolute bottom-0 left-0 w-10 h-1 bg-[#E91D24]"></span>
               </h4>
               <ul className="space-y-4">
                 {quickLinks.map((link, index) => (
                   <li key={index}>
-                    <Link href={link.href} className="group flex items-center text-gray-400 hover:text-white transition-colors duration-300 font-medium text-sm">
-                      <ChevronRight className="w-4 h-4 mr-2 text-gray-500 group-hover:text-[#D2042D] transition-colors" />
+                    <Link href={link.href} className="group flex items-center text-gray-700 hover:text-[#E91D24] transition-colors duration-300 font-medium text-sm">
+                      <ChevronRight className="w-4 h-4 mr-2 text-gray-500 group-hover:text-[#E91D24] transition-colors" />
                       {link.name}
                     </Link>
                   </li>
@@ -86,15 +87,15 @@ export default function Footer() {
 
             {/* Column 3: Credit Transfer */}
             <div>
-              <h4 className="text-white font-bold text-xl mb-8 relative inline-block pb-3">
+              <h4 className="text-black font-bold text-xl mb-8 relative inline-block pb-3">
                 Credit Transfer
-                <span className="absolute bottom-0 left-0 w-10 h-1 bg-[#D2042D]"></span>
+                <span className="absolute bottom-0 left-0 w-10 h-1 bg-[#E91D24]"></span>
               </h4>
               <ul className="space-y-4">
                 {creditTransferLinks.map((link, index) => (
                   <li key={index}>
-                    <Link href={link.href} className="group flex items-center text-gray-400 hover:text-white transition-colors duration-300 font-medium text-sm">
-                      <ChevronRight className="w-4 h-4 mr-2 text-gray-500 group-hover:text-[#D2042D] transition-colors" />
+                    <Link href={link.href} className="group flex items-center text-gray-700 hover:text-[#E91D24] transition-colors duration-300 font-medium text-sm">
+                      <ChevronRight className="w-4 h-4 mr-2 text-gray-500 group-hover:text-[#E91D24] transition-colors" />
                       {link.name}
                     </Link>
                   </li>
@@ -104,14 +105,14 @@ export default function Footer() {
 
             {/* Column 4: Locations */}
             <div>
-              <h4 className="text-white font-bold text-xl mb-8 relative inline-block pb-3">
+              <h4 className="text-black font-bold text-xl mb-8 relative inline-block pb-3">
                 Locations
-                <span className="absolute bottom-0 left-0 w-10 h-1 bg-[#D2042D]"></span>
+                <span className="absolute bottom-0 left-0 w-10 h-1 bg-[#E91D24]"></span>
               </h4>
               <ul className="space-y-4">
                 {locations.map((loc, index) => (
                   <li key={index}>
-                    <p className="flex items-center text-gray-400 font-medium text-sm">
+                    <p className="flex items-center text-gray-700 font-medium text-sm">
                       <MapPin className="w-4 h-4 mr-3 text-gray-500" />
                       {loc.name}
                     </p>
@@ -122,45 +123,45 @@ export default function Footer() {
 
             {/* Column 5: Contact Info & Socials */}
             <div>
-              <h4 className="text-white font-bold text-xl mb-8 relative inline-block pb-3">
+              <h4 className="text-black font-bold text-xl mb-8 relative inline-block pb-3">
                 Contact Info
-                <span className="absolute bottom-0 left-0 w-10 h-1 bg-[#D2042D]"></span>
+                <span className="absolute bottom-0 left-0 w-10 h-1 bg-[#E91D24]"></span>
               </h4>
               
               <ul className="space-y-6">
                 <li className="flex items-center">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full border border-white/10 flex items-center justify-center mr-4 bg-white/5">
-                    <Smartphone className="w-4 h-4 text-gray-400" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center mr-4 bg-gray-50">
+                    <Smartphone className="w-4 h-4 text-gray-600" />
                   </div>
                   <div className="flex flex-col">
                     <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-0.5">Phone Number</span>
-                    <span className="text-sm text-gray-200 font-medium">+91 974458 7777</span>
+                    <span className="text-sm text-black font-medium">+91 974458 7777</span>
                   </div>
                 </li>
                 
                 <li className="flex items-center">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full border border-white/10 flex items-center justify-center mr-4 bg-white/5">
-                    <Mail className="w-4 h-4 text-gray-400" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center mr-4 bg-gray-50">
+                    <Mail className="w-4 h-4 text-gray-600" />
                   </div>
                   <div className="flex flex-col">
                     <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-0.5">Email Address</span>
-                    <span className="text-sm text-gray-200 font-medium">info@edumentora.com</span>
+                    <span className="text-sm text-black font-medium">info@edumentora.com</span>
                   </div>
                 </li>
                 
                 <li className="flex items-center">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full border border-white/10 flex items-center justify-center mr-4 bg-white/5">
-                    <MapPin className="w-4 h-4 text-gray-400" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center mr-4 bg-gray-50">
+                    <MapPin className="w-4 h-4 text-gray-600" />
                   </div>
                   <div className="flex flex-col">
                     <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-0.5">Location</span>
-                    <span className="text-sm text-gray-200 font-medium">Calicut | Kochi</span>
+                    <span className="text-sm text-black font-medium">Calicut | Kochi</span>
                   </div>
                 </li>
               </ul>
 
               {/* Social Icons */}
-              <div className="mt-8 pt-4 border-t border-white/10">
+              <div className="mt-8 pt-4 border-t border-gray-200">
                 <div className="flex space-x-3">
                   {[
                     { icon: FacebookIcon, href: "https://www.facebook.com/edumentoradotcom/" },
@@ -174,7 +175,7 @@ export default function Footer() {
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-9 h-9 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-gray-400 hover:bg-[#D2042D] hover:text-white transition-all duration-300 transform hover:-translate-y-1"
+                        className="w-9 h-9 rounded-full border border-gray-200 bg-gray-50 flex items-center justify-center text-gray-700 hover:bg-[#E91D24] hover:text-white transition-all duration-300 transform hover:-translate-y-1"
                       >
                         <Icon className="w-4 h-4" />
                       </a>
@@ -192,10 +193,10 @@ export default function Footer() {
           
           {/* Diagonal Red Background Shape */}
           <div 
-            className="absolute inset-0 bg-gradient-to-br from-[#D2042D] to-[#8B0000] z-0 hidden lg:block shadow-[-10px_0_30px_rgba(0,0,0,0.5)]"
+            className="absolute inset-0 bg-[#E91D24] z-0 hidden lg:block shadow-[-10px_0_30px_rgba(0,0,0,0.35)]"
             style={{ clipPath: 'polygon(15% 0, 100% 0, 100% 100%, 0% 100%)' }}
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#D2042D] to-[#8B0000] z-0 lg:hidden" />
+          <div className="absolute inset-0 bg-[#E91D24] z-0 lg:hidden" />
           
           {/* Content Container */}
           <div className="relative z-10 w-full h-full flex flex-col justify-center py-20 px-10 xl:px-14 lg:pl-20 xl:pl-24">
@@ -219,7 +220,7 @@ export default function Footer() {
 
               <Link 
                 href="/contact" 
-                className="inline-block bg-[#001F5C] text-white px-8 py-3.5 hover:bg-[#00133D] transition-colors duration-300 rounded font-bold text-sm tracking-wide uppercase shadow-lg border border-white/10 mt-2"
+                className="inline-block bg-white text-black px-8 py-3.5 hover:bg-gray-100 transition-colors duration-300 rounded font-bold text-sm tracking-wide uppercase shadow-lg border border-white mt-2"
               >
                 Contact Us
               </Link>
@@ -233,25 +234,25 @@ export default function Footer() {
       {/* ========================================================
           SECTION 2: BOTTOM STRIP (COPYRIGHT & LEGAL)
           ======================================================== */}
-      <div className="h-auto md:h-[70px] bg-[#00133D] py-6 md:py-0 px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between z-30">
+      <div className="h-auto md:h-[70px] bg-[#001F5C] py-6 md:py-0 px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between z-30">
         
         {/* Left: Copyright */}
-        <div className="w-full md:w-1/3 text-center md:text-left text-gray-500 text-sm font-medium mb-4 md:mb-0">
+        <div className="w-full md:w-1/3 text-center md:text-left text-gray-200 text-sm font-medium mb-4 md:mb-0">
           Copyright &copy; {new Date().getFullYear()} Edumentora.
         </div>
         
         {/* Center: Privacy Policy */}
-        <div className="w-full md:w-1/3 text-center text-gray-500 text-sm font-medium mb-4 md:mb-0">
+        <div className="w-full md:w-1/3 text-center text-gray-200 text-sm font-medium mb-4 md:mb-0">
           <Link href="/privacy-policy" className="hover:text-white transition-colors duration-300">Privacy Policy</Link>
         </div>
         
         {/* Right: Terms & Back To Top */}
-        <div className="w-full md:w-1/3 flex items-center justify-center md:justify-end space-x-8 text-gray-500 text-sm font-medium">
+        <div className="w-full md:w-1/3 flex items-center justify-center md:justify-end space-x-8 text-gray-200 text-sm font-medium">
           <Link href="/terms" className="hover:text-white transition-colors duration-300">Terms & Conditions</Link>
           
           <button 
             onClick={scrollToTop}
-            className="w-10 h-10 rounded-full bg-[#D2042D] border-2 border-[#D2042D] flex items-center justify-center text-white hover:bg-transparent hover:text-[#D2042D] transition-all duration-300 shadow-[0_4px_15px_rgba(210,4,45,0.3)] group"
+            className="w-10 h-10 rounded-full bg-[#E91D24] border-2 border-[#E91D24] flex items-center justify-center text-white hover:bg-transparent hover:text-[#E91D24] transition-all duration-300 shadow-[0_4px_15px_rgba(233,29,36,0.3)] group"
             aria-label="Back to top"
           >
             <ArrowUp className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />

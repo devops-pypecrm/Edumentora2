@@ -31,7 +31,7 @@ const programs = [
 
 export default function ProgramsSection() {
   return (
-    <section className="bg-white py-[120px] overflow-hidden dot-grid">
+    <section className="bg-white py-[120px] overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-4 lg:px-[80px] flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
         
         {/* LEFT SIDE: Title Area */}
@@ -42,7 +42,7 @@ export default function ProgramsSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="text-[#D2B48C] font-bold tracking-widest text-sm uppercase mb-4">
+            <div className="text-[#E91D24] font-bold tracking-widest text-sm uppercase mb-4">
               Our Programs
             </div>
             <h2 className="text-[40px] lg:text-[52px] font-bold text-[#002147] leading-tight mb-6">
@@ -51,7 +51,7 @@ export default function ProgramsSection() {
             <p className="text-gray-500 text-[16px] leading-relaxed mb-8">
               Seamlessly continue your academic journey by leveraging your prior learning across top institutions.
             </p>
-            <div className="w-16 h-[3px] bg-[#D2B48C]"></div>
+            <div className="w-16 h-[3px] bg-[#E91D24]"></div>
           </motion.div>
         </div>
 
@@ -90,10 +90,10 @@ export default function ProgramsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.15 }}
-                className={`flex-1 flex flex-col relative group ${i % 2 === 1 ? 'lg:mt-[60px]' : 'mt-0'}`}
+                className={`flex-1 flex flex-col relative ${i % 2 === 1 ? 'lg:mt-[60px]' : 'mt-0'}`}
               >
                 {/* Icon Container */}
-                <div className="w-[72px] h-[72px] bg-white rounded-full flex items-center justify-center shadow-[0_12px_30px_rgba(0,0,0,0.06)] mb-6 group-hover:-translate-y-2 transition-transform duration-300 border border-gray-50 mx-auto lg:mx-0">
+                <div className="w-[72px] h-[72px] bg-white rounded-full flex items-center justify-center shadow-[0_12px_30px_rgba(0,0,0,0.06)] mb-6 border border-gray-50 mx-auto lg:mx-0">
                   <program.Icon className="w-8 h-8 text-[#002147]" strokeWidth={1.5} />
                 </div>
 
@@ -104,7 +104,7 @@ export default function ProgramsSection() {
                     0{i+1}
                   </div>
 
-                  <h3 className="text-[26px] font-semibold text-[#002147] group-hover:text-[#D2B48C] transition-colors mb-3 leading-tight">
+                  <h3 className="text-[26px] font-semibold text-[#002147] mb-3 leading-tight">
                     {program.title}
                   </h3>
 
@@ -113,14 +113,14 @@ export default function ProgramsSection() {
                   </p>
 
                   {program.href ? (
-                    <Link href={program.href} className="inline-flex items-center text-[#002147] font-bold group-hover:text-[#D2B48C] transition-colors overflow-hidden group/btn">
+                    <Link href={program.href} className="inline-flex items-center text-[#002147] font-bold">
                       Know More
-                      <ArrowRight className="ml-2 w-5 h-5 -translate-x-full opacity-0 group-hover/btn:translate-x-0 group-hover/btn:opacity-100 transition-all duration-300" />
+                      <ArrowRight className="ml-2 w-5 h-5" />
                     </Link>
                   ) : (
-                    <button className="inline-flex items-center text-[#002147] font-bold group-hover:text-[#D2B48C] transition-colors overflow-hidden group/btn">
+                    <button className="inline-flex items-center text-[#002147] font-bold">
                       Know More
-                      <ArrowRight className="ml-2 w-5 h-5 -translate-x-full opacity-0 group-hover/btn:translate-x-0 group-hover/btn:opacity-100 transition-all duration-300" />
+                      <ArrowRight className="ml-2 w-5 h-5" />
                     </button>
                   )}
                 </div>

@@ -21,7 +21,7 @@ export default function StudentsLoginPage() {
     <main className="min-h-screen overflow-hidden bg-[#eaf1fb] font-[Poppins] text-[#002147]">
       <Header />
 
-      <section className="dot-grid relative flex min-h-[calc(100vh-82px)] items-center overflow-hidden px-5 pb-20 pt-32 md:px-10 lg:px-16">
+      <section className="relative flex min-h-[calc(100vh-82px)] items-center overflow-hidden px-5 pb-20 pt-32 md:px-10 lg:px-16">
         <div className="pointer-events-none absolute inset-0 z-0">
           {doodles.map((doodle, index) => (
             <img

@@ -62,7 +62,7 @@ export default function EligibilityForm({ className = 'space-y-6' }: Eligibility
               id="firstName"
               name="firstName"
               placeholder="Name"
-              className="peer w-full px-3.5 pt-5 pb-1.5 text-sm text-[#002147] font-medium rounded-xl border border-slate-200 bg-white shadow-sm hover:border-[#D2B48C]/40 focus:outline-none focus:ring-2 focus:ring-[#D2B48C]/15 focus:border-[#D2B48C] transition-all placeholder-transparent"
+              className="peer w-full px-3.5 pt-5 pb-1.5 text-sm text-[#002147] font-medium rounded-xl border border-slate-200 bg-white shadow-sm hover:border-[#E91D24]/40 focus:outline-none focus:ring-2 focus:ring-[#E91D24]/15 focus:border-[#E91D24] transition-all placeholder-transparent"
               required
             />
             <label
@@ -120,7 +120,7 @@ export default function EligibilityForm({ className = 'space-y-6' }: Eligibility
                   <h3 className="text-2xl font-bold text-[#002147]">Checking Eligibility</h3>
                   <p className="text-gray-600">We are checking your details now. Please wait a moment.</p>
                   <div className="h-2 w-full rounded-full bg-gray-200 overflow-hidden">
-                    <div className="h-full w-3/4 bg-[#D2B48C] animate-pulse" />
+                    <div className="h-full w-3/4 bg-[#E91D24] animate-pulse" />
                   </div>
                 </>
               )}
