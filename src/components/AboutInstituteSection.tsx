@@ -38,7 +38,7 @@ export default function AboutInstituteSection() {
             them uncertain about how to complete their education without starting over. As a
             leading academic credit transfer institution, Edumentora specializes in helping
             students seamlessly resume and complete their degrees, including{' '}
-            <Link href="/b-tech-credit-transfer" className="underline decoration-1 underline-offset-2 hover:text-[#8B0000] transition-colors">
+            <Link href="/b-tech-credit-transfer" className="underline decoration-1 underline-offset-2 hover:text-[#F9010D] transition-colors">
               B. Tech
             </Link>{' '}
             and other

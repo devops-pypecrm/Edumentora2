@@ -159,7 +159,7 @@ export default function LeadsManager({
 
         <button
           onClick={handleDownloadExcel}
-          className="flex items-center gap-2 px-5 py-2.5 bg-[#8B0000] text-white font-semibold text-sm rounded-xl hover:bg-[#8B0000]/90 transition-colors"
+          className="flex items-center gap-2 px-5 py-2.5 bg-[#F9010D] text-white font-semibold text-sm rounded-xl hover:bg-[#F9010D]/90 transition-colors"
         >
           <Download className="w-4 h-4" />
           Download as Excel
@@ -346,7 +346,7 @@ export default function LeadsManager({
               <button
                 type="submit"
                 disabled={isPending}
-                className="w-full flex items-center justify-center gap-2 bg-[#8B0000] text-white font-medium py-3 rounded-xl hover:bg-[#8B0000]/90 transition-colors disabled:opacity-70"
+                className="w-full flex items-center justify-center gap-2 bg-[#F9010D] text-white font-medium py-3 rounded-xl hover:bg-[#F9010D]/90 transition-colors disabled:opacity-70"
               >
                 <Save className="w-4 h-4" />
                 Save Changes
@@ -398,7 +398,7 @@ export default function LeadsManager({
               <button
                 type="submit"
                 disabled={isPending}
-                className="w-full flex items-center justify-center gap-2 bg-[#8B0000] text-white font-medium py-3 rounded-xl hover:bg-[#8B0000]/90 transition-colors disabled:opacity-70"
+                className="w-full flex items-center justify-center gap-2 bg-[#F9010D] text-white font-medium py-3 rounded-xl hover:bg-[#F9010D]/90 transition-colors disabled:opacity-70"
               >
                 <Save className="w-4 h-4" />
                 Save Changes

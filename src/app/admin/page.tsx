@@ -31,7 +31,7 @@ function SectionCard({
       <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
         <h2 className="text-lg font-bold text-[#002147]">{title} <span className="text-gray-400 font-medium text-sm">({count})</span></h2>
         {viewAllHref && (
-          <Link href={viewAllHref} className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#002147] hover:text-[#E91D24] transition-colors">
+          <Link href={viewAllHref} className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#002147] hover:text-[#F9010D] transition-colors">
             {viewAllLabel || 'View All'}
             <ArrowRight className="w-4 h-4" />
           </Link>

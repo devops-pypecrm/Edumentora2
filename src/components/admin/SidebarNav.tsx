@@ -55,7 +55,7 @@ export default function SidebarNav({ collapsed = false }: { collapsed?: boolean 
                 : 'hover:bg-white/10 text-white/70 hover:text-white'
             }`}
           >
-            <Icon className={`w-5 h-5 flex-shrink-0 ${isActive ? 'text-[#E91D24]' : ''}`} />
+            <Icon className={`w-5 h-5 flex-shrink-0 ${isActive ? 'text-[#F9010D]' : ''}`} />
             {!collapsed && (
               <span className="font-medium whitespace-nowrap overflow-hidden">{link.label}</span>
             )}
@@ -77,7 +77,7 @@ export default function SidebarNav({ collapsed = false }: { collapsed?: boolean 
               : 'hover:bg-white/10 text-white/70 hover:text-white'
           }`}
         >
-          <HelpCircle className={`w-5 h-5 flex-shrink-0 ${isFaqActive ? 'text-[#E91D24]' : ''}`} />
+          <HelpCircle className={`w-5 h-5 flex-shrink-0 ${isFaqActive ? 'text-[#F9010D]' : ''}`} />
           {!collapsed && (
             <>
               <span className="font-medium whitespace-nowrap overflow-hidden flex-1 text-left">FAQ</span>
@@ -119,7 +119,7 @@ export default function SidebarNav({ collapsed = false }: { collapsed?: boolean 
             : 'hover:bg-white/10 text-white/70 hover:text-white'
         }`}
       >
-        <Plug className={`w-5 h-5 flex-shrink-0 ${pathname === '/admin/faq/integration' ? 'text-[#E91D24]' : ''}`} />
+        <Plug className={`w-5 h-5 flex-shrink-0 ${pathname === '/admin/faq/integration' ? 'text-[#F9010D]' : ''}`} />
         {!collapsed && <span className="font-medium whitespace-nowrap overflow-hidden">Integration</span>}
       </Link>
     </nav>

@@ -133,14 +133,14 @@ export default async function Home() {
       <Hero notifications={notifications} slides={heroSlides} showContent={showHeroContent} />
       <TestimonialSection reviews={reviews} galleryImages={galleryImages} promoVideos={promoVideos} successVideos={successVideos} />
       <MissionVisionSection />
-      <ContactSection />
-      <AboutInstituteSection />
       <AchievementsSection />
-      <ProcessSection />
       <ProgramsSection />
-      <WhyChooseUsSection />
-      <SeoContentSection />
       <StatsSection universities={statUniversities} />
+      <ProcessSection />
+      <AboutInstituteSection />
+      <WhyChooseUsSection />
+      <ContactSection />
+      <SeoContentSection />
       <Footer />
       <FloatingWhatsApp />
     </main>

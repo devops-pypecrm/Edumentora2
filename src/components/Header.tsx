@@ -136,12 +136,12 @@ export default function Header() {
   };
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 pt-4 px-4 w-full flex justify-center pointer-events-none font-[Poppins]">
+    <div className="fixed inset-x-0 top-0 z-50 box-border flex max-w-full justify-center overflow-x-clip px-3 pt-3 font-[Poppins] pointer-events-none min-[720px]:px-4 min-[720px]:pt-4">
       <motion.header
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: isHidden ? -120 : 0, opacity: 1 }}
         transition={{ duration: 0.4, ease: 'easeInOut' }}
-        className={`pointer-events-auto w-full max-w-[68rem] h-[82px] flex items-center justify-between gap-5 px-6 lg:px-8 transition-colors duration-300 rounded-full ${
+        className={`pointer-events-auto box-border min-w-0 w-full max-w-[68rem] h-[62px] min-[720px]:h-[76px] lg:h-[82px] flex items-center justify-between gap-3 px-5 min-[720px]:px-6 lg:px-8 transition-colors duration-300 rounded-[22px] min-[720px]:rounded-full ${
           isScrolled
             ? 'bg-white/90 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-100'
             : 'bg-white shadow-sm border border-transparent'
@@ -158,12 +158,12 @@ export default function Header() {
           <img
             src="/favcon/edumentora_logo.webp"
             alt="Edumentora logo"
-            className="w-auto h-9 xl:h-[40px] object-contain"
+            className="w-auto h-8 min-[720px]:h-9 xl:h-[40px] object-contain"
           />
         </Link>
 
         {/* Desktop Navigation */}
-        <nav ref={navRef} className="hidden lg:flex items-center justify-end gap-4 xl:gap-7 whitespace-nowrap text-sm xl:text-[15px] font-bold text-[#002147]">
+        <nav ref={navRef} className="hidden min-[720px]:flex items-center justify-end gap-2 lg:gap-4 xl:gap-7 whitespace-nowrap text-[10px] min-[850px]:text-[11px] lg:text-sm xl:text-[15px] font-bold text-[#002147]">
           {visibleNavItems.map((link) => {
             const childLinks = dropdownMap[link.href] ?? [];
             const hasDropdown = childLinks.length > 0;
@@ -175,10 +175,10 @@ export default function Header() {
                   href={link.href}
                   className="relative py-2 group"
                 >
-                  <span className={`transition-colors duration-200 ${isActive(link.href) ? 'text-[#8B0000]' : 'hover:text-[#8B0000]'}`}>
+                  <span className={`transition-colors duration-200 ${isActive(link.href) ? 'text-[#F9010D]' : 'hover:text-[#F9010D]'}`}>
                     {link.name}
                   </span>
-                  <span className={`absolute left-0 bottom-0 h-[2px] bg-[#8B0000] transition-all duration-300 ${isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+                  <span className={`absolute left-0 bottom-0 h-[2px] bg-[#F9010D] transition-all duration-300 ${isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'}`} />
                 </Link>
               );
             }
@@ -192,7 +192,7 @@ export default function Header() {
               >
                 <button
                   onClick={(e) => { e.preventDefault(); setOpenDropdown(openDropdown === link.name ? null : link.name); }}
-                  className={`relative flex items-center gap-1 cursor-pointer py-2 group ${openDropdown === link.name ? 'text-[#E91D24]' : 'hover:text-[#E91D24] transition-colors duration-200'}`}
+                  className={`relative flex items-center gap-1 cursor-pointer py-2 group ${openDropdown === link.name ? 'text-[#F9010D]' : 'hover:text-[#F9010D] transition-colors duration-200'}`}
                 >
                   {link.name} <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${openDropdown === link.name ? 'rotate-180' : 'group-hover:rotate-180'}`} />
                 </button>
@@ -207,7 +207,7 @@ export default function Header() {
                       onClick={() => setOpenDropdown(null)}
                     >
                       {childLinks.map((child) => (
-                        <Link key={child.name} href={child.href} className="block px-5 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#E91D24] transition-colors">{child.name}</Link>
+                        <Link key={child.name} href={child.href} className="block px-5 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#F9010D] transition-colors">{child.name}</Link>
                       ))}
                     </motion.div>
                   )}
@@ -218,24 +218,24 @@ export default function Header() {
 
           <Link
             href="/students-login"
-            className="ml-4 rounded-xl bg-[#E91D24] px-5 py-3 text-sm font-bold text-white shadow-md transition-colors hover:bg-[#B8151B]"
+            className="ml-2 lg:ml-4 rounded-xl bg-[#F9010D] px-3.5 py-2.5 lg:px-5 lg:py-3 text-xs lg:text-sm font-bold text-white shadow-md transition-colors hover:bg-[#F9010D]"
           >
             Login
           </Link>
 
           {visibleNavItems.length === 0 && fallbackNavLinks.map((link) => (
             <Link key={link.name} href={link.href} className="relative py-2 group">
-              <span className={`transition-colors duration-200 ${isActive(link.href) ? 'text-[#8B0000]' : 'hover:text-[#8B0000]'}`}>
+              <span className={`transition-colors duration-200 ${isActive(link.href) ? 'text-[#F9010D]' : 'hover:text-[#F9010D]'}`}>
                 {link.name}
               </span>
-              <span className={`absolute left-0 bottom-0 h-[2px] bg-[#8B0000] transition-all duration-300 ${isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+              <span className={`absolute left-0 bottom-0 h-[2px] bg-[#F9010D] transition-all duration-300 ${isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'}`} />
             </Link>
           ))}
         </nav>
 
         {/* Mobile Hamburger Button */}
         <button
-          className="lg:hidden flex items-center justify-center p-2 text-gray-700 hover:text-[#E91D24] transition-colors"
+          className="min-[720px]:hidden flex size-10 shrink-0 items-center justify-center rounded-full text-[#002147] transition-colors active:bg-slate-100"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -250,14 +250,14 @@ export default function Header() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="lg:hidden pointer-events-auto absolute top-24 left-4 right-4 bg-white shadow-[0_20px_40px_rgb(0,0,0,0.1)] rounded-[20px] border border-gray-100 flex flex-col z-50 overflow-hidden"
+            className="min-[720px]:hidden pointer-events-auto absolute top-[5.25rem] left-3 right-3 bg-white shadow-[0_20px_40px_rgb(0,0,0,0.1)] rounded-[20px] border border-gray-100 flex flex-col z-50 overflow-hidden"
           >
             <div className="flex flex-col py-4 px-6 space-y-2 text-base font-bold text-[#002147] h-max max-h-[80vh] overflow-y-auto">
               {visibleNavItems.map((link) => {
                 const childLinks = dropdownMap[link.href] ?? [];
                 if (childLinks.length === 0) {
                   return (
-                    <Link key={link.name} href={link.href} onClick={closeMobileMenu} className={`py-3 transition-colors border-b border-gray-50 ${isActive(link.href) ? 'text-[#E91D24]' : 'hover:text-[#E91D24]'}`}>
+                    <Link key={link.name} href={link.href} onClick={closeMobileMenu} className={`py-3 transition-colors border-b border-gray-50 ${isActive(link.href) ? 'text-[#F9010D]' : 'hover:text-[#F9010D]'}`}>
                       {link.name}
                     </Link>
                   );
@@ -267,7 +267,7 @@ export default function Header() {
                   <div key={link.name} className="py-2 border-b border-gray-50">
                     <button
                       onClick={() => setMobileOpenDropdown(mobileOpenDropdown === link.name ? null : link.name)}
-                      className="flex items-center justify-between w-full py-2 hover:text-[#E91D24] transition-colors"
+                      className="flex items-center justify-between w-full py-2 hover:text-[#F9010D] transition-colors"
                     >
                       {link.name} <ChevronDown className={`w-5 h-5 transition-transform ${mobileOpenDropdown === link.name ? 'rotate-180' : ''}`} />
                     </button>
@@ -278,10 +278,10 @@ export default function Header() {
                           animate={{ opacity: 1, height: 'auto' }}
                           exit={{ opacity: 0, height: 0 }}
                           transition={{ duration: 0.2 }}
-                          className="flex flex-col pl-4 mt-2 space-y-3 text-sm text-gray-600 border-l-2 border-red-100 overflow-hidden"
+                          className="flex flex-col pl-4 mt-2 space-y-3 text-sm text-gray-600 border-l-2 border-[#F9010D]/20 overflow-hidden"
                         >
                           {childLinks.map((child) => (
-                            <Link key={child.name} href={child.href} onClick={closeMobileMenu} className="hover:text-[#E91D24] transition-colors py-1">{child.name}</Link>
+                            <Link key={child.name} href={child.href} onClick={closeMobileMenu} className="hover:text-[#F9010D] transition-colors py-1">{child.name}</Link>
                           ))}
                         </motion.div>
                       )}
@@ -291,7 +291,7 @@ export default function Header() {
               })}
 
               {visibleNavItems.length === 0 && fallbackNavLinks.map((link) => (
-                <Link key={link.name} href={link.href} onClick={closeMobileMenu} className={`py-3 transition-colors border-b border-gray-50 ${isActive(link.href) ? 'text-[#E91D24]' : 'hover:text-[#E91D24]'}`}>
+                <Link key={link.name} href={link.href} onClick={closeMobileMenu} className={`py-3 transition-colors border-b border-gray-50 ${isActive(link.href) ? 'text-[#F9010D]' : 'hover:text-[#F9010D]'}`}>
                   {link.name}
                 </Link>
               ))}
@@ -299,12 +299,12 @@ export default function Header() {
               <Link
                 href="/students-login"
                 onClick={closeMobileMenu}
-                className="mt-4 flex w-full items-center justify-center rounded-xl bg-[#E91D24] px-6 py-3 font-medium text-white shadow-md transition-colors hover:bg-[#B8151B]"
+                className="mt-4 flex w-full items-center justify-center rounded-xl bg-[#F9010D] px-6 py-3 font-medium text-white shadow-md transition-colors hover:bg-[#F9010D]"
               >
                 Login
               </Link>
 
-              <Link href="/contact" onClick={closeMobileMenu} className="flex items-center justify-center mt-4 w-full px-6 py-3 bg-[#E91D24] text-white font-medium rounded-xl shadow-md hover:bg-[#B8151B] transition-colors">
+              <Link href="/contact" onClick={closeMobileMenu} className="flex items-center justify-center mt-4 w-full px-6 py-3 bg-[#F9010D] text-white font-medium rounded-xl shadow-md hover:bg-[#F9010D] transition-colors">
                 Enquire Now
               </Link>
             </div>
@@ -315,7 +315,7 @@ export default function Header() {
       {/* Floating Enquire Now Button */}
       <Link
         href="/contact"
-        className="fixed bottom-6 right-6 z-50 pointer-events-auto flex items-center justify-center px-4 py-2 text-sm md:px-6 md:py-3 md:text-base bg-[#E91D24] text-white font-medium rounded-full shadow-[0_4px_14px_0_rgba(233,29,36,0.39)] hover:shadow-[0_6px_20px_rgba(233,29,36,0.23)] hover:bg-[#B8151B] hover:-translate-y-0.5 transition-all duration-200"
+        className="fixed bottom-6 right-6 z-50 pointer-events-auto hidden md:flex items-center justify-center px-6 py-3 text-base bg-[#F9010D] text-white font-medium rounded-full shadow-[0_4px_14px_0_rgba(249,1,13,0.39)] hover:shadow-[0_6px_20px_rgba(249,1,13,0.23)] hover:bg-[#F9010D] hover:-translate-y-0.5 transition-all duration-200"
       >
         Enquire Now
       </Link>

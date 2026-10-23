@@ -86,7 +86,7 @@ export default function Page() {
             <h2 className="text-2xl font-bold text-[#002147] mb-3">What Is B.Tech Credit Transfer?</h2>
             <p className="text-base leading-relaxed text-justify">
               B.Tech credit transfer is a process that allows an engineering student to move the academic credits they have already earned at one institution toward a B.Tech program at a different, recognized university. Rather than starting over, completed semesters and subjects are evaluated by the receiving university and, where they match, counted toward the new degree. For students in Ernakulam considering a{' '}
-              <Link href="/b-tech-credit-transfer" className="text-[#8B0000] font-semibold hover:underline">
+              <Link href="/b-tech-credit-transfer" className="text-[#F9010D] font-semibold hover:underline">
                 B.Tech credit transfer
               </Link>
               , this is the starting point: understanding what can realistically be carried forward before applying.
@@ -143,7 +143,7 @@ export default function Page() {
             <h2 className="text-2xl font-bold text-[#002147] mb-3">Support for Students in Ernakulam</h2>
             <p className="text-base leading-relaxed text-justify">
               Edumentora's office serving the Kochi area sits within Ernakulam district, and the team there works with students from Ernakulam who are exploring a B.Tech credit transfer. That support covers explaining how the process works, helping organize the academic documents a university will ask for, and coordinating with an appropriate university for evaluation — guidance and coordination, rather than a guarantee of admission or how many credits will be approved, which stays the receiving university's decision.{' '}
-              <Link href="/contact" className="text-[#8B0000] font-semibold hover:underline">
+              <Link href="/contact" className="text-[#F9010D] font-semibold hover:underline">
                 Get in touch
               </Link>{' '}
               to start a conversation about your specific academic background.

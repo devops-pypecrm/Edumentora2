@@ -118,7 +118,7 @@ export default function ContactManager({ initialContacts }: { initialContacts: C
           <button
             type="submit"
             disabled={isPending}
-            className="self-end px-6 py-2 bg-[#8B0000] text-white font-medium rounded-xl hover:bg-[#8B0000]/90 transition-colors disabled:opacity-70 flex items-center gap-2"
+            className="self-end px-6 py-2 bg-[#F9010D] text-white font-medium rounded-xl hover:bg-[#F9010D]/90 transition-colors disabled:opacity-70 flex items-center gap-2"
           >
             <Plus className="w-5 h-5" />
             {editingContact ? 'Update Contact' : 'Add Contact'}
@@ -155,7 +155,7 @@ export default function ContactManager({ initialContacts }: { initialContacts: C
 
             {contact.description && (
               <p className="text-sm text-gray-500 mb-4 flex items-start gap-2">
-                <FileText className="w-4 h-4 text-[#E91D24] flex-shrink-0 mt-0.5" />
+                <FileText className="w-4 h-4 text-[#F9010D] flex-shrink-0 mt-0.5" />
                 <span>{contact.description}</span>
               </p>
             )}

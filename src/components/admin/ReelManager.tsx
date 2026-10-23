@@ -186,7 +186,7 @@ export default function ReelManager({ promoReels, successReels }: { promoReels: 
           <button
             type="submit"
             disabled={isPending || (addMode === 'url' && addUrlStatus !== 'valid')}
-            className="self-end px-6 py-2 bg-[#8B0000] text-white font-medium rounded-xl hover:bg-[#8B0000]/90 transition-colors disabled:opacity-50"
+            className="self-end px-6 py-2 bg-[#F9010D] text-white font-medium rounded-xl hover:bg-[#F9010D]/90 transition-colors disabled:opacity-50"
           >
             {isPending ? 'Uploading...' : 'Add Video'}
           </button>

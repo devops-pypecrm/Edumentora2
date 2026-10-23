@@ -59,19 +59,19 @@ export default function StatsSection({ universities = [] }: { universities?: Sta
         viewport={{ once: true }}
         className="relative z-10 flex flex-col items-center text-center mb-10"
       >
-        <span className="text-[#E91D24] text-[13px] md:text-sm font-bold tracking-[0.2em] mb-3 uppercase font-[Poppins]">
+        <span className="text-[#F9010D] text-[13px] md:text-sm font-bold tracking-[0.2em] mb-3 uppercase font-[Poppins]">
           OUR IMPACT
         </span>
         <h2 className="text-[36px] md:text-[48px] font-bold text-[#002147] font-[Playfair_Display] leading-[1.15] mb-5 max-w-4xl">
           Edumentora Makes<br />
-          <span className="text-[#E91D24]">Restarting</span> your Education Easier
+          <span className="text-[#F9010D]">Restarting</span> your Education Easier
         </h2>
-        <div className="w-20 h-[2px] bg-[#E91D24] rounded-full mb-8"></div>
+        <div className="w-20 h-[2px] bg-[#F9010D] rounded-full mb-8"></div>
 
         <h3 className="text-[20px] md:text-[24px] font-semibold text-[#002147] font-[Poppins]">
           <Link
             href="/universities"
-            className="hover:text-[#E91D24] transition-colors underline decoration-[#E91D24] decoration-2 underline-offset-4"
+            className="hover:text-[#F9010D] transition-colors underline decoration-[#F9010D] decoration-2 underline-offset-4"
           >
             Visit Our Trusted Universities
           </Link>
@@ -100,18 +100,18 @@ export default function StatsSection({ universities = [] }: { universities?: Sta
             <path
               className="stats-connector-line opacity-70"
               d="M 130,100 C 300,50 400,160 600,100 C 800,40 900,150 1070,100"
-              stroke="#E91D24"
+              stroke="#F9010D"
               strokeWidth="2"
               strokeDasharray="6 6"
               fill="none"
             />
             {/* Connection nodes under each card (approximate positions corresponding to the offsets) */}
-            <circle cx="130" cy="100" r="4" fill="#E91D24" />
-            <circle cx="340" cy="72" r="4" fill="#E91D24" />
-            <circle cx="510" cy="120" r="4" fill="#E91D24" />
-            <circle cx="680" cy="80" r="4" fill="#E91D24" />
-            <circle cx="850" cy="128" r="4" fill="#E91D24" />
-            <circle cx="1070" cy="100" r="4" fill="#E91D24" />
+            <circle cx="130" cy="100" r="4" fill="#F9010D" />
+            <circle cx="340" cy="72" r="4" fill="#F9010D" />
+            <circle cx="510" cy="120" r="4" fill="#F9010D" />
+            <circle cx="680" cy="80" r="4" fill="#F9010D" />
+            <circle cx="850" cy="128" r="4" fill="#F9010D" />
+            <circle cx="1070" cy="100" r="4" fill="#F9010D" />
           </svg>
         </div>
 
@@ -128,7 +128,7 @@ export default function StatsSection({ universities = [] }: { universities?: Sta
           >
             <div className="bg-white p-6 pb-8 flex flex-col items-center text-center relative w-full h-full"
                  style={{ clipPath: 'polygon(50% 0%, 100% 12%, 100% 88%, 50% 100%, 0% 88%, 0% 12%)', minHeight: '260px' }}>
-              <div className="w-12 h-12 rounded-full border-2 border-[#E91D24] text-[#E91D24] flex items-center justify-center mb-4 mt-2">
+              <div className="w-12 h-12 rounded-full border-2 border-[#F9010D] text-[#F9010D] flex items-center justify-center mb-4 mt-2">
                 <Briefcase size={24} strokeWidth={1.5} />
               </div>
               <h4 className="text-[48px] md:text-[56px] font-bold font-[Playfair_Display] text-[#002147] leading-none mb-3">
@@ -184,7 +184,7 @@ export default function StatsSection({ universities = [] }: { universities?: Sta
           >
             <div className="bg-white p-6 pb-8 flex flex-col items-center text-center relative w-full h-full"
                  style={{ clipPath: 'polygon(50% 0%, 100% 12%, 100% 88%, 50% 100%, 0% 88%, 0% 12%)', minHeight: '260px' }}>
-              <div className="w-12 h-12 rounded-full border-2 border-[#E91D24] text-[#E91D24] flex items-center justify-center mb-4 mt-2">
+              <div className="w-12 h-12 rounded-full border-2 border-[#F9010D] text-[#F9010D] flex items-center justify-center mb-4 mt-2">
                 <Award size={24} strokeWidth={1.5} />
               </div>
               <h4 className="text-[48px] md:text-[56px] font-bold font-[Playfair_Display] text-[#002147] leading-none mb-3">

@@ -49,7 +49,7 @@ export default function LocationsSection() {
                 <li key={index}>
                   <Link
                     href={location.url}
-                    className="block rounded-xl border border-transparent px-3 py-3 text-[15px] md:text-base font-semibold leading-relaxed text-[#002147] transition-colors duration-300 hover:border-gray-200 hover:bg-white hover:text-[#E91D24]"
+                    className="block rounded-xl border border-transparent px-3 py-3 text-[15px] md:text-base font-semibold leading-relaxed text-[#002147] transition-colors duration-300 hover:border-gray-200 hover:bg-white hover:text-[#F9010D]"
                   >
                     {location.name}
                   </Link>
@@ -87,7 +87,7 @@ export default function LocationsSection() {
                         <li key={index}>
                           <Link
                             href={location.url}
-                            className="block rounded-xl border border-transparent px-3 py-2.5 text-[14px] font-semibold leading-relaxed text-[#002147] transition-colors duration-300 hover:border-gray-200 hover:bg-white hover:text-[#E91D24]"
+                            className="block rounded-xl border border-transparent px-3 py-2.5 text-[14px] font-semibold leading-relaxed text-[#002147] transition-colors duration-300 hover:border-gray-200 hover:bg-white hover:text-[#F9010D]"
                           >
                             {location.name}
                           </Link>

@@ -45,18 +45,18 @@ export default function DiplomaCreditTransferPage() {
             </h3>
             <p className="text-base leading-relaxed text-justify">
               Diploma holders exploring their options sometimes come across two different terms — academic credit transfer and lateral entry — and it helps to know they are not automatically the same process. Lateral entry generally refers to a specific admission pathway, typically direct admission into the second year of a B.Tech program for diploma holders. Academic credit transfer, on the other hand, generally applies to students who have already started a degree program and want previously completed academic work evaluated and recognized at another institution, rather than beginning a new degree. Which pathway is relevant depends on your own academic background — not every diploma holder automatically qualifies for lateral entry, and not every diploma-level qualification can be transferred as credits, since eligibility and the specific academic process can vary by institution and program. You can read a more detailed comparison in{' '}
-              <Link href="/blog/6a96c7cc70298b504074e813" className="text-[#8B0000] font-semibold underline decoration-[#E91D24] underline-offset-2 hover:text-[#5C0000]">
+              <Link href="/blog/6a96c7cc70298b504074e813" className="text-[#F9010D] font-semibold underline decoration-[#F9010D] underline-offset-2 hover:text-[#F9010D]">
                 Credit Transfer vs Lateral Entry: What&apos;s the Difference?
               </Link>
               {' '}Diploma holders specifically considering a move into engineering can also see our{' '}
-              <Link href="/b-tech-credit-transfer" className="text-[#8B0000] font-semibold underline decoration-[#E91D24] underline-offset-2 hover:text-[#5C0000]">
+              <Link href="/b-tech-credit-transfer" className="text-[#F9010D] font-semibold underline decoration-[#F9010D] underline-offset-2 hover:text-[#F9010D]">
                 B.Tech credit transfer
               </Link>
               {' '}program.
             </p>
           </div>
 
-          <Link href="/about-us" className="mt-4 bg-[#8B0000] hover:bg-[#5C0000] text-white font-bold py-3.5 px-8 rounded-xl transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-lg inline-flex items-center group w-fit">
+          <Link href="/about-us" className="mt-4 bg-[#F9010D] hover:bg-[#F9010D] text-white font-bold py-3.5 px-8 rounded-xl transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-lg inline-flex items-center group w-fit">
             Know More <span className="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
           </Link>
         </div>

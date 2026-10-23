@@ -119,7 +119,7 @@ export default function ProfileManager() {
           <button
             type="submit"
             disabled={isPending}
-            className="w-full bg-[#8B0000] text-white font-medium py-3 rounded-xl hover:bg-[#8B0000]/90 transition-colors disabled:opacity-60"
+            className="w-full bg-[#F9010D] text-white font-medium py-3 rounded-xl hover:bg-[#F9010D]/90 transition-colors disabled:opacity-60"
           >
             {isPending ? 'Updating...' : 'Update Password'}
           </button>

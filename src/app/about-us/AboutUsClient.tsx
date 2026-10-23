@@ -54,7 +54,7 @@ export default function AboutUsClient({ faqs }: { faqs: Faq[] }) {
                   <h3 className={`font-bold text-lg transition-colors pr-4 ${openFaq === index ? 'text-white' : 'text-[#002147] group-hover:text-white'}`}>
                     {faq.q}
                   </h3>
-                  <span className={`transform transition-all duration-300 flex-shrink-0 ${openFaq === index ? 'text-white rotate-180' : 'text-[#E91D24] group-hover:text-white'}`}>
+                  <span className={`transform transition-all duration-300 flex-shrink-0 ${openFaq === index ? 'text-white rotate-180' : 'text-[#F9010D] group-hover:text-white'}`}>
                     ▼
                   </span>
                 </div>

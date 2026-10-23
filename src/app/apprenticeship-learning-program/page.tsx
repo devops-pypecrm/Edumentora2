@@ -27,7 +27,7 @@ export default function ApprenticeshipLearningProgram() {
             <p className="text-lg md:text-xl text-[#002147]/90 leading-relaxed text-justify">
               Edumentora’s apprenticeship credit transfer lets you carry your earned experience to new opportunities. Stay on track, keep learning, and grow without interruption.
             </p>
-            <button className="bg-[#8B0000] hover:bg-[#5C0000] text-white font-bold py-4 px-8 rounded-xl transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-lg w-max mt-4">
+            <button className="bg-[#F9010D] hover:bg-[#F9010D] text-white font-bold py-4 px-8 rounded-xl transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-lg w-max mt-4">
               Know More
             </button>
           </div>
@@ -49,7 +49,7 @@ export default function ApprenticeshipLearningProgram() {
           <h2 className="text-3xl md:text-4xl font-bold text-[#002147]">
             Employee Apprenticeship-Learning Program (EALP)
           </h2>
-          <h3 className="text-xl md:text-2xl font-semibold text-[#E91D24] leading-relaxed">
+          <h3 className="text-xl md:text-2xl font-semibold text-[#F9010D] leading-relaxed">
             Earn a Recognized Degree Faster by Converting Your Work Experience into Academic Credits
           </h3>
           <p className="text-lg text-gray-700 leading-relaxed text-justify md:text-center mt-6">
@@ -65,21 +65,21 @@ export default function ApprenticeshipLearningProgram() {
         </h2>
         <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-            <div className="w-14 h-14 bg-[#E91D24]/10 text-[#E91D24] rounded-2xl flex items-center justify-center font-black text-2xl mb-6 shadow-sm border border-[#E91D24]/25">1</div>
+            <div className="w-14 h-14 bg-[#F9010D]/10 text-[#F9010D] rounded-2xl flex items-center justify-center font-black text-2xl mb-6 shadow-sm border border-[#F9010D]/25">1</div>
             <h3 className="text-xl font-bold text-[#002147] mb-4">Work Experience as Academic Credits</h3>
             <p className="text-gray-600 leading-relaxed">
               If you have 2+ years of work experience, it will be evaluated and counted as part of your degree. You don’t need to study subjects where you already have practical knowledge.
             </p>
           </div>
           <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-            <div className="w-14 h-14 bg-[#E91D24]/10 text-[#E91D24] rounded-2xl flex items-center justify-center font-black text-2xl mb-6 shadow-sm border border-[#E91D24]/25">2</div>
+            <div className="w-14 h-14 bg-[#F9010D]/10 text-[#F9010D] rounded-2xl flex items-center justify-center font-black text-2xl mb-6 shadow-sm border border-[#F9010D]/25">2</div>
             <h3 className="text-xl font-bold text-[#002147] mb-4">Reduced Study Duration</h3>
             <p className="text-gray-600 leading-relaxed">
               Instead of the traditional 3–4-year degree, your work experience helps you complete the course faster. The exact duration depends on your experience and the course requirements.
             </p>
           </div>
           <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-            <div className="w-14 h-14 bg-[#E91D24]/10 text-[#E91D24] rounded-2xl flex items-center justify-center font-black text-2xl mb-6 shadow-sm border border-[#E91D24]/25">3</div>
+            <div className="w-14 h-14 bg-[#F9010D]/10 text-[#F9010D] rounded-2xl flex items-center justify-center font-black text-2xl mb-6 shadow-sm border border-[#F9010D]/25">3</div>
             <h3 className="text-xl font-bold text-[#002147] mb-4">Flexible Learning Options</h3>
             <p className="text-gray-600 leading-relaxed">
               Study through online classes, weekend sessions, or a hybrid model while continuing your job. Course content is industry-relevant, ensuring practical learning.
@@ -95,22 +95,22 @@ export default function ApprenticeshipLearningProgram() {
             {/* Available Programs */}
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-8">Available Degree Programs</h2>
-              <h3 className="text-xl font-semibold text-[#E91D24] mb-6 border-b border-[#002147]/15 pb-4">Undergraduate Programs</h3>
+              <h3 className="text-xl font-semibold text-[#F9010D] mb-6 border-b border-[#002147]/15 pb-4">Undergraduate Programs</h3>
               <ul className="space-y-4 text-lg text-gray-600 mb-10">
-                <li className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">BBA</strong> (Bachelor of Business Administration) – Ideal for business professionals</span></li>
-                <li className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">B.Com</strong> (Bachelor of Commerce) – Perfect for accountants and finance experts</span></li>
-                <li className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">BCA</strong> (Bachelor of Computer Applications) – Best for IT professionals</span></li>
-                <li className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">B.Sc IT</strong> (Bachelor of Science in Information Technology) – For software and tech experts</span></li>
-                <li className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">B.Tech</strong> (Bachelor of Technology) – Suitable for engineering professionals in various fields</span></li>
-                <li className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">BA</strong> (Bachelor of Arts) – Various specializations in humanities and social sciences</span></li>
+                <li className="flex items-start"><span className="text-[#F9010D] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">BBA</strong> (Bachelor of Business Administration) – Ideal for business professionals</span></li>
+                <li className="flex items-start"><span className="text-[#F9010D] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">B.Com</strong> (Bachelor of Commerce) – Perfect for accountants and finance experts</span></li>
+                <li className="flex items-start"><span className="text-[#F9010D] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">BCA</strong> (Bachelor of Computer Applications) – Best for IT professionals</span></li>
+                <li className="flex items-start"><span className="text-[#F9010D] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">B.Sc IT</strong> (Bachelor of Science in Information Technology) – For software and tech experts</span></li>
+                <li className="flex items-start"><span className="text-[#F9010D] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">B.Tech</strong> (Bachelor of Technology) – Suitable for engineering professionals in various fields</span></li>
+                <li className="flex items-start"><span className="text-[#F9010D] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">BA</strong> (Bachelor of Arts) – Various specializations in humanities and social sciences</span></li>
               </ul>
 
-              <h3 className="text-xl font-semibold text-[#E91D24] mb-6 border-b border-[#002147]/15 pb-4">Postgraduate Programs</h3>
+              <h3 className="text-xl font-semibold text-[#F9010D] mb-6 border-b border-[#002147]/15 pb-4">Postgraduate Programs</h3>
               <ul className="space-y-4 text-lg text-gray-600">
-                <li className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">MBA</strong> (Master of Business Administration) – For career growth in management</span></li>
-                <li className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">M.Com</strong> (Master of Commerce) – Advanced knowledge for commerce and finance professionals</span></li>
-                <li className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">MCA</strong> (Master of Computer Applications) – Higher studies in IT and computer applications</span></li>
-                <li className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">M.Tech</strong> (Master of Technology) – For engineers looking for specialization and advanced knowledge</span></li>
+                <li className="flex items-start"><span className="text-[#F9010D] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">MBA</strong> (Master of Business Administration) – For career growth in management</span></li>
+                <li className="flex items-start"><span className="text-[#F9010D] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">M.Com</strong> (Master of Commerce) – Advanced knowledge for commerce and finance professionals</span></li>
+                <li className="flex items-start"><span className="text-[#F9010D] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">MCA</strong> (Master of Computer Applications) – Higher studies in IT and computer applications</span></li>
+                <li className="flex items-start"><span className="text-[#F9010D] mr-3 font-bold text-xl">➤</span> <span><strong className="text-[#002147]">M.Tech</strong> (Master of Technology) – For engineers looking for specialization and advanced knowledge</span></li>
               </ul>
             </div>
 
@@ -118,10 +118,10 @@ export default function ApprenticeshipLearningProgram() {
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-8">Who Can Apply?</h2>
               <ul className="space-y-4 text-lg text-gray-600">
-                <li className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span>Working professionals who discontinued their studies and want to complete their degree.</span></li>
-                <li className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span>Employees with 2+ years of industry experience who want an academic qualification.</span></li>
-                <li className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span>People seeking career growth and better job opportunities.</span></li>
-                <li className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span>Corporate professionals who want to upskill and move up the career ladder.</span></li>
+                <li className="flex items-start"><span className="text-[#F9010D] mr-3 font-bold text-xl">➤</span> <span>Working professionals who discontinued their studies and want to complete their degree.</span></li>
+                <li className="flex items-start"><span className="text-[#F9010D] mr-3 font-bold text-xl">➤</span> <span>Employees with 2+ years of industry experience who want an academic qualification.</span></li>
+                <li className="flex items-start"><span className="text-[#F9010D] mr-3 font-bold text-xl">➤</span> <span>People seeking career growth and better job opportunities.</span></li>
+                <li className="flex items-start"><span className="text-[#F9010D] mr-3 font-bold text-xl">➤</span> <span>Corporate professionals who want to upskill and move up the career ladder.</span></li>
               </ul>
             </div>
           </div>
@@ -146,23 +146,23 @@ export default function ApprenticeshipLearningProgram() {
           <div className="bg-gray-50 border border-gray-100 rounded-3xl p-8 md:p-12 shadow-sm">
             <ul className="space-y-5 text-lg text-gray-700 mb-10">
               <li className="flex items-start">
-                <span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span>
+                <span className="text-[#F9010D] mr-3 font-bold text-xl">➤</span>
                 <span><strong>Complete Your Degree Faster</strong> – Work experience reduces study time.</span>
               </li>
               <li className="flex items-start">
-                <span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span>
+                <span className="text-[#F9010D] mr-3 font-bold text-xl">➤</span>
                 <span><strong>Work & Study Together</strong> – No need to quit your job.</span>
               </li>
               <li className="flex items-start">
-                <span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span>
+                <span className="text-[#F9010D] mr-3 font-bold text-xl">➤</span>
                 <span><strong>Flexible Learning</strong> – Online, weekend, or hybrid classes available.</span>
               </li>
               <li className="flex items-start">
-                <span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span>
+                <span className="text-[#F9010D] mr-3 font-bold text-xl">➤</span>
                 <span><strong>Recognized Degree</strong> – Accepted for jobs, promotions, and further studies.</span>
               </li>
               <li className="flex items-start">
-                <span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span>
+                <span className="text-[#F9010D] mr-3 font-bold text-xl">➤</span>
                 <span><strong>Industry-Relevant Curriculum</strong> – Courses designed to match your field of work.</span>
               </li>
             </ul>

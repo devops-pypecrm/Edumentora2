@@ -63,7 +63,7 @@ export default function UniversitiesClient({ universities }: { universities: Uni
               onClick={() => setActiveFilter(filter)}
               className={`px-8 py-3 rounded-full font-medium text-[15px] tracking-wide transition-all duration-300 ${
                 activeFilter === filter
-                  ? 'bg-[#E91D24] text-white shadow-[0_8px_20px_-6px_rgba(233, 29, 36,0.5)] transform -translate-y-0.5'
+                  ? 'bg-[#F9010D] text-white shadow-[0_8px_20px_-6px_rgba(249,1,13,0.5)] transform -translate-y-0.5'
                   : 'bg-white text-gray-600 hover:bg-gray-50 hover:text-[#002147] shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] border border-gray-100 hover:border-gray-200'
               }`}
             >
@@ -109,7 +109,7 @@ export default function UniversitiesClient({ universities }: { universities: Uni
                 
                 {item.location && (
                   <div className="flex items-center text-gray-500 mb-5 text-[15px]">
-                    <MapPin className="w-4 h-4 mr-1.5 text-[#E91D24]" />
+                    <MapPin className="w-4 h-4 mr-1.5 text-[#F9010D]" />
                     {item.location}
                   </div>
                 )}
@@ -130,7 +130,7 @@ export default function UniversitiesClient({ universities }: { universities: Uni
 
                 {/* Bottom: Buttons */}
                 <div className="mt-auto flex gap-3 pt-2">
-                  <Link href={`/universities/${item.id}`} className="flex-1 bg-[#8B0000] hover:bg-[#5C0000] text-white text-[15px] font-medium py-3.5 px-4 rounded-xl flex items-center justify-center transition-colors shadow-sm">
+                  <Link href={`/universities/${item.id}`} className="flex-1 bg-[#F9010D] hover:bg-[#F9010D] text-white text-[15px] font-medium py-3.5 px-4 rounded-xl flex items-center justify-center transition-colors shadow-sm">
                     View Details
                   </Link>
                   <Link href="/contact" className="flex-1 bg-white hover:bg-gray-50 text-[#002147] text-[15px] font-medium py-3.5 px-4 rounded-xl border border-gray-200 flex items-center justify-center transition-colors">

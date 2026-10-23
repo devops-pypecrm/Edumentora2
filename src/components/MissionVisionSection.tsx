@@ -1,76 +1,66 @@
 'use client';
 
-import React from 'react';
-import { Target, Eye } from 'lucide-react';
+import { Eye, Target } from 'lucide-react';
+
+const items = [
+  {
+    number: '01',
+    title: 'Our Mission',
+    icon: Target,
+    accent: '#F9010D',
+    description:
+      'To empower students to overcome academic setbacks through a seamless, fully supported credit transfer pathway. We respect every previously earned credit, guide learners toward UGC-accredited universities, and help turn educational interruptions into renewed opportunities for lifelong success.',
+  },
+  {
+    number: '02',
+    title: 'Our Vision',
+    icon: Eye,
+    accent: '#002147',
+    description:
+      'To create an inclusive educational landscape where no student is held back by past hurdles. We champion flexible learning pathways that let students complete higher education without starting over and transform previous progress into lasting achievement.',
+  },
+];
 
 export default function MissionVisionSection() {
   return (
-    <section className="w-full max-w-[1400px] mx-auto px-4 md:px-12 lg:px-16 pb-4 pt-4 lg:pb-8 lg:pt-8 relative bg-white rounded-[2.5rem] overflow-hidden">
-      <div className="relative w-full mx-auto">
-        <div
-          className="relative rounded-[2rem] overflow-hidden w-full p-[12px]"
-          style={{
-            backgroundImage: 'repeating-linear-gradient(100deg, #5C3A21 0px, #8B5E34 5px, #6B4423 10px, #7A5233 15px, #5C3A21 20px)',
-          }}
-        >
-        <div className="relative bg-white rounded-[1.5rem] p-4 md:p-8 lg:p-10 overflow-hidden w-full h-full">
+    <section className="w-full bg-white py-14 md:py-20">
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 px-5 md:grid-cols-2 md:px-8">
+        {items.map((item, index) => {
+          const Icon = item.icon;
 
-        <div className="relative z-10 space-y-4 w-full">
-          {/* Heading — smaller on mobile, same text and same size from md: up */}
-          <h2 className="text-[26px] md:text-[44px] lg:text-[50px] font-[Poppins] font-extrabold text-[#002147] leading-[1.15] md:leading-[1.1] tracking-tight mb-2 md:mb-4">
-            Empowering Students<br className="hidden md:block"/>
-            <span className="text-[#E91D24]">Through Credit Transfer</span>
-          </h2>
-
-          {/* Desktop/tablet: original paragraph + Mission/Vision blocks, unchanged */}
-          <p className="hidden md:block text-[18px] text-[#002147]/85 leading-[1.8] w-full">
-            Resume your graduation or postgraduate education through Edumentora, a leading academic credit transfer institution. Transfer earned credits for B. Tech, engineering, and other programs to recognized universities, saving time and costs while achieving academic success.
-          </p>
-
-          <div className="hidden md:block space-y-2 pt-2">
-            <h3 className="text-[24px] font-semibold text-[#E91D24]">Our Mission</h3>
-            <p className="text-[15px] md:text-[16px] text-[#002147]/85 leading-[1.6] w-full text-justify">
-              At Edumentora, our mission is to empower students to overcome academic setbacks by providing a seamless and fully supported pathway for credit transfers. We ensure that every previously earned credit is respected, helping learners transition to UGC-accredited universities. Through personalized guidance, we strive to save students valuable time and financial resources, turning educational interruptions into renewed opportunities for lifelong success.
-            </p>
-          </div>
-
-          <div className="hidden md:block space-y-2 pt-2">
-            <h3 className="text-[24px] font-semibold text-[#002147]">Our Vision</h3>
-            <p className="text-[15px] md:text-[16px] text-[#002147]/85 leading-[1.6] w-full text-justify">
-              Our vision at Edumentora is to create an inclusive educational landscape where no student is left behind due to past hurdles. We envision a future where every individual has unrestricted access to complete their higher education without having to start from scratch. By breaking down academic barriers and championing flexible learning pathways, we aim to be India&apos;s most trusted partner in transforming past progress into lasting achievement.
-            </p>
-          </div>
-
-          {/* Mobile-only: shorter intro + Mission/Vision as simple bordered icon boxes */}
-          <div className="md:hidden space-y-3">
-            <p className="text-[14px] text-[#002147]/85 leading-[1.6] w-full">
-              Resume your education through Edumentora — transfer your earned credits to recognized universities and save time and money.
-            </p>
-
-            <div className="border border-[#E91D24]/25 rounded-xl px-3.5 py-3 bg-white">
-              <div className="flex items-center gap-2 mb-1.5">
-                <Target className="w-4 h-4 text-[#E91D24] shrink-0" />
-                <h3 className="text-[16px] font-semibold text-[#E91D24]">Our Mission</h3>
+          return (
+            <article
+              key={item.title}
+              className={`relative py-8 md:py-4 ${
+                index === 0
+                  ? 'border-b border-gray-200 md:border-b-0 md:border-r md:pr-12 lg:pr-16'
+                  : 'md:pl-12 lg:pl-16'
+              }`}
+            >
+              <div className="mb-7 flex items-center justify-between">
+                <span
+                  className="flex size-12 items-center justify-center rounded-full border"
+                  style={{ borderColor: `${item.accent}33`, color: item.accent }}
+                >
+                  <Icon className="size-5" strokeWidth={1.8} />
+                </span>
+                <span className="text-sm font-bold tracking-[0.25em] text-gray-300">
+                  {item.number}
+                </span>
               </div>
-              <p className="text-[13px] text-[#002147]/85 leading-[1.5]">
-                We help students overcome academic setbacks with a seamless, fully supported credit transfer process — respecting every credit earned and guiding you to UGC-accredited universities.
-              </p>
-            </div>
 
-            <div className="border border-[#002147]/25 rounded-xl px-3.5 py-3 bg-white">
-              <div className="flex items-center gap-2 mb-1.5">
-                <Eye className="w-4 h-4 text-[#002147] shrink-0" />
-                <h3 className="text-[16px] font-semibold text-[#002147]">Our Vision</h3>
-              </div>
-              <p className="text-[13px] text-[#002147]/85 leading-[1.5]">
-                An inclusive education system where no student is held back by past setbacks — with flexible pathways to complete your degree without starting over.
-              </p>
-            </div>
-          </div>
-        </div>
-        </div>
-      </div>
+              <h2 className="mb-4 text-3xl font-bold tracking-tight text-[#002147] md:text-4xl">
+                {item.title}
+              </h2>
 
+              <div className="mb-6 h-1 w-12 rounded-full" style={{ backgroundColor: item.accent }} />
+
+              <p className="max-w-xl text-[15px] leading-7 text-slate-600 md:text-base md:leading-8">
+                {item.description}
+              </p>
+            </article>
+          );
+        })}
       </div>
     </section>
   );

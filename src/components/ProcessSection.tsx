@@ -59,7 +59,7 @@ export default function ProcessSection() {
             <h2 className="text-4xl md:text-5xl font-bold text-[#002147] leading-tight mb-4">
               Ready To Grow with Edumentora
             </h2>
-            <div className="w-16 h-1.5 bg-[#E91D24] rounded-full mb-12"></div>
+            <div className="w-16 h-1.5 bg-[#F9010D] rounded-full mb-12"></div>
           </motion.div>
 
           <div className="flex flex-col gap-6">
@@ -122,7 +122,7 @@ export default function ProcessSection() {
                   {/* Left or Right Content Card */}
                   <div className={`w-full md:w-[45%] flex ${index % 2 === 0 ? 'justify-end' : 'justify-start'}`}>
                     <div className="bg-white rounded-2xl p-6 shadow-xl hover:-translate-y-1 transition-transform duration-300 w-full group cursor-pointer relative overflow-hidden border border-gray-50">
-                      <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 text-[#E91D24]">
+                      <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 text-[#F9010D]">
                         <ArrowRight size={20} />
                       </div>
                       <h4 className="text-lg font-bold text-[#002147] mb-1 pr-6">{process.title}</h4>

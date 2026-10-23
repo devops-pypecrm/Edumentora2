@@ -35,7 +35,7 @@ function renderInlineLinks(text: string, keyPrefix: string) {
   while ((match = linkPattern.exec(text)) !== null) {
     if (match.index > lastIndex) nodes.push(text.slice(lastIndex, match.index));
     nodes.push(
-      <Link key={`${keyPrefix}-link-${i++}`} href={match[2]} className="text-[#8B0000] font-semibold underline decoration-[#E91D24] underline-offset-2 hover:text-[#5C0000]">
+      <Link key={`${keyPrefix}-link-${i++}`} href={match[2]} className="text-[#F9010D] font-semibold underline decoration-[#F9010D] underline-offset-2 hover:text-[#F9010D]">
         {match[1]}
       </Link>
     );
@@ -218,7 +218,7 @@ export default async function BlogDetailPage(props: { params: Promise<{ id: stri
           </Link>
           
           <div className="flex flex-wrap items-center gap-4 mb-4">
-            <span className="px-4 py-1.5 bg-white/10 text-red-200 text-sm font-semibold rounded-full border border-white/20 backdrop-blur-md">
+            <span className="px-4 py-1.5 bg-white/10 text-[#F9010D] text-sm font-semibold rounded-full border border-white/20 backdrop-blur-md">
               {blog.category}
             </span>
             <div className="flex items-center gap-2 text-white/70 text-sm font-medium">
@@ -303,7 +303,7 @@ export default async function BlogDetailPage(props: { params: Promise<{ id: stri
                         </div>
                       )}
                       <div>
-                        <h4 className="text-sm font-bold text-[#002147] line-clamp-2 group-hover:text-[#E91D24] transition-colors mb-1">
+                        <h4 className="text-sm font-bold text-[#002147] line-clamp-2 group-hover:text-[#F9010D] transition-colors mb-1">
                           {recent.sectionDis}
                         </h4>
                         <div className="text-xs text-gray-500 flex items-center gap-1">
@@ -336,7 +336,7 @@ export default async function BlogDetailPage(props: { params: Promise<{ id: stri
                 <div>
                   <textarea name="content" placeholder="Comment *" required rows={4} className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#002147]/20 focus:border-[#002147] transition-all resize-none text-sm text-[#002147] placeholder:text-[#002147]/70"></textarea>
                 </div>
-                <button type="submit" className="w-full py-3 bg-[#8B0000] hover:bg-[#5C0000] text-white font-bold rounded-xl transition-colors duration-300 flex items-center justify-center gap-2">
+                <button type="submit" className="w-full py-3 bg-[#F9010D] hover:bg-[#F9010D] text-white font-bold rounded-xl transition-colors duration-300 flex items-center justify-center gap-2">
                   <Send className="w-4 h-4" /> Post comment
                 </button>
               </form>

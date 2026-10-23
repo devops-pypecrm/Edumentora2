@@ -111,7 +111,7 @@ export default function BTechCreditTransferClient({ faqs }: { faqs: Faq[] }) {
           <div className="relative rounded-[2.5rem] shadow-[0_20px_60px_-25px_rgba(0,33,71,0.2)] border border-gray-100 p-8 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-16 lg:gap-20 items-center overflow-hidden bg-white">
 
             {/* Background Decorative Blob */}
-            <div className="absolute top-[-20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-[#E91D24]/10 blur-[100px] -z-10 pointer-events-none"></div>
+            <div className="absolute top-[-20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-[#F9010D]/10 blur-[100px] -z-10 pointer-events-none"></div>
             <div className="absolute bottom-[-15%] left-[-10%] w-[400px] h-[400px] rounded-full bg-[#002147]/5 blur-[100px] -z-10 pointer-events-none"></div>
 
             {/* Left Side: Image */}
@@ -159,7 +159,7 @@ export default function BTechCreditTransferClient({ faqs }: { faqs: Faq[] }) {
 
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#002147] leading-tight tracking-tight">
                 Complete your B.Tech <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#002147] to-[#E91D24]">Without Starting Over!</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#002147] to-[#F9010D]">Without Starting Over!</span>
               </h2>
 
               <div className="space-y-5">
@@ -189,7 +189,7 @@ export default function BTechCreditTransferClient({ faqs }: { faqs: Faq[] }) {
                 </div>
               </div>
 
-              <Link href="#educational-mobility" className="mt-8 relative inline-flex items-center justify-center px-8 py-4 font-bold text-white transition-all duration-300 bg-[#8B0000] hover:bg-[#5C0000] rounded-full overflow-hidden group w-fit shadow-md hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8B0000] focus-visible:ring-offset-2">
+              <Link href="#educational-mobility" className="mt-8 relative inline-flex items-center justify-center px-8 py-4 font-bold text-white transition-all duration-300 bg-[#F9010D] hover:bg-[#F9010D] rounded-full overflow-hidden group w-fit shadow-md hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F9010D] focus-visible:ring-offset-2">
                 <span className="relative flex items-center gap-2">
                   Know More
                   <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
@@ -211,16 +211,16 @@ export default function BTechCreditTransferClient({ faqs }: { faqs: Faq[] }) {
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.7, ease: 'easeOut' }}
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#8B0000] text-white text-xs font-bold uppercase tracking-widest mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F9010D] text-white text-xs font-bold uppercase tracking-widest mb-6">
                 What Is
               </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#002147] leading-tight tracking-tight mb-2">
                 B.Tech
               </h2>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#8B0000] leading-tight tracking-tight mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#F9010D] leading-tight tracking-tight mb-6">
                 Credit Transfer?
               </h2>
-              <p className="text-[#E91D24] font-bold text-sm uppercase tracking-widest mb-3">
+              <p className="text-[#F9010D] font-bold text-sm uppercase tracking-widest mb-3">
                 Academic Credit Transfer
               </p>
               <p className="text-stone-600 text-lg leading-relaxed">
@@ -249,7 +249,7 @@ export default function BTechCreditTransferClient({ faqs }: { faqs: Faq[] }) {
                     className="flex gap-4"
                   >
                     <div className="w-11 h-11 rounded-xl bg-[#002147]/10 flex items-center justify-center flex-shrink-0">
-                      <item.icon className="w-5 h-5 text-[#8B0000]" />
+                      <item.icon className="w-5 h-5 text-[#F9010D]" />
                     </div>
                     <div>
                       <h4 className="text-lg font-bold text-[#002147] mb-1">{item.title}</h4>
@@ -277,7 +277,7 @@ export default function BTechCreditTransferClient({ faqs }: { faqs: Faq[] }) {
               <span className="text-[#002147] font-bold text-xs uppercase tracking-widest">Program Details</span>
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#002147] tracking-tight">
-              Everything You Need to <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#002147] to-[#E91D24]">Know</span>
+              Everything You Need to <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#002147] to-[#F9010D]">Know</span>
             </h2>
           </motion.div>
 
@@ -353,7 +353,7 @@ export default function BTechCreditTransferClient({ faqs }: { faqs: Faq[] }) {
         {/* Premium Programs Section */}
         <div className="bg-white py-[100px] relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
-            <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full bg-[#E91D24] blur-[120px]"></div>
+            <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full bg-[#F9010D] blur-[120px]"></div>
           </div>
 
           <div className="max-w-[1400px] mx-auto px-4 md:px-8 relative z-10 flex flex-col items-center">
@@ -370,9 +370,9 @@ export default function BTechCreditTransferClient({ faqs }: { faqs: Faq[] }) {
                 <span className="text-[#002147] font-bold text-xs uppercase tracking-widest">Choose Your Path</span>
               </div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#002147] mb-4 tracking-tight">
-                Our Transfer <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#002147] to-[#E91D24]">Programs</span>
+                Our Transfer <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#002147] to-[#F9010D]">Programs</span>
               </h2>
-              <div className="w-24 h-1.5 bg-gradient-to-r from-[#002147] to-[#E91D24] rounded-full mb-6"></div>
+              <div className="w-24 h-1.5 bg-gradient-to-r from-[#002147] to-[#F9010D] rounded-full mb-6"></div>
               <p className="text-stone-500 text-lg md:text-xl max-w-2xl mx-auto font-medium">Select the program that fits your educational background</p>
             </motion.div>
 
@@ -516,7 +516,7 @@ export default function BTechCreditTransferClient({ faqs }: { faqs: Faq[] }) {
                     {faq.q}
                   </h3>
                   <ChevronDown
-                    className={`w-5 h-5 flex-shrink-0 transition-all duration-300 ${openFaq === index ? 'text-white rotate-180' : 'text-[#E91D24] group-hover:text-white'}`}
+                    className={`w-5 h-5 flex-shrink-0 transition-all duration-300 ${openFaq === index ? 'text-white rotate-180' : 'text-[#F9010D] group-hover:text-white'}`}
                   />
                 </div>
                 <div className={`grid transition-[grid-template-rows] duration-500 ease-in-out ${openFaq === index ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>

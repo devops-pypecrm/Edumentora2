@@ -52,7 +52,7 @@ export default async function IntegrationPage({
 
           <button
             type="submit"
-            className="rounded-xl bg-[#8B0000] px-6 py-3 font-semibold text-white transition hover:bg-[#5C0000]"
+            className="rounded-xl bg-[#F9010D] px-6 py-3 font-semibold text-white transition hover:bg-[#F9010D]"
           >
             Save
           </button>

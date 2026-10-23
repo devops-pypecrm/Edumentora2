@@ -19,8 +19,8 @@ type Program = {
 function SectionDivider() {
   return (
     <div className="flex items-center gap-3 my-2">
-      <div className="w-10 h-1 bg-[#E91D24] rounded-full" />
-      <div className="w-4 h-1 bg-[#E91D24]/40 rounded-full" />
+      <div className="w-10 h-1 bg-[#F9010D] rounded-full" />
+      <div className="w-4 h-1 bg-[#F9010D]/40 rounded-full" />
     </div>
   );
 }
@@ -69,7 +69,7 @@ function CardsBlock({ block, bIndex }: { block: any; bIndex: number }) {
             className="group bg-white border border-gray-200 rounded-2xl p-6 md:p-8 hover:border-[#002147] hover:shadow-lg transition-all duration-300 relative overflow-hidden"
           >
             {/* Top accent bar */}
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#E91D24] to-[#002147] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#F9010D] to-[#002147] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
             {/* Card number */}
             <div className="w-10 h-10 rounded-xl bg-[#002147]/8 flex items-center justify-center mb-4">
               <span className="text-[#002147] font-extrabold text-sm">{String(cIndex + 1).padStart(2, '0')}</span>
@@ -104,7 +104,7 @@ function ArrowsBlock({ block, bIndex }: { block: any; bIndex: number }) {
           >
             {point.pointHeading && (
               <div className="flex items-center gap-3 mb-4 pb-4 border-b border-gray-100">
-                <div className="w-8 h-8 rounded-lg bg-[#E91D24] flex items-center justify-center flex-shrink-0">
+                <div className="w-8 h-8 rounded-lg bg-[#F9010D] flex items-center justify-center flex-shrink-0">
                   <span className="text-white font-bold text-xs">{pIndex + 1}</span>
                 </div>
                 <h4 className="text-lg font-bold text-[#002147]">{point.pointHeading}</h4>
@@ -142,7 +142,7 @@ function ApprenticeshipBlock({ block }: { block: any }) {
         <div key={idx} className={`bg-white ${idx !== overviews.length - 1 ? 'border-b border-gray-200' : ''}`}>
           <div className="max-w-4xl mx-auto px-4 md:px-8 py-20 text-left space-y-6">
             <h2 className="text-3xl md:text-4xl font-bold text-[#002147]">{overview.heading}</h2>
-            <h3 className="text-xl md:text-2xl font-semibold text-[#E91D24] leading-relaxed">{overview.subHeading}</h3>
+            <h3 className="text-xl md:text-2xl font-semibold text-[#F9010D] leading-relaxed">{overview.subHeading}</h3>
             <p className="text-lg text-gray-700 leading-relaxed text-left mt-6 whitespace-pre-line">{overview.paragraph}</p>
           </div>
         </div>
@@ -158,7 +158,7 @@ function ApprenticeshipBlock({ block }: { block: any }) {
             <div className="grid md:grid-cols-3 gap-8">
               {steps.map((item: any, i: number) => (
                 <div key={i} className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-                  <div className="w-14 h-14 bg-[#E91D24]/10 text-[#E91D24] rounded-2xl flex items-center justify-center font-black text-2xl mb-6 shadow-sm border border-[#E91D24]/25">{i + 1}</div>
+                  <div className="w-14 h-14 bg-[#F9010D]/10 text-[#F9010D] rounded-2xl flex items-center justify-center font-black text-2xl mb-6 shadow-sm border border-[#F9010D]/25">{i + 1}</div>
                   <h3 className="text-xl font-bold text-[#002147] mb-4">{item.heading}</h3>
                   <p className="text-gray-600 leading-relaxed">{item.description}</p>
                 </div>
@@ -179,10 +179,10 @@ function ApprenticeshipBlock({ block }: { block: any }) {
 
                 {block.ugPrograms?.length > 0 && (
                   <>
-                    <h3 className="text-xl font-semibold text-[#E91D24] mb-6 border-b border-[#002147]/15 pb-4">Undergraduate Programs</h3>
+                    <h3 className="text-xl font-semibold text-[#F9010D] mb-6 border-b border-[#002147]/15 pb-4">Undergraduate Programs</h3>
                     <ul className="space-y-4 text-lg text-gray-600 mb-10">
                       {block.ugPrograms.map((p: string, i: number) => (
-                        <li key={i} className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span>{p}</span></li>
+                        <li key={i} className="flex items-start"><span className="text-[#F9010D] mr-3 font-bold text-xl">➤</span> <span>{p}</span></li>
                       ))}
                     </ul>
                   </>
@@ -190,10 +190,10 @@ function ApprenticeshipBlock({ block }: { block: any }) {
 
                 {block.pgPrograms?.length > 0 && (
                   <>
-                    <h3 className="text-xl font-semibold text-[#E91D24] mb-6 border-b border-[#002147]/15 pb-4">Postgraduate Programs</h3>
+                    <h3 className="text-xl font-semibold text-[#F9010D] mb-6 border-b border-[#002147]/15 pb-4">Postgraduate Programs</h3>
                     <ul className="space-y-4 text-lg text-gray-600">
                       {block.pgPrograms.map((p: string, i: number) => (
-                        <li key={i} className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span>{p}</span></li>
+                        <li key={i} className="flex items-start"><span className="text-[#F9010D] mr-3 font-bold text-xl">➤</span> <span>{p}</span></li>
                       ))}
                     </ul>
                   </>
@@ -205,7 +205,7 @@ function ApprenticeshipBlock({ block }: { block: any }) {
                   <h2 className="text-3xl md:text-4xl font-bold mb-8">Who Can Apply?</h2>
                   <ul className="space-y-4 text-lg text-gray-600">
                     {block.whoCanApply.map((p: string, i: number) => (
-                      <li key={i} className="flex items-start"><span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span> <span>{p}</span></li>
+                      <li key={i} className="flex items-start"><span className="text-[#F9010D] mr-3 font-bold text-xl">➤</span> <span>{p}</span></li>
                     ))}
                   </ul>
                 </div>
@@ -226,7 +226,7 @@ function ApprenticeshipBlock({ block }: { block: any }) {
                 <ul className="space-y-5 text-lg text-gray-700 mb-10">
                   {block.points?.map((pt: string, i: number) => (
                     <li key={i} className="flex items-start">
-                      <span className="text-[#E91D24] mr-3 font-bold text-xl">➤</span>
+                      <span className="text-[#F9010D] mr-3 font-bold text-xl">➤</span>
                       <span>{pt}</span>
                     </li>
                   ))}
@@ -356,7 +356,7 @@ export default function ProgramFilter({ programs }: { programs: Program[] }) {
                   )}
 
                   {program.subHeading && (
-                    <p className="text-[#E91D24] font-bold text-sm md:text-base uppercase tracking-widest mb-3">
+                    <p className="text-[#F9010D] font-bold text-sm md:text-base uppercase tracking-widest mb-3">
                       {program.subHeading}
                     </p>
                   )}
@@ -365,7 +365,7 @@ export default function ProgramFilter({ programs }: { programs: Program[] }) {
                     {program.heading}
                   </h2>
 
-                  <div className="w-12 h-1 bg-[#E91D24] rounded-full mb-6" />
+                  <div className="w-12 h-1 bg-[#F9010D] rounded-full mb-6" />
 
                   <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-8">
                     {program.paragraph}
@@ -373,7 +373,7 @@ export default function ProgramFilter({ programs }: { programs: Program[] }) {
 
                   <Link
                     href="/about-us"
-                    className="inline-flex items-center gap-2 bg-[#8B0000] hover:bg-[#5C0000] text-white font-bold py-3 px-8 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 group text-base"
+                    className="inline-flex items-center gap-2 bg-[#F9010D] hover:bg-[#F9010D] text-white font-bold py-3 px-8 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 group text-base"
                   >
                     Know More
                     <span className="transform transition-transform group-hover:translate-x-1">→</span>
@@ -422,14 +422,14 @@ export default function ProgramFilter({ programs }: { programs: Program[] }) {
                               {w.type === 'text' && (
                                 <div>
                                   <h3 className="text-2xl font-bold text-[#002147] mb-3">{w.data?.heading}</h3>
-                                  <div className="w-10 h-1 bg-[#E91D24] rounded mb-4" />
+                                  <div className="w-10 h-1 bg-[#F9010D] rounded mb-4" />
                                   <p className="text-gray-600 leading-relaxed whitespace-pre-wrap">{w.data?.paragraph}</p>
                                 </div>
                               )}
 
                               {w.type === 'card' && (
                                 <div className="flex flex-col h-full relative group">
-                                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#E91D24] to-[#002147] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+                                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#F9010D] to-[#002147] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
                                   <div className="w-12 h-12 rounded-xl bg-[#002147]/8 flex items-center justify-center mb-5 mt-2">
                                     <span className="text-[#002147] font-extrabold text-sm">{String(w.i).slice(0,2).toUpperCase()}</span>
                                   </div>
@@ -444,8 +444,8 @@ export default function ProgramFilter({ programs }: { programs: Program[] }) {
                                   <ul className="space-y-3 flex-1">
                                     {w.data?.points?.map((pt: string, idx: number) => (
                                       <li key={idx} className="flex items-start gap-3 text-gray-600">
-                                        <div className="mt-1 w-5 h-5 rounded bg-[#E91D24]/10 flex items-center justify-center flex-shrink-0">
-                                          <span className="text-[#E91D24] font-bold text-xs">→</span>
+                                        <div className="mt-1 w-5 h-5 rounded bg-[#F9010D]/10 flex items-center justify-center flex-shrink-0">
+                                          <span className="text-[#F9010D] font-bold text-xs">→</span>
                                         </div>
                                         <span className="text-sm md:text-base">{pt}</span>
                                       </li>

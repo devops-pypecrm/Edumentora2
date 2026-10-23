@@ -141,7 +141,7 @@ export default function HeroCarouselManager({ initialSlides, showHeroContent }: 
             checked={showHeroContent}
             disabled={isPending}
             onChange={(event) => startTransition(() => setHeroContentVisibility(event.target.checked))}
-            className="size-4 accent-[#E91D24]"
+            className="size-4 accent-[#F9010D]"
           />
           Show content
         </label>
@@ -150,7 +150,7 @@ export default function HeroCarouselManager({ initialSlides, showHeroContent }: 
         <div>
           <h2 className="text-xl font-semibold text-[#002147]">Hero images <span className="ml-2 text-sm font-medium text-gray-400">{activeCount}/{initialSlides.length}</span></h2>
         </div>
-        <button onClick={() => setIsCreateOpen(true)} className="flex items-center justify-center gap-2 rounded-xl bg-[#8B0000] px-4 py-2.5 font-bold text-white transition-colors hover:bg-[#5C0000]">
+        <button onClick={() => setIsCreateOpen(true)} className="flex items-center justify-center gap-2 rounded-xl bg-[#F9010D] px-4 py-2.5 font-bold text-white transition-colors hover:bg-[#F9010D]">
           <Plus className="size-5" /> Add image
         </button>
       </div>
@@ -255,7 +255,7 @@ export default function HeroCarouselManager({ initialSlides, showHeroContent }: 
                 </div>
               )}
               {error && <p className="rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-700">{error}</p>}
-              <button type="submit" disabled={!sourceImage || isPending || processingImage} className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#8B0000] py-3 font-bold text-white hover:bg-[#5C0000] disabled:cursor-not-allowed disabled:opacity-50">
+              <button type="submit" disabled={!sourceImage || isPending || processingImage} className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#F9010D] py-3 font-bold text-white hover:bg-[#F9010D] disabled:cursor-not-allowed disabled:opacity-50">
                 {editingSlide ? <Save className="size-4" /> : <Plus className="size-4" />}
                 {isPending ? 'Saving...' : editingSlide ? 'Save changes' : 'Add to carousel'}
               </button>

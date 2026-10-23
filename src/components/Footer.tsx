@@ -71,13 +71,13 @@ export default function Footer() {
             <div className="lg:pl-4">
               <h4 className="text-black font-bold text-xl mb-8 relative inline-block pb-3">
                 Quick Links
-                <span className="absolute bottom-0 left-0 w-10 h-1 bg-[#E91D24]"></span>
+                <span className="absolute bottom-0 left-0 w-10 h-1 bg-[#F9010D]"></span>
               </h4>
               <ul className="space-y-4">
                 {quickLinks.map((link, index) => (
                   <li key={index}>
-                    <Link href={link.href} className="group flex items-center text-gray-700 hover:text-[#E91D24] transition-colors duration-300 font-medium text-sm">
-                      <ChevronRight className="w-4 h-4 mr-2 text-gray-500 group-hover:text-[#E91D24] transition-colors" />
+                    <Link href={link.href} className="group flex items-center text-gray-700 hover:text-[#F9010D] transition-colors duration-300 font-medium text-sm">
+                      <ChevronRight className="w-4 h-4 mr-2 text-gray-500 group-hover:text-[#F9010D] transition-colors" />
                       {link.name}
                     </Link>
                   </li>
@@ -89,13 +89,13 @@ export default function Footer() {
             <div>
               <h4 className="text-black font-bold text-xl mb-8 relative inline-block pb-3">
                 Credit Transfer
-                <span className="absolute bottom-0 left-0 w-10 h-1 bg-[#E91D24]"></span>
+                <span className="absolute bottom-0 left-0 w-10 h-1 bg-[#F9010D]"></span>
               </h4>
               <ul className="space-y-4">
                 {creditTransferLinks.map((link, index) => (
                   <li key={index}>
-                    <Link href={link.href} className="group flex items-center text-gray-700 hover:text-[#E91D24] transition-colors duration-300 font-medium text-sm">
-                      <ChevronRight className="w-4 h-4 mr-2 text-gray-500 group-hover:text-[#E91D24] transition-colors" />
+                    <Link href={link.href} className="group flex items-center text-gray-700 hover:text-[#F9010D] transition-colors duration-300 font-medium text-sm">
+                      <ChevronRight className="w-4 h-4 mr-2 text-gray-500 group-hover:text-[#F9010D] transition-colors" />
                       {link.name}
                     </Link>
                   </li>
@@ -107,7 +107,7 @@ export default function Footer() {
             <div>
               <h4 className="text-black font-bold text-xl mb-8 relative inline-block pb-3">
                 Locations
-                <span className="absolute bottom-0 left-0 w-10 h-1 bg-[#E91D24]"></span>
+                <span className="absolute bottom-0 left-0 w-10 h-1 bg-[#F9010D]"></span>
               </h4>
               <ul className="space-y-4">
                 {locations.map((loc, index) => (
@@ -125,7 +125,7 @@ export default function Footer() {
             <div>
               <h4 className="text-black font-bold text-xl mb-8 relative inline-block pb-3">
                 Contact Info
-                <span className="absolute bottom-0 left-0 w-10 h-1 bg-[#E91D24]"></span>
+                <span className="absolute bottom-0 left-0 w-10 h-1 bg-[#F9010D]"></span>
               </h4>
               
               <ul className="space-y-6">
@@ -175,7 +175,7 @@ export default function Footer() {
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-9 h-9 rounded-full border border-gray-200 bg-gray-50 flex items-center justify-center text-gray-700 hover:bg-[#E91D24] hover:text-white transition-all duration-300 transform hover:-translate-y-1"
+                        className="w-9 h-9 rounded-full border border-gray-200 bg-gray-50 flex items-center justify-center text-gray-700 hover:bg-[#F9010D] hover:text-white transition-all duration-300 transform hover:-translate-y-1"
                       >
                         <Icon className="w-4 h-4" />
                       </a>
@@ -193,10 +193,10 @@ export default function Footer() {
           
           {/* Diagonal Red Background Shape */}
           <div 
-            className="absolute inset-0 bg-[#E91D24] z-0 hidden lg:block shadow-[-10px_0_30px_rgba(0,0,0,0.35)]"
+            className="absolute inset-0 bg-[#F9010D] z-0 hidden lg:block shadow-[-10px_0_30px_rgba(0,0,0,0.35)]"
             style={{ clipPath: 'polygon(15% 0, 100% 0, 100% 100%, 0% 100%)' }}
           />
-          <div className="absolute inset-0 bg-[#E91D24] z-0 lg:hidden" />
+          <div className="absolute inset-0 bg-[#F9010D] z-0 lg:hidden" />
           
           {/* Content Container */}
           <div className="relative z-10 w-full h-full flex flex-col justify-center py-20 px-10 xl:px-14 lg:pl-20 xl:pl-24">
@@ -252,7 +252,7 @@ export default function Footer() {
           
           <button 
             onClick={scrollToTop}
-            className="w-10 h-10 rounded-full bg-[#E91D24] border-2 border-[#E91D24] flex items-center justify-center text-white hover:bg-transparent hover:text-[#E91D24] transition-all duration-300 shadow-[0_4px_15px_rgba(233,29,36,0.3)] group"
+            className="w-10 h-10 rounded-full bg-[#F9010D] border-2 border-[#F9010D] flex items-center justify-center text-white hover:bg-transparent hover:text-[#F9010D] transition-all duration-300 shadow-[0_4px_15px_rgba(249,1,13,0.3)] group"
             aria-label="Back to top"
           >
             <ArrowUp className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />

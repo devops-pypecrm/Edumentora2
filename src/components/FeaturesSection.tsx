@@ -22,7 +22,7 @@ export default function FeaturesSection() {
       linkHref: "#",
     },
     {
-      icon: <Building2 className="w-8 h-8 text-red-500" />,
+      icon: <Building2 className="w-8 h-8 text-[#F9010D]" />,
       title: "Recognized Universities",
       description: "Partnered with Glocal University, Radha Govind University, and IEC University to provide accredited and respected degrees.",
       linkText: "Explore Universities",
@@ -68,7 +68,7 @@ export default function FeaturesSection() {
             
             <Link 
               href={feature.linkHref}
-              className="inline-flex items-center text-black font-bold text-sm hover:text-red-600 transition-colors group mt-auto"
+              className="inline-flex items-center text-black font-bold text-sm hover:text-[#F9010D] transition-colors group mt-auto"
             >
               {feature.linkText}
               <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />

@@ -80,7 +80,7 @@ export default function EnquiryManager({ initialEnquiries }: { initialEnquiries:
               <input type="text" name="company" defaultValue={editingEnquiry.company || ''} placeholder="Company" className="w-full px-4 py-2 border rounded-xl" />
               <textarea name="message" defaultValue={editingEnquiry.message} placeholder="Enquiry / Message" required rows={4} className="w-full px-4 py-2 border rounded-xl resize-none" />
               <input type="text" name="source" defaultValue={editingEnquiry.source} placeholder="Source" required className="w-full px-4 py-2 border rounded-xl" />
-              <button type="submit" disabled={isPending} className="w-full flex items-center justify-center gap-2 bg-[#8B0000] text-white py-3 rounded-xl disabled:opacity-70"><Save className="w-4 h-4" />Save Changes</button>
+              <button type="submit" disabled={isPending} className="w-full flex items-center justify-center gap-2 bg-[#F9010D] text-white py-3 rounded-xl disabled:opacity-70"><Save className="w-4 h-4" />Save Changes</button>
             </form>
           </div>
         </div>

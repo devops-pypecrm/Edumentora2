@@ -63,19 +63,19 @@ export default function HomeGallerySection() {
         <div className="text-left flex flex-col items-start justify-center">
           <ScrollReveal delay={0.1}>
             <div className="inline-flex items-center justify-center space-x-2 bg-gray-50 px-4 py-2 rounded-full mb-4 border border-gray-100">
-              <span className="w-2 h-2 rounded-full bg-[#E91D24] animate-pulse"></span>
+              <span className="w-2 h-2 rounded-full bg-[#F9010D] animate-pulse"></span>
               <span className="text-[#002147] font-semibold text-sm tracking-wider uppercase">Campus Life</span>
             </div>
           </ScrollReveal>
 
           <ScrollReveal delay={0.2}>
             <h2 className="text-4xl md:text-5xl font-extrabold text-[#002147] tracking-tight mb-4">
-              Our Gallery
+              Our Stories
             </h2>
           </ScrollReveal>
 
           <ScrollReveal delay={0.3}>
-            <div className="w-24 h-1.5 bg-[#E91D24] rounded-full mb-6"></div>
+            <div className="w-24 h-1.5 bg-[#F9010D] rounded-full mb-6"></div>
           </ScrollReveal>
 
           <ScrollReveal delay={0.4}>
@@ -88,7 +88,7 @@ export default function HomeGallerySection() {
           <ScrollReveal delay={0.5}>
             <Link
               href="/gallery"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#8B0000] text-white font-bold rounded-xl hover:bg-[#5C0000] transition-all hover:scale-105 shadow-lg hover:shadow-xl group"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[#F9010D] text-white font-bold rounded-xl hover:bg-[#F9010D] transition-all hover:scale-105 shadow-lg hover:shadow-xl group"
             >
               <span>Explore More</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

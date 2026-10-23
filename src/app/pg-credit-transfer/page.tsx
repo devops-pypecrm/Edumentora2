@@ -52,7 +52,7 @@ export default function PGCreditTransferPage() {
             </p>
           </div>
 
-          <Link href="/about-us" className="mt-4 bg-[#8B0000] hover:bg-[#5C0000] text-white font-bold py-3.5 px-8 rounded-xl transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-lg inline-flex items-center group w-fit">
+          <Link href="/about-us" className="mt-4 bg-[#F9010D] hover:bg-[#F9010D] text-white font-bold py-3.5 px-8 rounded-xl transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-lg inline-flex items-center group w-fit">
             Know More <span className="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
           </Link>
         </div>

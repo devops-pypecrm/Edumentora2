@@ -212,7 +212,7 @@ export default function UniversityManager({ initialUniversities }: { initialUniv
         <h2 className="text-xl font-semibold text-[#002147]">Universities</h2>
         <button
           onClick={openCreateForm}
-          className="bg-[#8B0000] hover:bg-[#5C0000] text-white px-4 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors"
+          className="bg-[#F9010D] hover:bg-[#F9010D] text-white px-4 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors"
         >
           <Plus className="w-5 h-5" />
           Create New University
@@ -406,7 +406,7 @@ export default function UniversityManager({ initialUniversities }: { initialUniv
                     <label className="text-sm font-semibold text-gray-700">University Brochure (PDF)</label>
                     {brochureFile ? (
                       <div className="flex items-center gap-3 px-4 py-3 border border-gray-200 rounded-xl bg-gray-50">
-                        <FileText className="w-6 h-6 text-[#8B0000] flex-shrink-0" />
+                        <FileText className="w-6 h-6 text-[#F9010D] flex-shrink-0" />
                         <span className="flex-1 text-sm font-medium text-[#002147] truncate">{brochureFile.fileName}</span>
                         <label className="text-xs font-semibold text-blue-600 hover:text-blue-700 cursor-pointer">
                           Replace
@@ -467,7 +467,7 @@ export default function UniversityManager({ initialUniversities }: { initialUniv
                   <button
                     type="submit"
                     disabled={isPending}
-                    className="self-end px-6 py-2 bg-[#8B0000] text-white font-medium rounded-xl hover:bg-[#8B0000]/90 transition-colors disabled:opacity-70 flex items-center gap-2"
+                    className="self-end px-6 py-2 bg-[#F9010D] text-white font-medium rounded-xl hover:bg-[#F9010D]/90 transition-colors disabled:opacity-70 flex items-center gap-2"
                   >
                     <Save className="w-5 h-5" />
                     {editingUniversity ? 'Update University' : 'Add University'}
@@ -512,7 +512,7 @@ export default function UniversityManager({ initialUniversities }: { initialUniv
                   <a
                     href={viewingUniversity.brochure.fileUrl}
                     download={viewingUniversity.brochure.fileName}
-                    className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#8B0000]/5 text-[#8B0000] font-semibold text-sm rounded-xl hover:bg-[#8B0000]/10 transition-colors"
+                    className="inline-flex items-center gap-2 px-4 py-2.5 bg-[#F9010D]/5 text-[#F9010D] font-semibold text-sm rounded-xl hover:bg-[#F9010D]/10 transition-colors"
                   >
                     <Download className="w-4 h-4" />
                     Download Brochure

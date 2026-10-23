@@ -104,7 +104,7 @@ export default async function UniversityDetailPage(props: { params: Promise<{ id
           
           {university.location && (
             <div className="flex items-center text-[#002147]/90 text-lg">
-              <MapPin className="w-5 h-5 mr-2 text-[#E91D24]" />
+              <MapPin className="w-5 h-5 mr-2 text-[#F9010D]" />
               {university.location}
             </div>
           )}
@@ -133,8 +133,8 @@ export default async function UniversityDetailPage(props: { params: Promise<{ id
             {university.brochure && (
               <div className="mb-10 flex items-center justify-between gap-4 p-6 bg-[#002147]/5 rounded-2xl border border-[#002147]/10">
                 <div className="flex items-center gap-4 min-w-0">
-                  <div className="w-12 h-12 rounded-xl bg-[#8B0000]/10 flex items-center justify-center flex-shrink-0">
-                    <FileText className="w-6 h-6 text-[#8B0000]" />
+                  <div className="w-12 h-12 rounded-xl bg-[#F9010D]/10 flex items-center justify-center flex-shrink-0">
+                    <FileText className="w-6 h-6 text-[#F9010D]" />
                   </div>
                   <div className="min-w-0">
                     <h4 className="font-bold text-[#002147]">University Brochure</h4>
@@ -144,7 +144,7 @@ export default async function UniversityDetailPage(props: { params: Promise<{ id
                 <a
                   href={university.brochure.fileUrl}
                   download={university.brochure.fileName}
-                  className="flex-shrink-0 inline-flex items-center gap-2 bg-[#8B0000] hover:bg-[#5C0000] text-white font-bold text-sm py-3 px-5 rounded-xl shadow-sm transition-colors"
+                  className="flex-shrink-0 inline-flex items-center gap-2 bg-[#F9010D] hover:bg-[#F9010D] text-white font-bold text-sm py-3 px-5 rounded-xl shadow-sm transition-colors"
                 >
                   <Download className="w-4 h-4" />
                   Download
@@ -173,7 +173,7 @@ export default async function UniversityDetailPage(props: { params: Promise<{ id
             <AdditionalUniversityDetails university={university} />
 
             <div className="mt-12 flex justify-center">
-              <Link href="/contact" className="bg-[#8B0000] hover:bg-[#5C0000] text-white font-bold py-4 px-10 rounded-xl shadow-lg transition-transform hover:-translate-y-1">
+              <Link href="/contact" className="bg-[#F9010D] hover:bg-[#F9010D] text-white font-bold py-4 px-10 rounded-xl shadow-lg transition-transform hover:-translate-y-1">
                 Enquire Now
               </Link>
             </div>

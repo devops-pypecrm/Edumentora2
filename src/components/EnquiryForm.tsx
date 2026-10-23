@@ -162,7 +162,7 @@ export default function EnquiryForm({
       <button 
         type="submit" 
         disabled={status === 'loading'}
-        className={`w-full md:col-span-2 bg-[#8B0000] hover:bg-[#5C0000] text-white font-bold ${compact ? 'py-3' : 'py-4'} rounded-xl transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200 disabled:opacity-70 disabled:cursor-not-allowed`}
+        className={`w-full md:col-span-2 bg-[#F9010D] hover:bg-[#F9010D] text-white font-bold ${compact ? 'py-3' : 'py-4'} rounded-xl transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200 disabled:opacity-70 disabled:cursor-not-allowed`}
       >
         {status === 'loading' ? 'Sending...' : buttonText}
       </button>

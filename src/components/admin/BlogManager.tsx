@@ -152,7 +152,7 @@ export default function BlogManager({ initialBlogs }: { initialBlogs: Blog[] }) 
         <h2 className="text-xl font-semibold text-[#002147]">Blogs</h2>
         <button
           onClick={openCreateForm}
-          className="bg-[#8B0000] hover:bg-[#5C0000] text-white px-4 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors"
+          className="bg-[#F9010D] hover:bg-[#F9010D] text-white px-4 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors"
         >
           <Plus className="w-5 h-5" />
           Create New Blog
@@ -361,7 +361,7 @@ export default function BlogManager({ initialBlogs }: { initialBlogs: Blog[] }) 
                   <button
                     type="submit"
                     disabled={isPending}
-                    className="self-end px-8 py-3 bg-[#8B0000] text-white font-medium rounded-xl hover:bg-[#8B0000]/90 transition-colors disabled:opacity-70 flex items-center gap-2"
+                    className="self-end px-8 py-3 bg-[#F9010D] text-white font-medium rounded-xl hover:bg-[#F9010D]/90 transition-colors disabled:opacity-70 flex items-center gap-2"
                   >
                     {editingBlog ? <Pencil className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                     {editingBlog ? 'Update Blog' : 'Publish Blog'}

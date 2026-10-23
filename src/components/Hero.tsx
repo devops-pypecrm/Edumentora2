@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { motion, useReducedMotion, AnimatePresence } from 'framer-motion';
-import { ClipboardCheck, ShieldCheck, X, ArrowRight, Bell } from 'lucide-react';
+import { ClipboardCheck, ShieldCheck, Bell } from 'lucide-react';
 import EligibilityForm from '@/components/EligibilityForm';
 
 const LoopingTypewriterText = ({
@@ -102,7 +102,7 @@ const LoopingTypewriterText = ({
           .hero-doodle { animation: none !important; }
         }
       `}</style>
-      <span className="inline-block w-[5px] h-[0.9em] bg-[#E91D24] ml-1 align-middle" style={{ marginTop: '-4px', animation: 'typeBlink 1s infinite' }}></span>
+      <span className="inline-block w-[5px] h-[0.9em] bg-[#F9010D] ml-1 align-middle" style={{ marginTop: '-4px', animation: 'typeBlink 1s infinite' }}></span>
     </>
   );
 };
@@ -119,7 +119,6 @@ export default function Hero({ notifications = [], slides = [], showContent = tr
   const [marqueeItems] = useState<string[]>(notifications);
   const marqueeBarRef = useRef<HTMLDivElement>(null);
   const [marqueeGap, setMarqueeGap] = useState(24);
-  const [showEligibilityModal, setShowEligibilityModal] = useState(false);
 
   useEffect(() => {
     if (slides.length < 2 || shouldReduceMotion) return;
@@ -128,18 +127,6 @@ export default function Hero({ notifications = [], slides = [], showContent = tr
     }, 5000);
     return () => window.clearInterval(timer);
   }, [slides.length, shouldReduceMotion]);
-
-  // Lock body scroll while the mobile eligibility modal is open
-  useEffect(() => {
-    if (showEligibilityModal) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [showEligibilityModal]);
 
   // Keep the gap between notifications at a true 5% of the marquee bar's own width.
   useEffect(() => {
@@ -179,11 +166,11 @@ export default function Hero({ notifications = [], slides = [], showContent = tr
   ];
 
   return (
-    <section className="relative w-full h-[100dvh] flex overflow-hidden font-[Poppins]">
+    <section className={`relative w-full flex overflow-hidden font-[Poppins] ${showContent ? 'min-h-[100svh] md:h-[100dvh]' : 'h-auto md:h-[100dvh]'}`}>
 
       {/* Main hero area */}
-      <div className="relative flex-1 h-full flex flex-col pt-32 lg:pt-[100px] pb-0 overflow-hidden bg-[#eaf1fb]">
-        <div className="absolute inset-0 z-0 overflow-hidden">
+      <div className={`relative flex-1 flex flex-col pb-0 overflow-hidden ${showContent ? 'min-h-[100svh] md:h-full pt-[5.5rem] md:pt-32 lg:pt-[100px] bg-[#07111f]' : 'min-h-[100svh] pt-[5.5rem] md:h-full md:pt-32 lg:pt-[100px] bg-[#002147]'}`}>
+        <div className={`absolute z-0 overflow-hidden ${showContent ? 'inset-0' : 'inset-x-0 top-0 h-[100svh] md:inset-0 md:h-auto'}`}>
           {slides.length > 0 ? (
             <>
               {/* Preload every slide so switching never exposes the page background. */}
@@ -225,9 +212,10 @@ export default function Hero({ notifications = [], slides = [], showContent = tr
           )}
         </div>
         {slides.length === 0 && <div className="absolute inset-0 z-[1] bg-[#edf6ff]/65" />}
+        {showContent && <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/25 via-[#07111f]/60 to-[#07111f]/95 md:hidden" />}
 
         {slides.length > 1 && (
-          <div className="absolute bottom-20 right-6 z-20 flex items-center gap-2 rounded-full bg-white/90 px-3 py-2 shadow-lg backdrop-blur-sm md:bottom-24 md:right-10">
+          <div className="absolute right-4 top-[5.9rem] z-20 flex items-center gap-1.5 rounded-full bg-black/40 px-2.5 py-2 backdrop-blur-sm md:bottom-24 md:right-10 md:top-auto md:gap-2 md:bg-white/90 md:px-3 md:shadow-lg">
             {slides.map((slide, index) => (
               <button
                 key={slide.id}
@@ -235,27 +223,27 @@ export default function Hero({ notifications = [], slides = [], showContent = tr
                 onClick={() => setActiveSlide(index)}
                 aria-label={`Show hero image ${index + 1}`}
                 aria-current={index === visibleSlideIndex}
-                className={`h-2.5 rounded-full transition-all ${index === visibleSlideIndex ? 'w-7 bg-[#E91D24]' : 'w-2.5 bg-[#002147]/40 hover:bg-[#002147]/70'}`}
+                className={`h-2.5 rounded-full transition-all ${index === visibleSlideIndex ? 'w-7 bg-[#F9010D]' : 'w-2.5 bg-[#002147]/40 hover:bg-[#002147]/70'}`}
               />
             ))}
           </div>
         )}
 
-      <div className="relative max-w-6xl mx-auto w-full px-4 md:px-8 z-10 flex-1 min-h-0 flex flex-col overflow-y-auto pb-6">
-        <div className="flex flex-col md:flex-row flex-1 min-h-0 gap-8 lg:gap-10 items-stretch">
+      <div className={`relative z-10 mx-auto flex min-h-0 w-full max-w-6xl flex-1 flex-col overflow-visible px-5 pb-5 md:px-8 md:pb-6 ${showContent ? 'md:overflow-y-auto' : 'md:overflow-hidden'}`}>
+        <div className="flex flex-col md:flex-row flex-1 min-h-0 gap-4 md:gap-8 lg:gap-10 items-stretch">
 
           {showContent && <>
           {/* Mobile-only: trust badge pinned at the very top-left, above the (independently shifted) content block */}
           <motion.div
             {...riseIn(0.05)}
-            className="md:hidden self-start flex items-center gap-2.5 bg-white px-4 py-2.5 rounded-2xl shadow-[0_10px_30px_-10px_rgba(23,42,83,0.25)]"
+            className="md:hidden self-start flex max-w-[calc(100%-4rem)] items-center gap-2 bg-white/95 px-3 py-2 rounded-xl"
           >
             <ShieldCheck className="w-5 h-5 text-[#002147]" />
-            <span className="font-bold text-[#002147] text-sm">Academic Credit Transfer Guidance</span>
+            <span className="font-bold text-[#002147] text-xs sm:text-sm">Academic Credit Transfer Guidance</span>
           </motion.div>
 
           {/* 1: Content + paragraph */}
-          <div className="flex flex-col items-start justify-center text-left h-full md:flex-[1.3] -translate-y-[8%] md:translate-y-0">
+          <div className="flex flex-col items-start justify-center text-left h-full md:flex-[1.3]">
 
             {/* Trust badge card — desktop/tablet, unchanged */}
             <motion.div
@@ -266,7 +254,7 @@ export default function Hero({ notifications = [], slides = [], showContent = tr
               <span className="font-bold text-[#002147] text-sm">Academic Credit Transfer Guidance</span>
             </motion.div>
 
-            <h1 className="text-4xl sm:text-5xl xl:text-6xl font-extrabold text-[#002147] leading-[1.05] tracking-tight mb-6 h-[190px] sm:h-[170px] md:h-[200px] xl:h-[220px] flex flex-col justify-end">
+            <h1 className="text-[2rem] min-[380px]:text-[2.25rem] sm:text-5xl xl:text-6xl font-extrabold text-white md:text-[#002147] leading-[1.08] tracking-tight mt-8 md:mt-3 mb-4 min-h-[118px] sm:min-h-[160px] md:h-[200px] xl:h-[220px] flex flex-col justify-end drop-shadow-sm md:drop-shadow-none">
               <div>
                 <LoopingTypewriterText
                   speed={40}
@@ -276,10 +264,10 @@ export default function Hero({ notifications = [], slides = [], showContent = tr
                     { text: "Without Starting\nOver, Continue\nYour " },
                   ]}
                   loopSegments={[
-                    [{ text: "B.Tech", className: "text-[#E91D24]" }],
-                    [{ text: "UG", className: "text-[#E91D24]" }],
-                    [{ text: "PG", className: "text-[#E91D24]" }],
-                    [{ text: "Diploma", className: "text-[#E91D24]" }],
+                    [{ text: "B.Tech", className: "text-[#F9010D]" }],
+                    [{ text: "UG", className: "text-[#F9010D]" }],
+                    [{ text: "PG", className: "text-[#F9010D]" }],
+                    [{ text: "Diploma", className: "text-[#F9010D]" }],
                   ]}
                 />
               </div>
@@ -287,62 +275,58 @@ export default function Hero({ notifications = [], slides = [], showContent = tr
 
             <motion.p
               {...riseIn(0.12)}
-              className="text-[#002147] font-bold text-sm md:text-base tracking-wide mb-3"
+              className="inline-flex rounded-full bg-white px-3 py-1.5 text-[#002147] md:bg-transparent md:px-0 md:py-0 font-bold text-xs sm:text-sm md:text-base tracking-wide mb-3 md:mb-2"
             >
               Academic Credit Transfer Guidance in Kerala
             </motion.p>
 
             <motion.p
               {...riseIn(0.15)}
-              className="text-gray-600 text-base leading-relaxed mb-6 max-w-md"
+              className="text-white/90 md:text-gray-600 text-sm sm:text-base leading-relaxed mb-5 max-w-md"
             >
               Transfer the credits you&rsquo;ve already earned to a UGC-approved, AICTE-recognized university and pick up exactly where you left off — no entrance exam, no repeated years.
             </motion.p>
 
             <motion.div
               {...riseIn(0.3)}
-              className="flex flex-nowrap md:flex-wrap gap-2 md:gap-4 items-center mt-[5%] w-full md:w-auto"
+              className="grid w-full grid-cols-2 gap-2 md:flex md:flex-wrap md:gap-4 items-center mt-1 md:mt-[5%] md:w-auto"
             >
-              <a href="https://findyouruniversity.com/" target="_blank" rel="noopener noreferrer" className="flex-1 md:flex-none min-w-0">
-                <button className="w-full whitespace-nowrap bg-[#002147] hover:bg-[#001529] text-white font-bold px-2.5 py-2 text-[11px] md:px-7 md:py-3 md:text-base rounded-full shadow-lg shadow-[#002147]/25 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
+              <a href="https://findyouruniversity.com/" target="_blank" rel="noopener noreferrer" className="w-full sm:flex-1 md:flex-none min-w-0">
+                <button className="w-full whitespace-nowrap border border-white/50 bg-white/10 text-white font-bold px-3 py-3 text-[11px] md:bg-[#002147] md:border-0 md:px-7 md:py-3 md:text-base rounded-full backdrop-blur-sm transition-all duration-300">
                   Find Your University
                 </button>
               </a>
-              <a href="/contact" className="flex-1 md:flex-none min-w-0">
-                <button className="w-full whitespace-nowrap bg-[#E91D24] hover:bg-[#B8151B] text-white font-bold px-2.5 py-2 text-[11px] md:px-7 md:py-3 md:text-base rounded-full shadow-lg shadow-[#E91D24]/20 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
+              <a href="/contact" className="w-full sm:flex-1 md:flex-none min-w-0">
+                <button className="w-full whitespace-nowrap bg-[#F9010D] text-white font-bold px-3 py-3 text-[11px] md:px-7 md:py-3 md:text-base rounded-full transition-all duration-300">
                   Book a Free Consultation
                 </button>
               </a>
             </motion.div>
 
             {/* Mobile-only widget — replaces the inline eligibility form; tap to open it in a modal */}
-            <motion.button
-              type="button"
-              {...riseIn(0.4)}
-              onClick={() => setShowEligibilityModal(true)}
-              className="md:hidden mt-5 w-full flex items-center justify-between gap-3 bg-white border-2 border-[#002147]/70 rounded-2xl px-5 py-4 shadow-[0_10px_30px_-10px_rgba(23,42,83,0.25)] hover:-translate-y-0.5 transition-transform"
-            >
-              <span className="flex items-center gap-3">
-                <span className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-50 shrink-0">
-                  <ClipboardCheck className="w-5 h-5 text-[#002147]" />
-                </span>
-                <span className="text-left">
-                  <span className="block text-sm font-bold text-[#002147]">Check Your Eligibility</span>
-                  <span className="block text-xs text-gray-500">Get a quick eligibility review</span>
-                </span>
-              </span>
-              <ArrowRight className="w-5 h-5 text-[#002147] shrink-0" />
-            </motion.button>
           </div>
 
           {/* 3: Check Your Eligibility Now form, with accent glow + doodles — hidden on mobile, replaced by a tap-to-open widget below */}
           </>}
 
           <motion.div
+            {...riseIn(showContent ? 0.4 : 0.1)}
+            className={`md:hidden w-full rounded-[1.5rem] border-[3px] border-[#002147]/70 bg-white p-4 ${showContent ? 'mt-7' : 'mt-[42svh] mb-3'}`}
+          >
+            <div className="mb-2 flex w-fit items-center gap-2 rounded-full bg-blue-50 px-2.5 py-1">
+              <ClipboardCheck className="size-4 text-[#002147]" />
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#002147]">Fast Assessment</span>
+            </div>
+            <h3 className="mb-1 text-lg font-bold text-[#002147]">Check Your Eligibility Now</h3>
+            <p className="mb-4 text-sm leading-5 text-gray-600">Get a quick review of your credit transfer eligibility in just a few steps.</p>
+            <EligibilityForm className="space-y-3" />
+          </motion.div>
+
+          <motion.div
             initial={{ opacity: 0, scale: shouldReduceMotion ? 1 : 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: shouldReduceMotion ? 0.01 : 0.7, delay: 0.15, ease: 'easeOut' }}
-            className="hidden md:flex relative w-full h-full items-center justify-center md:justify-end md:flex-1"
+            className={`hidden md:flex relative w-full h-full items-center justify-center md:justify-end ${showContent ? 'md:flex-1' : ''}`}
           >
             {/* Decorative doodles — gentle float, disabled under prefers-reduced-motion */}
             <svg
@@ -360,13 +344,13 @@ export default function Hero({ notifications = [], slides = [], showContent = tr
               <path d="M20 2 L23 15 L36 15 L25 23 L29 36 L20 28 L11 36 L15 23 L4 15 L17 15 Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
             </svg>
 
-            <div id="eligibility-form" className="relative w-full max-w-[360px] rounded-[2.5rem] border-4 border-[#002147]/70 shadow-[0_25px_60px_-20px_rgba(23,42,83,0.35)] bg-white p-6 scroll-mt-32">
-              <div className="flex items-center gap-2 mb-3 rounded-full bg-blue-50 w-fit px-3 py-1.5">
+            <div id="eligibility-form" className="relative w-full max-w-[270px] min-[900px]:max-w-[290px] lg:max-w-[360px] rounded-[1.5rem] lg:rounded-[2.5rem] border-[3px] lg:border-4 border-[#002147]/70 shadow-[0_25px_60px_-20px_rgba(23,42,83,0.35)] bg-white p-3 min-[900px]:p-4 lg:p-6 scroll-mt-32">
+              <div className="flex items-center gap-2 mb-2 lg:mb-3 rounded-full bg-blue-50 w-fit px-2.5 py-1 lg:px-3 lg:py-1.5">
                 <ClipboardCheck className="w-4 h-4 text-[#002147]" />
                 <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#002147]">Fast Assessment</span>
               </div>
-              <h3 className="text-xl font-bold text-[#002147] mb-1">Check Your Eligibility Now</h3>
-              <p className="text-sm text-gray-600 mb-4 leading-6">Get a quick review of your credit transfer eligibility in just a few steps.</p>
+              <h3 className="text-[15px] min-[900px]:text-base lg:text-xl font-bold text-[#002147] mb-1">Check Your Eligibility Now</h3>
+              <p className="text-xs lg:text-sm text-gray-600 mb-3 lg:mb-4 leading-5 lg:leading-6">Get a quick review of your credit transfer eligibility in just a few steps.</p>
               <EligibilityForm className="space-y-3" />
             </div>
           </motion.div>
@@ -374,7 +358,7 @@ export default function Hero({ notifications = [], slides = [], showContent = tr
       </div>
 
       {/* Scrolling trust marquee — all notifications flow continuously in one strip, looping seamlessly */}
-      <div ref={marqueeBarRef} className="relative z-10 w-full shrink-0 bg-[#002147] py-3 overflow-hidden">
+      <div ref={marqueeBarRef} className="relative z-10 hidden w-full shrink-0 bg-[#002147] py-3 overflow-hidden md:block">
         {/* Bell icon pinned at the left, marking this strip as notifications — sits above the scrolling track, fades it out underneath, and links to the notifications page */}
         {displayMarqueeItems.length > 0 && (
           <Link
@@ -382,7 +366,7 @@ export default function Hero({ notifications = [], slides = [], showContent = tr
             aria-label="View all notifications"
             className="absolute inset-y-0 left-0 z-20 flex items-center pl-4 pr-8 bg-gradient-to-r from-[#002147] via-[#002147] to-transparent hover:opacity-80 transition-opacity"
           >
-            <Bell className="h-full w-auto max-h-9 text-[#E91D24]" />
+            <Bell className="h-full w-auto max-h-9 text-[#F9010D]" />
           </Link>
         )}
         {displayMarqueeItems.length > 0 && (
@@ -403,42 +387,6 @@ export default function Hero({ notifications = [], slides = [], showContent = tr
       </div>
 
       {/* Mobile eligibility widget modal — same content as the desktop inline form */}
-      <AnimatePresence>
-        {showEligibilityModal && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            data-lenis-prevent
-            className="md:hidden fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4"
-            onClick={() => setShowEligibilityModal(false)}
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96, y: 12 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.96, y: 12 }}
-              transition={{ duration: 0.2, ease: 'easeOut' }}
-              className="relative w-full max-w-[400px] max-h-[90vh] overflow-y-auto rounded-[2.5rem] border-4 border-[#002147]/70 shadow-[0_25px_60px_-20px_rgba(23,42,83,0.35)] bg-white p-6"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                type="button"
-                onClick={() => setShowEligibilityModal(false)}
-                className="absolute top-4 right-4 text-gray-400 hover:text-[#002147] bg-gray-50 hover:bg-gray-100 p-2 rounded-full transition-colors"
-              >
-                <X className="w-4 h-4" />
-              </button>
-              <div className="flex items-center gap-2 mb-3 rounded-full bg-blue-50 w-fit px-3 py-1.5">
-                <ClipboardCheck className="w-4 h-4 text-[#002147]" />
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#002147]">Fast Assessment</span>
-              </div>
-              <h3 className="text-xl font-bold text-[#002147] mb-1 pr-8">Check Your Eligibility Now</h3>
-              <p className="text-sm text-gray-600 mb-4 leading-6">Get a quick review of your credit transfer eligibility in just a few steps.</p>
-              <EligibilityForm className="space-y-3" />
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 }

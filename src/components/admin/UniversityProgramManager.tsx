@@ -75,14 +75,14 @@ function BulletListEditor({
     <div className="space-y-2">
       <div className="flex items-center justify-between">
         <label className="text-sm font-semibold text-gray-700">{label}</label>
-        <button type="button" onClick={addItem} className="text-[#8B0000] text-xs font-bold flex items-center gap-1 hover:text-[#5C0000]">
+        <button type="button" onClick={addItem} className="text-[#F9010D] text-xs font-bold flex items-center gap-1 hover:text-[#F9010D]">
           <Plus className="w-3.5 h-3.5" /> Add Bullet
         </button>
       </div>
       <div className="space-y-2">
         {items.map((item, i) => (
           <div key={i} className="flex gap-2 items-center">
-            <span className="text-[#E91D24] font-bold">•</span>
+            <span className="text-[#F9010D] font-bold">•</span>
             <input
               type="text"
               value={item}
@@ -175,7 +175,7 @@ export default function UniversityProgramManager({
         <h2 className="text-xl font-semibold text-[#002147]">University Programs</h2>
         <button
           onClick={openCreateForm}
-          className="bg-[#8B0000] hover:bg-[#5C0000] text-white px-4 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors"
+          className="bg-[#F9010D] hover:bg-[#F9010D] text-white px-4 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors"
         >
           <Plus className="w-5 h-5" />
           Create New University Program
@@ -359,7 +359,7 @@ export default function UniversityProgramManager({
                 <button
                   type="submit"
                   disabled={isPending}
-                  className="w-full flex items-center justify-center gap-2 bg-[#8B0000] text-white font-medium py-3 rounded-xl hover:bg-[#8B0000]/90 transition-colors disabled:opacity-70"
+                  className="w-full flex items-center justify-center gap-2 bg-[#F9010D] text-white font-medium py-3 rounded-xl hover:bg-[#F9010D]/90 transition-colors disabled:opacity-70"
                 >
                   <Save className="w-4 h-4" />
                   {editingProgram ? 'Update Program' : 'Save Program'}

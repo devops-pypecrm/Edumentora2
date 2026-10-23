@@ -84,7 +84,7 @@ export default function AboutSection() {
             About Edumentora
           </h2>
 
-          <div className="border-l-4 border-[#E91D24] pl-6">
+          <div className="border-l-4 border-[#F9010D] pl-6">
             <p className="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
               Edumentora makes restarting your education easy by transferring past credits to accredited universities, saving you time and money.
             </p>
@@ -95,8 +95,8 @@ export default function AboutSection() {
           </p>
 
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-[#E91D24]/10 rounded-xl flex items-center justify-center shadow-sm">
-              <Phone className="w-6 h-6 text-[#E91D24]" />
+            <div className="w-12 h-12 bg-[#F9010D]/10 rounded-xl flex items-center justify-center shadow-sm">
+              <Phone className="w-6 h-6 text-[#F9010D]" />
             </div>
             <div>
               <p className="text-gray-500 text-sm font-medium">Call Us Anytime</p>
@@ -105,7 +105,7 @@ export default function AboutSection() {
           </div>
 
           <div>
-            <button className="bg-[#8B0000] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#8B0000]/90 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-300">
+            <button className="bg-[#F9010D] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#F9010D]/90 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-300">
               About Us
             </button>
           </div>

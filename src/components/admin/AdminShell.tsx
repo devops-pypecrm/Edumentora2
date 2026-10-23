@@ -33,7 +33,7 @@ export default function AdminShell({
         {/* Collapse Toggle Button */}
         <button
           onClick={() => setCollapsed(v => !v)}
-          className="absolute -right-3.5 top-6 z-50 w-7 h-7 bg-[#002147] border-2 border-white/20 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-[#E91D24] hover:border-[#E91D24] transition-all"
+          className="absolute -right-3.5 top-6 z-50 w-7 h-7 bg-[#002147] border-2 border-white/20 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-[#F9010D] hover:border-[#F9010D] transition-all"
           title={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
         >
           {collapsed
@@ -50,7 +50,7 @@ export default function AdminShell({
           ) : (
             <>
               <h2 className="text-xl font-bold text-white mb-1 whitespace-nowrap">Edumentora</h2>
-              <p className="text-[#E91D24] text-xs font-bold tracking-widest uppercase whitespace-nowrap">Admin Panel</p>
+              <p className="text-[#F9010D] text-xs font-bold tracking-widest uppercase whitespace-nowrap">Admin Panel</p>
             </>
           )}
         </div>

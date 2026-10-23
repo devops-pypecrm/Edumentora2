@@ -53,7 +53,7 @@ export default function NotificationManager({ initialNotifications }: { initialN
         <h2 className="text-xl font-semibold text-[#002147]">Notifications</h2>
         <button
           onClick={() => setIsFormOpen(true)}
-          className="bg-[#8B0000] hover:bg-[#5C0000] text-white px-4 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors"
+          className="bg-[#F9010D] hover:bg-[#F9010D] text-white px-4 py-2 rounded-lg font-bold flex items-center gap-2 transition-colors"
         >
           <Plus className="w-5 h-5" />
           Create Notification
@@ -157,7 +157,7 @@ export default function NotificationManager({ initialNotifications }: { initialN
               <button
                 type="submit"
                 disabled={isPending}
-                className="w-full flex items-center justify-center gap-2 bg-[#8B0000] text-white font-medium py-3 rounded-xl hover:bg-[#8B0000]/90 transition-colors disabled:opacity-70"
+                className="w-full flex items-center justify-center gap-2 bg-[#F9010D] text-white font-medium py-3 rounded-xl hover:bg-[#F9010D]/90 transition-colors disabled:opacity-70"
               >
                 <Plus className="w-4 h-4" />
                 Create Notification
@@ -191,7 +191,7 @@ export default function NotificationManager({ initialNotifications }: { initialN
               <button
                 type="submit"
                 disabled={isPending}
-                className="w-full flex items-center justify-center gap-2 bg-[#8B0000] text-white font-medium py-3 rounded-xl hover:bg-[#8B0000]/90 transition-colors disabled:opacity-70"
+                className="w-full flex items-center justify-center gap-2 bg-[#F9010D] text-white font-medium py-3 rounded-xl hover:bg-[#F9010D]/90 transition-colors disabled:opacity-70"
               >
                 <Save className="w-4 h-4" />
                 Save Changes

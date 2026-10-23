@@ -35,15 +35,15 @@ export default function AdminLogin() {
     <div className="relative min-h-screen flex items-center justify-center p-4 font-[Poppins] overflow-hidden bg-[#002147]">
       {/* Blurred decorative backdrop — nothing else is shown behind the form */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-24 -left-24 w-[420px] h-[420px] bg-[#E91D24]/40 rounded-full blur-[100px]" />
-        <div className="absolute -bottom-24 -right-24 w-[420px] h-[420px] bg-[#8B0000]/40 rounded-full blur-[100px]" />
+        <div className="absolute -top-24 -left-24 w-[420px] h-[420px] bg-[#F9010D]/40 rounded-full blur-[100px]" />
+        <div className="absolute -bottom-24 -right-24 w-[420px] h-[420px] bg-[#F9010D]/40 rounded-full blur-[100px]" />
         <div className="absolute inset-0 backdrop-blur-2xl bg-[#002147]/40" />
       </div>
 
       <div className="relative z-10 w-full max-w-md bg-white rounded-3xl shadow-xl border border-gray-100 p-8">
         <div className="flex justify-center mb-8">
           <div className="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center">
-            <Lock className="w-8 h-8 text-[#E91D24]" />
+            <Lock className="w-8 h-8 text-[#F9010D]" />
           </div>
         </div>
         
@@ -57,7 +57,7 @@ export default function AdminLogin() {
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-3 pr-12 rounded-xl border border-gray-200 text-[#002147] placeholder-[#002147] focus:outline-none focus:ring-2 focus:ring-[#E91D24]/20 focus:border-[#E91D24] transition-colors"
+              className="w-full px-4 py-3 pr-12 rounded-xl border border-gray-200 text-[#002147] placeholder-[#002147] focus:outline-none focus:ring-2 focus:ring-[#F9010D]/20 focus:border-[#F9010D] transition-colors"
               required
             />
             <button
@@ -79,7 +79,7 @@ export default function AdminLogin() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full flex items-center justify-center gap-2 bg-[#8B0000] hover:bg-[#5C0000] text-white py-3 rounded-xl font-medium transition-colors disabled:opacity-50"
+            className="w-full flex items-center justify-center gap-2 bg-[#F9010D] hover:bg-[#F9010D] text-white py-3 rounded-xl font-medium transition-colors disabled:opacity-50"
           >
             {loading ? 'Verifying...' : 'Login'}
             {!loading && <ArrowRight className="w-4 h-4" />}

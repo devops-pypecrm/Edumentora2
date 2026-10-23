@@ -20,7 +20,7 @@ function ProgramRow({ program, onViewMore }: { program: UniversityProgram; onVie
       <div className="flex-1 min-w-0 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
         <span className="font-bold text-[#002147] truncate">{program.programName || 'Untitled Program'}</span>
         {program.courseDuration && (
-          <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wide text-[#002147] bg-[#E91D24]/20 px-3 py-1 rounded-full w-fit flex-shrink-0">
+          <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wide text-[#002147] bg-[#F9010D]/20 px-3 py-1 rounded-full w-fit flex-shrink-0">
             <Clock className="w-3.5 h-3.5" />
             {program.courseDuration}
           </span>
@@ -53,7 +53,7 @@ function ProgramModal({ program, onClose }: { program: UniversityProgram; onClos
           <div className="min-w-0">
             <div className="text-white font-bold text-lg truncate">{program.programName || 'Untitled Program'}</div>
             {program.courseDuration && (
-              <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wide text-[#E91D24] mt-1">
+              <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wide text-[#F9010D] mt-1">
                 <Clock className="w-3.5 h-3.5" />
                 {program.courseDuration}
               </div>
@@ -74,7 +74,7 @@ function ProgramModal({ program, onClose }: { program: UniversityProgram; onClos
           {program.specializations.length > 0 && (
             <div>
               <h4 className="flex items-center gap-2 text-sm font-bold text-[#002147] uppercase tracking-wide mb-3">
-                <Layers className="w-4 h-4 text-[#E91D24]" />
+                <Layers className="w-4 h-4 text-[#F9010D]" />
                 Specializations
               </h4>
               <div className="flex flex-wrap gap-2">
@@ -91,13 +91,13 @@ function ProgramModal({ program, onClose }: { program: UniversityProgram; onClos
             {program.eligibilityCriteria.length > 0 && (
               <div>
                 <h4 className="flex items-center gap-2 text-sm font-bold text-[#002147] uppercase tracking-wide mb-3">
-                  <CheckCircle2 className="w-4 h-4 text-[#E91D24]" />
+                  <CheckCircle2 className="w-4 h-4 text-[#F9010D]" />
                   Eligibility Criteria
                 </h4>
                 <ul className="space-y-2">
                   {program.eligibilityCriteria.map((item, i) => (
                     <li key={i} className="flex items-start text-sm text-gray-700">
-                      <span className="text-[#E91D24] mr-2 font-bold">•</span>
+                      <span className="text-[#F9010D] mr-2 font-bold">•</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -108,13 +108,13 @@ function ProgramModal({ program, onClose }: { program: UniversityProgram; onClos
             {program.careerOpportunities.length > 0 && (
               <div>
                 <h4 className="flex items-center gap-2 text-sm font-bold text-[#002147] uppercase tracking-wide mb-3">
-                  <Briefcase className="w-4 h-4 text-[#E91D24]" />
+                  <Briefcase className="w-4 h-4 text-[#F9010D]" />
                   Career Opportunities
                 </h4>
                 <ul className="space-y-2">
                   {program.careerOpportunities.map((item, i) => (
                     <li key={i} className="flex items-start text-sm text-gray-700">
-                      <span className="text-[#E91D24] mr-2 font-bold">•</span>
+                      <span className="text-[#F9010D] mr-2 font-bold">•</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -125,7 +125,7 @@ function ProgramModal({ program, onClose }: { program: UniversityProgram; onClos
 
           {program.feeStructure && (
             <div className="flex items-center gap-2 text-sm font-semibold text-[#002147] pt-4 border-t border-gray-100">
-              <Wallet className="w-4 h-4 text-[#E91D24]" />
+              <Wallet className="w-4 h-4 text-[#F9010D]" />
               Fee Structure: <span className="font-normal text-gray-700">{program.feeStructure}</span>
             </div>
           )}

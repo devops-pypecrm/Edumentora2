@@ -42,7 +42,7 @@ export default function ProgramsSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="text-[#E91D24] font-bold tracking-widest text-sm uppercase mb-4">
+            <div className="text-[#F9010D] font-bold tracking-widest text-sm uppercase mb-4">
               Our Programs
             </div>
             <h2 className="text-[40px] lg:text-[52px] font-bold text-[#002147] leading-tight mb-6">
@@ -51,7 +51,7 @@ export default function ProgramsSection() {
             <p className="text-gray-500 text-[16px] leading-relaxed mb-8">
               Seamlessly continue your academic journey by leveraging your prior learning across top institutions.
             </p>
-            <div className="w-16 h-[3px] bg-[#E91D24]"></div>
+            <div className="w-16 h-[3px] bg-[#F9010D]"></div>
           </motion.div>
         </div>
 
@@ -71,7 +71,7 @@ export default function ProgramsSection() {
               {/* Animated Red Connector */}
               <motion.path
                 d="M 0,0 C 16.5,0 16.5,60 33,60 C 49.5,60 49.5,0 66,0 C 82.5,0 82.5,60 100,60"
-                stroke="#E91D24"
+                stroke="#F9010D"
                 strokeWidth="2"
                 fill="none"
                 initial={{ pathLength: 0 }}
@@ -100,7 +100,7 @@ export default function ProgramsSection() {
                 {/* Content Block */}
                 <div className="text-center lg:text-left">
                   {/* Step Number */}
-                  <div className="text-[48px] font-bold text-[#8B0000] mb-2 leading-none font-serif">
+                  <div className="text-[48px] font-bold text-[#F9010D] mb-2 leading-none font-serif">
                     0{i+1}
                   </div>
 

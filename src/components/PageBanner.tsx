@@ -28,7 +28,7 @@ export default function PageBanner({
   bgImage: _bgImage,
   isGradientText: _isGradientText,
   bgClassName = 'bg-white',
-  badgeClassName = 'text-[#E91D24]',
+  badgeClassName = 'text-[#F9010D]',
   titleClassName = 'text-[#002147]',
   subtitleClassName = 'text-gray-600',
   borderClassName = 'border-[#002147]/10',
