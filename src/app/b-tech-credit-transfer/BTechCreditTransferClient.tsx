@@ -67,7 +67,7 @@ export default function BTechCreditTransferClient({ faqs }: { faqs: Faq[] }) {
     {
       icon: ClipboardCheck,
       title: 'Eligibility Criteria',
-      body: "Students are eligible to apply when they have completed at least 50% of their B.Tech coursework and can provide official mark sheets and academic records. Their previous university must be recognized and approved, and any failed subjects can be completed through the university’s offline process."
+      body: "Eligibility depends on each student’s academic record and the rules of the receiving university, so no single minimum applies at every university. Students should be able to provide official mark sheets and academic records. Their previous university must be recognized and approved, and any failed subjects can be completed through the university’s offline process."
     },
     {
       icon: Landmark,
@@ -184,7 +184,7 @@ export default function BTechCreditTransferClient({ faqs }: { faqs: Faq[] }) {
                     <ClipboardCheck className="w-5 h-5 text-[#002147]" />
                   </div>
                   <p className="text-stone-600 leading-relaxed font-medium">
-                    Instead of starting from the first year, eligible students who have completed at least 50% of their B.Tech coursework can transfer their existing credits to a UGC-approved and AICTE-recognized university.
+                    Instead of starting from the first year, eligible students can transfer their existing credits to a UGC-approved and AICTE-recognized university. Eligibility depends on your academic record and that university&rsquo;s rules.
                   </p>
                 </div>
               </div>

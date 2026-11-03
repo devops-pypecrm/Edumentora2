@@ -34,12 +34,17 @@ export default function ProcessSection() {
     },
     {
       num: "02",
-      title: "Video Verification",
-      desc: "Quick online process.",
+      title: "Document Verification",
+      desc: "Submit your academic records.",
     },
     {
       num: "03",
-      title: "Seat Reservation",
+      title: "Review & Evaluation",
+      desc: "Your credits are assessed.",
+    },
+    {
+      num: "04",
+      title: "Admission Confirmation",
       desc: "Secure your admission.",
     }
   ];
