@@ -85,6 +85,7 @@ const organizationJsonLd = {
 };
 
 import PopupForm from '@/components/PopupForm';
+import LogoIntro from '@/components/LogoIntro';
 
 export default function RootLayout({
   children,
@@ -102,6 +103,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd()) }}
         />
+        <LogoIntro />
         <SmoothScroll>
           {children}
           <PopupForm />
