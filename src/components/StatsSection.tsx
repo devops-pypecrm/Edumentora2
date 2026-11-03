@@ -76,6 +76,9 @@ export default function StatsSection({ universities = [] }: { universities?: Sta
             Visit Our Trusted Universities
           </Link>
         </h3>
+        <p className="text-gray-500 text-sm md:text-base max-w-2xl mt-3 font-normal">
+          Authorized academic counseling & credit transfer guidance for UGC-recognized and AICTE-approved partner institutions.
+        </p>
       </motion.div>
 
       {/* Showcase Flow Area */}

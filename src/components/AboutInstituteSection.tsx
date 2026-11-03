@@ -37,7 +37,7 @@ export default function AboutInstituteSection() {
             academic roadblocks, personal setbacks, or institutional barriers. This often leaves
             them uncertain about how to complete their education without starting over. As a
             leading academic credit transfer institution, Edumentora specializes in helping
-            students seamlessly resume and complete their degrees, including{' '}
+            students evaluate and map their qualifying credits to resume their degrees, including{' '}
             <Link href="/b-tech-credit-transfer" className="underline decoration-1 underline-offset-2 hover:text-[#F9010D] transition-colors">
               B. Tech
             </Link>{' '}

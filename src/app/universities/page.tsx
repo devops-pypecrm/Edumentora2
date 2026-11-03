@@ -20,6 +20,16 @@ export default async function UniversitiesPage() {
     orderBy: {
       createdAt: 'desc',
     },
+    include: {
+      programs: {
+        select: {
+          id: true,
+          programName: true,
+          courseDuration: true,
+          specializations: true,
+        },
+      },
+    },
   });
 
   return (

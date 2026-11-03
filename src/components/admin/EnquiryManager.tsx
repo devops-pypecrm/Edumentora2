@@ -47,7 +47,7 @@ export default function EnquiryManager({ initialEnquiries }: { initialEnquiries:
               <tr><td colSpan={9} className="px-6 py-12 text-center text-gray-500">No enquiries found.</td></tr>
             ) : initialEnquiries.map((enquiry) => (
               <tr key={enquiry.id} className="hover:bg-gray-50 transition-colors">
-                <td className="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{new Date(enquiry.createdAt).toLocaleDateString()}</td>
+                <td className="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">{new Date(enquiry.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</td>
                 <td className="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">{enquiry.firstName}</td>
                 <td className="px-6 py-4 text-sm text-gray-600 whitespace-nowrap">{enquiry.lastName || '-'}</td>
                 <td className="px-6 py-4 text-sm text-gray-600 whitespace-nowrap">{enquiry.phone}</td>

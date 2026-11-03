@@ -197,7 +197,7 @@ export default function BlogManager({ initialBlogs }: { initialBlogs: Blog[] }) 
                       <span className="inline-flex items-center gap-1.5"><LayoutList className="w-3.5 h-3.5" /> {blog.category}</span>
                     </td>
                     <td className="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                      <span className="inline-flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> {new Date(blog.date).toLocaleDateString()}</span>
+                      <span className="inline-flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> {new Date(blog.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
                     </td>
                     <td className="px-6 py-4 text-sm text-gray-600 whitespace-nowrap">{blog.mainDis.length}</td>
                     <td className="px-6 py-4 text-sm whitespace-nowrap text-right">

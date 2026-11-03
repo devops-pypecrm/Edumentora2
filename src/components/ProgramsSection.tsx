@@ -49,7 +49,7 @@ export default function ProgramsSection() {
               Our Programs
             </h2>
             <p className="text-gray-500 text-[16px] leading-relaxed mb-8">
-              Seamlessly continue your academic journey by leveraging your prior learning across top institutions.
+              Continue your academic journey by leveraging your prior learning and qualifying credits across recognized institutions.
             </p>
             <div className="w-16 h-[3px] bg-[#F9010D]"></div>
           </motion.div>

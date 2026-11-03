@@ -9,7 +9,7 @@ const items = [
     icon: Target,
     accent: '#F9010D',
     description:
-      'To empower students to overcome academic setbacks through a seamless, fully supported credit transfer pathway. We respect every previously earned credit, guide learners toward UGC-accredited universities, and help turn educational interruptions into renewed opportunities for lifelong success.',
+      'To help students overcome academic setbacks by guiding them through credit transfer opportunities, making it easier to continue their education and achieve their goals.',
   },
   {
     number: '02',
@@ -17,7 +17,7 @@ const items = [
     icon: Eye,
     accent: '#002147',
     description:
-      'To create an inclusive educational landscape where no student is held back by past hurdles. We champion flexible learning pathways that let students complete higher education without starting over and transform previous progress into lasting achievement.',
+      'To build a future where every student has a second chance to succeed, with flexible learning pathways that recognize past progress and open doors to new opportunities.',
   },
 ];
 

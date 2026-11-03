@@ -308,7 +308,7 @@ export default async function BlogDetailPage(props: { params: Promise<{ id: stri
                         </h4>
                         <div className="text-xs text-gray-500 flex items-center gap-1">
                           <Calendar className="w-3 h-3" />
-                          {new Date(recent.date).toLocaleDateString()}
+                          {new Date(recent.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                         </div>
                       </div>
                     </Link>
@@ -355,7 +355,7 @@ export default async function BlogDetailPage(props: { params: Promise<{ id: stri
                       <div className="flex items-center justify-between mb-2">
                         <h4 className="font-bold text-[#002147] text-sm">{comment.name}</h4>
                         <span className="text-xs text-gray-400">
-                          {new Date(comment.createdAt).toLocaleDateString()}
+                          {new Date(comment.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                         </span>
                       </div>
                       <p className="text-gray-600 text-sm leading-relaxed">

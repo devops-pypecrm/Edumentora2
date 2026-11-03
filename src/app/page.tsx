@@ -52,6 +52,47 @@ export default async function Home() {
     console.error('Failed to fetch hero slides:', error);
   }
 
+  const desktopSlides = heroSlides.filter((s) => !s.altText?.startsWith('[MOBILE]'));
+  const mobileSlides = heroSlides.filter((s) => s.altText?.startsWith('[MOBILE]'));
+
+  let heroContent = {
+    mainHeading: 'Without Starting\nOver, Continue\nYour',
+    mainHeadingColor: '#002147',
+    rotatingWords: 'B.Tech, UG, PG, Diploma',
+    rotatingWordsColor: '#F9010D',
+    subHeading: 'Academic Credit Transfer Guidance in Kerala',
+    subHeadingColor: '#002147',
+    paragraph:
+      'Transfer your eligible credits to UGC-approved, AICTE-recognized universities and resume your studies from an advanced semester — saving valuable time and effort.',
+    paragraphColor: '#4b5563',
+    showEligibilityForm: true,
+  };
+  try {
+    const db = prisma as any;
+    const contentRes: any = await db.$runCommandRaw({
+      find: 'hero_section_content',
+      filter: { _id: 'homepage-hero-content' },
+    });
+    const doc = contentRes?.cursor?.firstBatch?.[0];
+    if (doc) {
+      heroContent = {
+        mainHeading: typeof doc.mainHeading === 'string' && doc.mainHeading ? doc.mainHeading : 'Without Starting\nOver, Continue\nYour',
+        mainHeadingColor: doc.mainHeadingColor || '#002147',
+        rotatingWords: doc.rotatingWords || 'B.Tech, UG, PG, Diploma',
+        rotatingWordsColor: doc.rotatingWordsColor || '#F9010D',
+        subHeading: doc.subHeading || 'Academic Credit Transfer Guidance in Kerala',
+        subHeadingColor: doc.subHeadingColor || '#002147',
+        paragraph:
+          doc.paragraph ||
+          'Transfer your eligible credits to UGC-approved, AICTE-recognized universities and resume your studies from an advanced semester — saving valuable time and effort.',
+        paragraphColor: doc.paragraphColor || '#4b5563',
+        showEligibilityForm: doc.showEligibilityForm !== false,
+      };
+    }
+  } catch (error) {
+    console.error('Failed to fetch hero content:', error);
+  }
+
   let reviews: any[] = [];
   try {
     const db = prisma as any;
@@ -130,15 +171,22 @@ export default async function Home() {
         />
       )}
       <Header />
-      <Hero notifications={notifications} slides={heroSlides} showContent={showHeroContent} />
-      <TestimonialSection reviews={reviews} galleryImages={galleryImages} promoVideos={promoVideos} successVideos={successVideos} />
-      <MissionVisionSection />
-      <AchievementsSection />
-      <ProgramsSection />
-      <StatsSection universities={statUniversities} />
-      <ProcessSection />
+      <Hero
+        notifications={notifications}
+        desktopSlides={desktopSlides}
+        mobileSlides={mobileSlides}
+        slides={heroSlides}
+        showContent={showHeroContent}
+        heroContent={heroContent}
+      />
       <AboutInstituteSection />
+      <ProgramsSection />
+      <ProcessSection />
+      <StatsSection universities={statUniversities} />
       <WhyChooseUsSection />
+      <AchievementsSection />
+      <MissionVisionSection />
+      <TestimonialSection reviews={reviews} galleryImages={galleryImages} promoVideos={promoVideos} successVideos={successVideos} />
       <ContactSection />
       <SeoContentSection />
       <Footer />

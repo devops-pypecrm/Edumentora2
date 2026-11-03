@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import { motion, animate } from 'framer-motion';
+import React, { useEffect, useRef, useState } from 'react';
+import { motion, animate, useInView } from 'framer-motion';
 
 function AnimatedValue({ value, start }: { value: string; start: boolean }) {
   const match = value.match(/^([\d,]+)(.*)$/);
@@ -9,10 +9,15 @@ function AnimatedValue({ value, start }: { value: string; start: boolean }) {
   const suffix = match ? match[2] : '';
   const target = parseInt(numStr, 10);
 
-  const [display, setDisplay] = useState(0);
+  // Starts at the real, final value (not 0) so the number is correct in
+  // the server-rendered HTML before any JS runs — count-up is purely cosmetic.
+  const [display, setDisplay] = useState(target);
+  const hasAnimatedRef = useRef(false);
 
   useEffect(() => {
-    if (!start) return;
+    if (!start || hasAnimatedRef.current) return;
+    hasAnimatedRef.current = true;
+    setDisplay(0);
     const controls = animate(0, target, {
       duration: 1.8,
       ease: 'easeOut',
@@ -24,14 +29,15 @@ function AnimatedValue({ value, start }: { value: string; start: boolean }) {
   }, [start, target]);
 
   return (
-    <h3 className="text-4xl md:text-5xl font-bold text-[#002147] mb-2">
-      {display.toLocaleString()}{suffix}
+    <h3 className="text-4xl md:text-5xl font-bold text-[#002147] mb-2" suppressHydrationWarning>
+      {display.toLocaleString('en-US')}{suffix}
     </h3>
   );
 }
 
 export default function AchievementsSection() {
-  const [startCount, setStartCount] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { once: true, margin: '-20px' });
 
   const achievements = [
     {
@@ -40,7 +46,7 @@ export default function AchievementsSection() {
     },
     {
       title: "Years of Expertise in Industry",
-      value: "16",
+      value: "16+",
     },
     {
       title: "Awards and Recognition",
@@ -53,12 +59,11 @@ export default function AchievementsSection() {
   ];
 
   return (
-    <section className="w-full bg-white pt-16 pb-24 -mt-[20px] relative z-10">
+    <section ref={sectionRef} className="w-full bg-white pt-16 pb-24 -mt-[20px] relative z-10">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        onViewportEnter={() => setStartCount(true)}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
         className="mb-16 text-center"
@@ -81,7 +86,7 @@ export default function AchievementsSection() {
                   key={`${setIndex}-${index}`}
                   className="flex flex-col items-center justify-center text-center p-4 w-[180px] shrink-0 hover:scale-105 transition-transform duration-300 cursor-pointer"
                 >
-                  <AnimatedValue value={item.value} start={startCount} />
+                  <AnimatedValue value={item.value} start={isInView} />
                   <p className="text-[#002147]/80 text-xs font-medium leading-snug">
                     {item.title}
                   </p>

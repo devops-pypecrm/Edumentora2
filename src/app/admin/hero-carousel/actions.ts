@@ -22,13 +22,29 @@ function refreshCarousel() {
   revalidatePath('/');
 }
 
+const isMobileSlide = (altText: string | null | undefined): boolean =>
+  Boolean(altText && altText.trim().startsWith('[MOBILE]'));
+
 export async function createHeroSlide(formData: FormData) {
   await requireAdmin();
   const imageUrl = String(formData.get('imageUrl') || '');
-  const altText = String(formData.get('altText') || '').trim() || 'Homepage hero image';
+  const category = String(formData.get('category') || 'desktop').toLowerCase();
+  const rawAlt = String(formData.get('altText') || '').trim();
+
   if (!imageUrl.startsWith('data:image/')) throw new Error('A valid image is required.');
 
-  const lastSlide = await prisma.heroSlide.findFirst({ orderBy: { order: 'desc' }, select: { order: true } });
+  const prefix = category === 'mobile' ? '[MOBILE] ' : '[DESKTOP] ';
+  const defaultLabel = category === 'mobile' ? 'Mobile hero image' : 'Desktop hero image';
+  const altText = `${prefix}${rawAlt || defaultLabel}`;
+
+  const lastSlide = await prisma.heroSlide.findFirst({
+    where: category === 'mobile'
+      ? { altText: { startsWith: '[MOBILE]' } }
+      : { NOT: { altText: { startsWith: '[MOBILE]' } } },
+    orderBy: { order: 'desc' },
+    select: { order: true },
+  });
+
   await prisma.heroSlide.create({
     data: { imageUrl, altText, status: 'SHOW', order: (lastSlide?.order ?? -1) + 1 },
   });
@@ -38,11 +54,30 @@ export async function createHeroSlide(formData: FormData) {
 export async function updateHeroSlide(id: string, formData: FormData) {
   await requireAdmin();
   const imageUrl = String(formData.get('imageUrl') || '');
-  const altText = String(formData.get('altText') || '').trim();
+  const rawAlt = String(formData.get('altText') || '').trim();
+  const category = formData.get('category') ? String(formData.get('category')).toLowerCase() : null;
+
+  const existing = await prisma.heroSlide.findUnique({ where: { id } });
+  if (!existing) throw new Error('Slide not found.');
+
+  const currentIsMobile = isMobileSlide(existing.altText);
+  const targetIsMobile = category ? category === 'mobile' : currentIsMobile;
+  const prefix = targetIsMobile ? '[MOBILE] ' : '[DESKTOP] ';
+
+  let altText: string | undefined = undefined;
+  if (rawAlt) {
+    altText = `${prefix}${rawAlt.replace(/^\[(MOBILE|DESKTOP)\]\s*/i, '')}`;
+  } else if (category && targetIsMobile !== currentIsMobile) {
+    const cleanExisting = existing.altText.replace(/^\[(MOBILE|DESKTOP)\]\s*/i, '');
+    altText = `${prefix}${cleanExisting}`;
+  }
 
   await prisma.heroSlide.update({
     where: { id },
-    data: { ...(altText ? { altText } : {}), ...(imageUrl.startsWith('data:image/') ? { imageUrl } : {}) },
+    data: {
+      ...(altText ? { altText } : {}),
+      ...(imageUrl.startsWith('data:image/') ? { imageUrl } : {}),
+    },
   });
   refreshCarousel();
 }
@@ -65,13 +100,20 @@ export async function setHeroContentVisibility(showContent: boolean) {
 
 export async function moveHeroSlide(id: string, direction: 'up' | 'down') {
   await requireAdmin();
-  const slides = await prisma.heroSlide.findMany({ orderBy: [{ order: 'asc' }, { createdAt: 'asc' }] });
-  const index = slides.findIndex((slide) => slide.id === id);
-  const swapIndex = direction === 'up' ? index - 1 : index + 1;
-  if (index < 0 || swapIndex < 0 || swapIndex >= slides.length) return;
+  const current = await prisma.heroSlide.findUnique({ where: { id } });
+  if (!current) return;
 
-  const current = slides[index];
-  const other = slides[swapIndex];
+  const currentIsMobile = isMobileSlide(current.altText);
+  const allSlides = await prisma.heroSlide.findMany({
+    orderBy: [{ order: 'asc' }, { createdAt: 'asc' }],
+  });
+
+  const categorySlides = allSlides.filter((slide) => isMobileSlide(slide.altText) === currentIsMobile);
+  const index = categorySlides.findIndex((slide) => slide.id === id);
+  const swapIndex = direction === 'up' ? index - 1 : index + 1;
+  if (index < 0 || swapIndex < 0 || swapIndex >= categorySlides.length) return;
+
+  const other = categorySlides[swapIndex];
   await prisma.heroSlide.update({ where: { id: current.id }, data: { order: other.order } });
   await prisma.heroSlide.update({ where: { id: other.id }, data: { order: current.order } });
   refreshCarousel();

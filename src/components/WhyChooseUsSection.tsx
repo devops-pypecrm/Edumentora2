@@ -15,7 +15,7 @@ export default function WhyChooseUsSection() {
   const reasons = [
     {
       title: "Expert guidance",
-      desc: "Our dedicated team offers tailored guidance, ensuring a seamless and successful academic credit transfer experience for each student.",
+      desc: "Our dedicated team provides tailored guidance, helping you navigate credit mapping and university admission with clarity.",
       icon: <ClipboardCheck className="w-6 h-6 text-[#002147] group-hover:text-[#F9010D] transition-colors duration-300" />,
       glowColor: "bg-[#002147]/5 group-hover:bg-[#F9010D]/10"
     },
@@ -27,13 +27,13 @@ export default function WhyChooseUsSection() {
     },
     {
       title: "Personalized support",
-      desc: "Our experienced team offers personalized support, guaranteeing a seamless and hassle-free academic credit transfer experience.",
+      desc: "Our experienced advisors provide personalized assistance at every step, from transcript evaluation to official enrollment.",
       icon: <HeartHandshake className="w-6 h-6 text-[#002147] group-hover:text-[#F9010D] transition-colors duration-300" />,
       glowColor: "bg-[#002147]/5 group-hover:bg-[#F9010D]/10"
     },
     {
-      title: "Effortless credit transfer",
-      desc: "Seamlessly transfer your earned credits to resume your education without losing progress or starting from scratch.",
+      title: "Streamlined credit transfer",
+      desc: "Transfer your eligible academic credits to recognized universities, enabling you to continue your degree without starting from year one.",
       icon: <MousePointerClick className="w-6 h-6 text-[#002147] group-hover:text-[#F9010D] transition-colors duration-300" />,
       glowColor: "bg-[#002147]/5 group-hover:bg-[#F9010D]/10"
     },

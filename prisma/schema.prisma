@@ -37,6 +37,22 @@ model HeroConfig {
   @@map("hero_config")
 }
 
+model HeroSectionContent {
+  id                  String   @id @map("_id")
+  mainHeading         String   @default("")
+  mainHeadingColor    String   @default("#002147")
+  rotatingWords       String   @default("B.Tech, UG, PG, Diploma")
+  rotatingWordsColor  String   @default("#F9010D")
+  subHeading          String   @default("")
+  subHeadingColor     String   @default("#002147")
+  paragraph           String   @default("")
+  paragraphColor      String   @default("#4b5563")
+  showEligibilityForm Boolean  @default(true)
+  updatedAt           DateTime @updatedAt
+
+  @@map("hero_section_content")
+}
+
 model Reel {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   category  String

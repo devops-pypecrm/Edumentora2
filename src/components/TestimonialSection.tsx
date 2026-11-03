@@ -8,6 +8,15 @@ import ScrollReveal from './ScrollReveal';
 import HomeGalleryClient from './HomeGalleryClient';
 import ReelPlayer from './ReelPlayer';
 
+const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+function formatReviewDate(dateInput: any): string {
+  if (!dateInput) return '';
+  const d = new Date(dateInput);
+  if (isNaN(d.getTime())) return typeof dateInput === 'string' ? dateInput : '';
+  return `${MONTH_NAMES[d.getUTCMonth()]} ${d.getUTCDate()}, ${d.getUTCFullYear()}`;
+}
+
 export default function TestimonialSection({ reviews = [], galleryImages = [], promoVideos = [], successVideos = [] }: { reviews?: any[], galleryImages?: string[], promoVideos?: string[], successVideos?: string[] }) {
   const staticTestimonials = [
     {
@@ -39,7 +48,7 @@ export default function TestimonialSection({ reviews = [], galleryImages = [], p
   const displayTestimonials = reviews && reviews.length > 0 ? reviews.map(r => ({
     id: r.id,
     name: r.username,
-    date: new Date(r.postedDate).toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' }),
+    date: formatReviewDate(r.postedDate),
     text: r.comment,
     rating: r.rating,
     image: r.image || null
@@ -241,7 +250,7 @@ export default function TestimonialSection({ reviews = [], galleryImages = [], p
                             <h3 className="font-bold text-black text-lg">
                               {displayTestimonials[currentIndex].name}
                             </h3>
-                            <p className="text-gray-500 text-sm mb-3">
+                            <p className="text-gray-500 text-sm mb-3" suppressHydrationWarning>
                               {displayTestimonials[currentIndex].date}
                             </p>
 

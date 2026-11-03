@@ -9,8 +9,8 @@ export default function FeaturesSection() {
   const features = [
     {
       icon: <ArrowRightLeft className="w-8 h-8 text-blue-600" />,
-      title: "Seamless Credit Transfer",
-      description: "Effortlessly transfer earned credits to resume your education without starting over or losing progress.",
+      title: "Guided Credit Transfer",
+      description: "Maximize your eligible earned credits to resume your higher education and avoid repeating completed coursework.",
       linkText: "Explore Courses",
       linkHref: "#",
     },

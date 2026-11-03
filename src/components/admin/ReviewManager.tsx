@@ -368,7 +368,7 @@ export default function ReviewManager({ initialReviews }: { initialReviews: any[
                 <div className="mt-auto pt-4 border-t border-gray-50 flex flex-col">
                   <span className="font-semibold text-[#002147]">{review.username}</span>
                   <span className="text-xs text-gray-500 mt-0.5">
-                    {review.postedDate.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })}
+                    {review.postedDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
                   </span>
                 </div>
               </div>
