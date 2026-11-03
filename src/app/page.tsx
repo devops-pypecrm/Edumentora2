@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import StatsSection from '@/components/StatsSection';
@@ -34,7 +35,17 @@ export const metadata = {
   title: { absolute: 'Credit Transfer Institute in Kerala | Edumentora' },
 };
 
-export default async function Home() {
+// The boundary lets the layout (and LogoIntro in it) reach the browser straight
+// away, instead of waiting on the database queries in HomeContent.
+export default function Home() {
+  return (
+    <Suspense fallback={null}>
+      <HomeContent />
+    </Suspense>
+  );
+}
+
+async function HomeContent() {
   let heroSlides: { id: string; imageUrl: string; altText: string }[] = [];
   let showHeroContent = true;
   try {

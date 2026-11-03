@@ -2,8 +2,8 @@
    0.2-2.75s  book mark is drawn
    2.7-3.75s  letters rise in, one by one
    3.75-4.05s trademark
-   4.4-5s     overlay fades out to the site, once LogoIntro.tsx sees the page
-              has loaded (.exiting); a slow page holds the logo up to 8s */
+   4.4-5s     overlay fades out to the site, once LogoIntro.tsx sees the page's
+              HTML has arrived (.exiting); a slow server holds the logo up to 8s */
 
 .overlay {
   position: fixed;

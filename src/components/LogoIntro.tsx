@@ -35,8 +35,9 @@ const LETTERS = [
 const LETTERS_START = 2.7;
 const LETTER_STAGGER = 0.09;
 
-// Milliseconds from first paint. The logo always plays to MIN_HOLD, then stays
-// up while the page finishes loading behind it, but never past MAX_HOLD.
+// Milliseconds from first paint. The logo always plays to MIN_HOLD (5s once the
+// 0.6s fade is included), then stays up until the page's HTML has arrived behind
+// it, but never past MAX_HOLD. Images and videos don't hold it up.
 const MIN_HOLD = 4400;
 const REDUCED_MOTION_MIN_HOLD = 800;
 const MAX_HOLD = 8000;
@@ -47,8 +48,8 @@ const wait = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, 
 
 const pageLoaded = () =>
   new Promise<void>((resolve) => {
-    if (document.readyState === 'complete') resolve();
-    else window.addEventListener('load', () => resolve(), { once: true });
+    if (document.readyState !== 'loading') resolve();
+    else document.addEventListener('DOMContentLoaded', () => resolve(), { once: true });
   });
 
 export default function LogoIntro() {
