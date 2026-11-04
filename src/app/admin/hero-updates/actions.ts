@@ -18,6 +18,7 @@ export type HeroSectionContentData = {
   paragraph: string;
   paragraphColor: string;
   showEligibilityForm: boolean;
+  showHeroButtons: boolean;
 };
 
 const DEFAULT_HERO_CONTENT: HeroSectionContentData = {
@@ -31,6 +32,7 @@ const DEFAULT_HERO_CONTENT: HeroSectionContentData = {
     'Transfer your eligible credits to UGC-approved, AICTE-recognized universities and resume your studies from an advanced semester — saving valuable time and effort.',
   paragraphColor: '#4b5563',
   showEligibilityForm: true,
+  showHeroButtons: true,
 };
 
 async function requireAdmin() {
@@ -64,6 +66,7 @@ export async function getHeroSectionContent(): Promise<HeroSectionContentData> {
         paragraph: doc.paragraph || DEFAULT_HERO_CONTENT.paragraph,
         paragraphColor: doc.paragraphColor || DEFAULT_HERO_CONTENT.paragraphColor,
         showEligibilityForm: doc.showEligibilityForm !== false,
+        showHeroButtons: doc.showHeroButtons !== false,
       };
     }
   } catch (error) {
@@ -83,6 +86,7 @@ export async function updateHeroSectionContent(formData: FormData) {
   const paragraph = String(formData.get('paragraph') || '').trim();
   const paragraphColor = String(formData.get('paragraphColor') || '#4b5563').trim();
   const showEligibilityForm = formData.get('showEligibilityForm') === 'true';
+  const showHeroButtons = formData.get('showHeroButtons') === 'true';
 
   const db = prisma as any;
   await db.$runCommandRaw({
@@ -101,6 +105,30 @@ export async function updateHeroSectionContent(formData: FormData) {
             paragraph,
             paragraphColor,
             showEligibilityForm,
+            showHeroButtons,
+            updatedAt: { $date: new Date().toISOString() },
+          },
+        },
+        upsert: true,
+      },
+    ],
+  });
+
+  refreshHero();
+  return { success: true };
+}
+
+export async function toggleHeroButtonsVisibility(showHeroButtons: boolean) {
+  await requireAdmin();
+  const db = prisma as any;
+  await db.$runCommandRaw({
+    update: 'hero_section_content',
+    updates: [
+      {
+        q: { _id: 'homepage-hero-content' },
+        u: {
+          $set: {
+            showHeroButtons,
             updatedAt: { $date: new Date().toISOString() },
           },
         },

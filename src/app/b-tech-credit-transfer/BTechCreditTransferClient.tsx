@@ -564,7 +564,7 @@ export default function BTechCreditTransferClient({ faqs }: { faqs: Faq[] }) {
         </div>
       </div> */}
 
-      {/* Check Your Eligibility Now popup */}
+      {/* Check My Eligibility Now popup */}
       <AnimatePresence>
         {showEligibilityPopup && !isMinimized && (
           <motion.div
@@ -594,7 +594,7 @@ export default function BTechCreditTransferClient({ faqs }: { faqs: Faq[] }) {
                 <ClipboardCheck className="w-4 h-4 text-[#002147]" />
                 <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#002147]">Fast Assessment</span>
               </div>
-              <h3 className="text-xl font-bold text-[#002147] mb-1">Check Your Eligibility Now</h3>
+              <h3 className="text-xl font-bold text-[#002147] mb-1">Check My Eligibility Now</h3>
               <p className="text-sm text-gray-600 mb-4 leading-6">Get a quick review of your B.Tech credit transfer eligibility in just a few steps.</p>
               <EligibilityForm className="space-y-3" />
             </motion.div>

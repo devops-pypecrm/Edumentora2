@@ -77,6 +77,7 @@ async function HomeContent() {
       'Transfer your eligible credits to UGC-approved, AICTE-recognized universities and resume your studies from an advanced semester — saving valuable time and effort.',
     paragraphColor: '#4b5563',
     showEligibilityForm: true,
+    showHeroButtons: true,
   };
   try {
     const db = prisma as any;
@@ -98,6 +99,7 @@ async function HomeContent() {
           'Transfer your eligible credits to UGC-approved, AICTE-recognized universities and resume your studies from an advanced semester — saving valuable time and effort.',
         paragraphColor: doc.paragraphColor || '#4b5563',
         showEligibilityForm: doc.showEligibilityForm !== false,
+        showHeroButtons: doc.showHeroButtons !== false,
       };
     }
   } catch (error) {

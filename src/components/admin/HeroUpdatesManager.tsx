@@ -6,6 +6,7 @@ import {
   type HeroSectionContentData,
   updateHeroSectionContent,
   toggleEligibilityFormVisibility,
+  toggleHeroButtonsVisibility,
 } from '@/app/admin/hero-updates/actions';
 import { LoopingTypewriterText } from '@/components/Hero';
 
@@ -35,6 +36,7 @@ export default function HeroUpdatesManager({
   );
   const [paragraphColor, setParagraphColor] = useState(initialContent.paragraphColor || '#4b5563');
   const [showEligibilityForm, setShowEligibilityForm] = useState(initialContent.showEligibilityForm);
+  const [showHeroButtons, setShowHeroButtons] = useState(initialContent.showHeroButtons);
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
 
   const previewTailWords = rotatingWords
@@ -59,6 +61,7 @@ export default function HeroUpdatesManager({
     formData.set('paragraph', paragraph);
     formData.set('paragraphColor', paragraphColor);
     formData.set('showEligibilityForm', String(showEligibilityForm));
+    formData.set('showHeroButtons', String(showHeroButtons));
 
     startTransition(async () => {
       try {
@@ -81,6 +84,24 @@ export default function HeroUpdatesManager({
           nextState
             ? 'Eligibility form is now visible on the homepage.'
             : 'Eligibility form is now hidden on the homepage.',
+        );
+        setTimeout(() => setStatusMessage(null), 4000);
+      } catch (err: any) {
+        setStatusMessage(err?.message || 'Failed to update visibility.');
+      }
+    });
+  };
+
+  const handleToggleButtons = () => {
+    const nextState = !showHeroButtons;
+    setShowHeroButtons(nextState);
+    startTransition(async () => {
+      try {
+        await toggleHeroButtonsVisibility(nextState);
+        setStatusMessage(
+          nextState
+            ? 'Hero buttons are now visible on the homepage.'
+            : 'Hero buttons are now hidden on the homepage.',
         );
         setTimeout(() => setStatusMessage(null), 4000);
       } catch (err: any) {
@@ -118,7 +139,7 @@ export default function HeroUpdatesManager({
                   </>
                 )}
               </span>
-              <h2 className="text-lg font-bold text-[#002147]">&ldquo;Check Your Eligibility Now&rdquo; Form</h2>
+              <h2 className="text-lg font-bold text-[#002147]">&ldquo;Check My Eligibility Now&rdquo; Form</h2>
             </div>
             <p className="mt-1 text-sm text-gray-500">
               Control whether the eligibility consultation lead capture form is displayed in the hero section.
@@ -144,6 +165,53 @@ export default function HeroUpdatesManager({
                 <Eye className="size-4 text-white" /> Show Eligibility Form
               </>
             )}
+          </button>
+        </div>
+      </div>
+
+      {/* Quick Visibility Toggle Card: Hide / Show Hero Buttons */}
+      <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            <div className="flex items-center gap-2">
+              <span
+                className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold ${
+                  showHeroButtons ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600'
+                }`}
+              >
+                {showHeroButtons ? (
+                  <>
+                    <Eye className="size-3.5" /> Buttons Visible
+                  </>
+                ) : (
+                  <>
+                    <EyeOff className="size-3.5" /> Buttons Hidden
+                  </>
+                )}
+              </span>
+              <h2 className="text-lg font-bold text-[#002147]">Hero Section Buttons</h2>
+            </div>
+            <p className="mt-1 text-sm text-gray-500">
+              Show or hide the &ldquo;Find Your University&rdquo; and &ldquo;Book a Free Consultation&rdquo; buttons in the hero section.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            role="switch"
+            aria-checked={showHeroButtons}
+            aria-label="Show hero section buttons"
+            onClick={handleToggleButtons}
+            disabled={isPending}
+            className={`relative inline-flex h-7 w-12 shrink-0 items-center rounded-full transition-colors disabled:opacity-50 ${
+              showHeroButtons ? 'bg-[#002147]' : 'bg-gray-300'
+            }`}
+          >
+            <span
+              className={`inline-block size-5 rounded-full bg-white shadow-sm transition-transform ${
+                showHeroButtons ? 'translate-x-6' : 'translate-x-1'
+              }`}
+            />
           </button>
         </div>
       </div>
@@ -364,14 +432,16 @@ export default function HeroUpdatesManager({
             </p>
 
             {/* Action buttons preview */}
-            <div className="flex gap-2 pt-2">
-              <div className="rounded-full bg-[#002147] px-4 py-2 text-[10px] font-bold text-white border border-white/20">
-                Find Your University
+            {showHeroButtons && (
+              <div className="flex gap-2 pt-2">
+                <div className="rounded-full bg-[#002147] px-4 py-2 text-[10px] font-bold text-white border border-white/20">
+                  Find Your University
+                </div>
+                <div className="rounded-full bg-[#F9010D] px-4 py-2 text-[10px] font-bold text-white">
+                  Book a Free Consultation
+                </div>
               </div>
-              <div className="rounded-full bg-[#F9010D] px-4 py-2 text-[10px] font-bold text-white">
-                Book a Free Consultation
-              </div>
-            </div>
+            )}
           </div>
 
           {/* Form Status in Preview */}
@@ -388,8 +458,8 @@ export default function HeroUpdatesManager({
             </div>
             <p className="mt-1 text-[11px] text-gray-400">
               {showEligibilityForm
-                ? 'The &ldquo;Check Your Eligibility Now&rdquo; form is displayed.'
-                : 'The &ldquo;Check Your Eligibility Now&rdquo; form is hidden. The hero text displays in full width.'}
+                ? 'The &ldquo;Check My Eligibility Now&rdquo; form is displayed.'
+                : 'The &ldquo;Check My Eligibility Now&rdquo; form is hidden. The hero text displays in full width.'}
             </p>
           </div>
         </div>

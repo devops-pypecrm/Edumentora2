@@ -10,16 +10,19 @@ const programs = [
     Icon: BriefcaseBusiness,
     title: 'Credit Transfer Program',
     desc: 'Transfer your past credits to complete your degree faster with Edumentora.',
+    href: '/b-tech-credit-transfer',
   },
   {
     Icon: GraduationCap,
     title: 'Apprenticeship Program',
     desc: 'Study while gaining real work experience through Industry training.',
+    href: '/programs?topic=Apprenticeship',
   },
   {
     Icon: Settings2,
     title: 'Work Integrated Learn Program',
     desc: 'Learn theory and apply it practically for a career-ready education.',
+    href: '/programs?topic=Work%20Integrated%20Learning%20Program',
   },
   {
     Icon: BookOpenCheck,

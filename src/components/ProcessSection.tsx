@@ -44,7 +44,7 @@ export default function ProcessSection() {
     },
     {
       num: "04",
-      title: "Admission Confirmation",
+      title: "Seat Reservation",
       desc: "Secure your admission.",
     }
   ];

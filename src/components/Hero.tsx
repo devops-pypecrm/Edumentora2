@@ -127,6 +127,7 @@ export type HeroContentConfig = {
   paragraph?: string;
   paragraphColor?: string;
   showEligibilityForm?: boolean;
+  showHeroButtons?: boolean;
 };
 
 const cleanAlt = (alt: string | undefined): string =>
@@ -172,6 +173,7 @@ export default function Hero({
     'Transfer your eligible credits to UGC-approved, AICTE-recognized universities and resume your studies from an advanced semester — saving valuable time and effort.';
   const paragraphColor = heroContent?.paragraphColor || '#4b5563';
   const showEligibilityForm = heroContent?.showEligibilityForm !== false;
+  const showHeroButtons = heroContent?.showHeroButtons !== false;
 
   const resolvedDesktopSlides =
     desktopSlides.length > 0
@@ -416,26 +418,28 @@ export default function Hero({
               {paragraphText}
             </motion.p>
 
-            <motion.div
-              {...riseIn(0.3)}
-              className="grid w-full grid-cols-2 gap-2 md:flex md:flex-wrap md:gap-4 items-center mt-1 md:mt-[5%] md:w-auto"
-            >
-              <a href="https://findyouruniversity.com/" target="_blank" rel="noopener noreferrer" className="w-full sm:flex-1 md:flex-none min-w-0">
-                <button className="w-full whitespace-nowrap border border-white/50 bg-white/10 text-white font-bold px-3 py-3 text-[11px] md:bg-[#002147] md:border-0 md:px-7 md:py-3 md:text-base rounded-full backdrop-blur-sm transition-all duration-300">
-                  Find Your University
-                </button>
-              </a>
-              <a href="/contact" className="w-full sm:flex-1 md:flex-none min-w-0">
-                <button className="w-full whitespace-nowrap bg-[#F9010D] text-white font-bold px-3 py-3 text-[11px] md:px-7 md:py-3 md:text-base rounded-full transition-all duration-300">
-                  Book a Free Consultation
-                </button>
-              </a>
-            </motion.div>
+            {showHeroButtons && (
+              <motion.div
+                {...riseIn(0.3)}
+                className="grid w-full grid-cols-2 gap-2 md:flex md:flex-wrap md:gap-4 items-center mt-1 md:mt-[5%] md:w-auto"
+              >
+                <a href="https://findyouruniversity.com/" target="_blank" rel="noopener noreferrer" className="w-full sm:flex-1 md:flex-none min-w-0">
+                  <button className="w-full whitespace-nowrap border border-white/50 bg-white/10 text-white font-bold px-3 py-3 text-[11px] md:bg-[#002147] md:border-0 md:px-7 md:py-3 md:text-base rounded-full backdrop-blur-sm transition-all duration-300">
+                    Find Your University
+                  </button>
+                </a>
+                <Link href="/contact" className="w-full sm:flex-1 md:flex-none min-w-0">
+                  <button className="w-full whitespace-nowrap bg-[#F9010D] text-white font-bold px-3 py-3 text-[11px] md:px-7 md:py-3 md:text-base rounded-full transition-all duration-300">
+                    Book a Free Consultation
+                  </button>
+                </Link>
+              </motion.div>
+            )}
 
             {/* Mobile-only widget — replaces the inline eligibility form; tap to open it in a modal */}
           </div>
 
-          {/* 3: Check Your Eligibility Now form, with accent glow + doodles — hidden on mobile, replaced by a tap-to-open widget below */}
+          {/* 3: Check My Eligibility Now form, with accent glow + doodles — hidden on mobile, replaced by a tap-to-open widget below */}
           </>}
 
           {showEligibilityForm && (
@@ -447,7 +451,7 @@ export default function Hero({
                 <ClipboardCheck className="size-4 text-[#002147]" />
                 <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#002147]">Fast Assessment</span>
               </div>
-              <h3 className="mb-1 text-lg font-bold text-[#002147]">Check Your Eligibility Now</h3>
+              <h3 className="mb-1 text-lg font-bold text-[#002147]">Check My Eligibility Now</h3>
               <p className="mb-4 text-sm leading-5 text-gray-600">Get a quick review of your credit transfer eligibility in just a few steps.</p>
               <EligibilityForm className="space-y-3" />
             </motion.div>
@@ -481,7 +485,7 @@ export default function Hero({
                   <ClipboardCheck className="w-4 h-4 text-[#002147]" />
                   <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#002147]">Fast Assessment</span>
                 </div>
-                <h3 className="text-[15px] min-[900px]:text-base lg:text-xl font-bold text-[#002147] mb-1">Check Your Eligibility Now</h3>
+                <h3 className="text-[15px] min-[900px]:text-base lg:text-xl font-bold text-[#002147] mb-1">Check My Eligibility Now</h3>
                 <p className="text-xs lg:text-sm text-gray-600 mb-3 lg:mb-4 leading-5 lg:leading-6">Get a quick review of your credit transfer eligibility in just a few steps.</p>
                 <EligibilityForm className="space-y-3" />
               </div>
