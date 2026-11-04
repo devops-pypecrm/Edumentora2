@@ -22,8 +22,11 @@ const INPUT_FIELDS = [
   { name: 'lastName', label: 'Last name', type: 'text', required: false, wide: false },
   { name: 'phone', label: 'Phone', type: 'tel', required: true, wide: false },
   { name: 'email', label: 'Email', type: 'email', required: true, wide: false },
-  { name: 'company', label: 'Company', type: 'text', required: false, wide: true },
+  { name: 'company', label: 'Program', type: 'text', required: true, wide: true },
 ];
+
+// The enquiry table and /api/leads require a message, but it is optional in this form.
+const DEFAULT_MESSAGE = 'Brochure download request';
 
 async function downloadFile(fileUrl: string, fileName: string) {
   try {
@@ -71,7 +74,12 @@ export default function BrochureDownload({ source, fileUrl, fileName, buttonClas
     setStatus('loading');
     setErrorMessage('');
 
-    const payload = { ...Object.fromEntries(new FormData(e.currentTarget).entries()), source };
+    const formData = new FormData(e.currentTarget);
+    const payload = {
+      ...Object.fromEntries(formData.entries()),
+      message: String(formData.get('message') || '').trim() || DEFAULT_MESSAGE,
+      source,
+    };
     try {
       const response = await fetch('/api/leads', {
         method: 'POST',
@@ -169,11 +177,10 @@ export default function BrochureDownload({ source, fileUrl, fileName, buttonClas
                       id={`${fieldId}-message`}
                       name="message"
                       rows={3}
-                      placeholder="Enquiry / Message"
+                      placeholder="Message"
                       className={`${FIELD_CLASS} resize-none`}
-                      required
                     ></textarea>
-                    <label htmlFor={`${fieldId}-message`} className={LABEL_CLASS}>Enquiry / Message</label>
+                    <label htmlFor={`${fieldId}-message`} className={LABEL_CLASS}>Message</label>
                   </div>
 
                   <button
