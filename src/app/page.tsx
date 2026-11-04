@@ -78,6 +78,7 @@ async function HomeContent() {
     paragraphColor: '#4b5563',
     showEligibilityForm: true,
     showHeroButtons: true,
+    hideMobileContent: false,
   };
   try {
     const db = prisma as any;
@@ -100,6 +101,7 @@ async function HomeContent() {
         paragraphColor: doc.paragraphColor || '#4b5563',
         showEligibilityForm: doc.showEligibilityForm !== false,
         showHeroButtons: doc.showHeroButtons !== false,
+        hideMobileContent: doc.hideMobileContent === true,
       };
     }
   } catch (error) {

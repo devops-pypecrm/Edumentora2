@@ -7,6 +7,7 @@ import {
   updateHeroSectionContent,
   toggleEligibilityFormVisibility,
   toggleHeroButtonsVisibility,
+  toggleMobileContentVisibility,
 } from '@/app/admin/hero-updates/actions';
 import { LoopingTypewriterText } from '@/components/Hero';
 
@@ -37,6 +38,7 @@ export default function HeroUpdatesManager({
   const [paragraphColor, setParagraphColor] = useState(initialContent.paragraphColor || '#4b5563');
   const [showEligibilityForm, setShowEligibilityForm] = useState(initialContent.showEligibilityForm);
   const [showHeroButtons, setShowHeroButtons] = useState(initialContent.showHeroButtons);
+  const [hideMobileContent, setHideMobileContent] = useState(initialContent.hideMobileContent);
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
 
   const previewTailWords = rotatingWords
@@ -62,6 +64,7 @@ export default function HeroUpdatesManager({
     formData.set('paragraphColor', paragraphColor);
     formData.set('showEligibilityForm', String(showEligibilityForm));
     formData.set('showHeroButtons', String(showHeroButtons));
+    formData.set('hideMobileContent', String(hideMobileContent));
 
     startTransition(async () => {
       try {
@@ -84,6 +87,24 @@ export default function HeroUpdatesManager({
           nextState
             ? 'Eligibility form is now visible on the homepage.'
             : 'Eligibility form is now hidden on the homepage.',
+        );
+        setTimeout(() => setStatusMessage(null), 4000);
+      } catch (err: any) {
+        setStatusMessage(err?.message || 'Failed to update visibility.');
+      }
+    });
+  };
+
+  const handleToggleMobileContent = () => {
+    const nextState = !hideMobileContent;
+    setHideMobileContent(nextState);
+    startTransition(async () => {
+      try {
+        await toggleMobileContentVisibility(nextState);
+        setStatusMessage(
+          nextState
+            ? 'Hero content is now hidden in mobile view.'
+            : 'Hero content is now visible in mobile view.',
         );
         setTimeout(() => setStatusMessage(null), 4000);
       } catch (err: any) {
@@ -210,6 +231,53 @@ export default function HeroUpdatesManager({
             <span
               className={`inline-block size-5 rounded-full bg-white shadow-sm transition-transform ${
                 showHeroButtons ? 'translate-x-6' : 'translate-x-1'
+              }`}
+            />
+          </button>
+        </div>
+      </div>
+
+      {/* Quick Visibility Toggle Card: Hide / Show Hero Content in Mobile View */}
+      <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div>
+            <div className="flex items-center gap-2">
+              <span
+                className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold ${
+                  hideMobileContent ? 'bg-gray-100 text-gray-600' : 'bg-green-100 text-green-700'
+                }`}
+              >
+                {hideMobileContent ? (
+                  <>
+                    <EyeOff className="size-3.5" /> Mobile Content Hidden
+                  </>
+                ) : (
+                  <>
+                    <Eye className="size-3.5" /> Mobile Content Visible
+                  </>
+                )}
+              </span>
+              <h2 className="text-lg font-bold text-[#002147]">Hide Mobile Content</h2>
+            </div>
+            <p className="mt-1 text-sm text-gray-500">
+              Turn on to hide all hero section content and buttons in mobile view. The desktop view does not change.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            role="switch"
+            aria-checked={hideMobileContent}
+            aria-label="Hide hero content in mobile view"
+            onClick={handleToggleMobileContent}
+            disabled={isPending}
+            className={`relative inline-flex h-7 w-12 shrink-0 items-center rounded-full transition-colors disabled:opacity-50 ${
+              hideMobileContent ? 'bg-[#002147]' : 'bg-gray-300'
+            }`}
+          >
+            <span
+              className={`inline-block size-5 rounded-full bg-white shadow-sm transition-transform ${
+                hideMobileContent ? 'translate-x-6' : 'translate-x-1'
               }`}
             />
           </button>

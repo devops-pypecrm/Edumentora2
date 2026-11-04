@@ -49,6 +49,7 @@ model HeroSectionContent {
   paragraphColor      String   @default("#4b5563")
   showEligibilityForm Boolean  @default(true)
   showHeroButtons     Boolean  @default(true)
+  hideMobileContent   Boolean  @default(false)
   updatedAt           DateTime @updatedAt
 
   @@map("hero_section_content")

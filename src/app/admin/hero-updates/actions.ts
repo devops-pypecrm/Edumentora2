@@ -19,6 +19,7 @@ export type HeroSectionContentData = {
   paragraphColor: string;
   showEligibilityForm: boolean;
   showHeroButtons: boolean;
+  hideMobileContent: boolean;
 };
 
 const DEFAULT_HERO_CONTENT: HeroSectionContentData = {
@@ -33,6 +34,7 @@ const DEFAULT_HERO_CONTENT: HeroSectionContentData = {
   paragraphColor: '#4b5563',
   showEligibilityForm: true,
   showHeroButtons: true,
+  hideMobileContent: false,
 };
 
 async function requireAdmin() {
@@ -67,6 +69,7 @@ export async function getHeroSectionContent(): Promise<HeroSectionContentData> {
         paragraphColor: doc.paragraphColor || DEFAULT_HERO_CONTENT.paragraphColor,
         showEligibilityForm: doc.showEligibilityForm !== false,
         showHeroButtons: doc.showHeroButtons !== false,
+        hideMobileContent: doc.hideMobileContent === true,
       };
     }
   } catch (error) {
@@ -87,6 +90,7 @@ export async function updateHeroSectionContent(formData: FormData) {
   const paragraphColor = String(formData.get('paragraphColor') || '#4b5563').trim();
   const showEligibilityForm = formData.get('showEligibilityForm') === 'true';
   const showHeroButtons = formData.get('showHeroButtons') === 'true';
+  const hideMobileContent = formData.get('hideMobileContent') === 'true';
 
   const db = prisma as any;
   await db.$runCommandRaw({
@@ -106,6 +110,30 @@ export async function updateHeroSectionContent(formData: FormData) {
             paragraphColor,
             showEligibilityForm,
             showHeroButtons,
+            hideMobileContent,
+            updatedAt: { $date: new Date().toISOString() },
+          },
+        },
+        upsert: true,
+      },
+    ],
+  });
+
+  refreshHero();
+  return { success: true };
+}
+
+export async function toggleMobileContentVisibility(hideMobileContent: boolean) {
+  await requireAdmin();
+  const db = prisma as any;
+  await db.$runCommandRaw({
+    update: 'hero_section_content',
+    updates: [
+      {
+        q: { _id: 'homepage-hero-content' },
+        u: {
+          $set: {
+            hideMobileContent,
             updatedAt: { $date: new Date().toISOString() },
           },
         },

@@ -3,7 +3,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { BriefcaseBusiness, GraduationCap, Settings2, BookOpenCheck, ArrowRight } from 'lucide-react';
+import { BriefcaseBusiness, GraduationCap, Settings2, BookOpenCheck, ArrowRight, Download } from 'lucide-react';
+import BrochureDownload from '@/components/BrochureDownload';
 
 const programs = [
   {
@@ -55,6 +56,15 @@ export default function ProgramsSection() {
               Continue your academic journey by leveraging your prior learning and qualifying credits across recognized institutions.
             </p>
             <div className="w-16 h-[3px] bg-[#F9010D]"></div>
+            <BrochureDownload
+              source="Brochure Download - Home Our Programs"
+              fileUrl="/brochures/edumentora-brochure.pdf"
+              fileName="Edumentora Brochure.pdf"
+              buttonClassName="mt-8 inline-flex items-center gap-2 bg-[#F9010D] hover:bg-[#F9010D]/90 text-white text-[15px] font-bold py-3 px-6 rounded-xl transition-colors shadow-sm"
+            >
+              <Download className="w-5 h-5" />
+              Download Brochure
+            </BrochureDownload>
           </motion.div>
         </div>
 

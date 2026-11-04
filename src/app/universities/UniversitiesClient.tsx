@@ -7,7 +7,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import PageBanner from '@/components/PageBanner';
-import { 
+import BrochureDownload from '@/components/BrochureDownload';
+import {
   Building2, 
   Award, 
   GraduationCap, 
@@ -231,9 +232,14 @@ export default function UniversitiesClient({ universities }: { universities: Uni
                     <Link href={`/universities/${item.id}`} className="flex-1 bg-[#F9010D] hover:bg-[#F9010D]/90 text-white text-[14px] font-semibold py-3 px-4 rounded-xl flex items-center justify-center transition-colors shadow-sm">
                       View Details & Programs
                     </Link>
-                    <Link href="/contact" className="flex-1 bg-white hover:bg-gray-50 text-[#002147] text-[14px] font-semibold py-3 px-4 rounded-xl border border-gray-200 flex items-center justify-center transition-colors">
-                      Eligibility Check
-                    </Link>
+                    <BrochureDownload
+                      source={`Brochure Download - ${item.name.trim()}`}
+                      fileUrl={`/api/brochures/${item.id}`}
+                      fileName={`${item.name.trim()} Brochure.pdf`}
+                      buttonClassName="flex-1 bg-white hover:bg-gray-50 text-[#002147] text-[14px] font-semibold py-3 px-4 rounded-xl border border-gray-200 flex items-center justify-center transition-colors"
+                    >
+                      Download Brochure
+                    </BrochureDownload>
                   </div>
                 </div>
               </div>

@@ -128,6 +128,7 @@ export type HeroContentConfig = {
   paragraphColor?: string;
   showEligibilityForm?: boolean;
   showHeroButtons?: boolean;
+  hideMobileContent?: boolean;
 };
 
 const cleanAlt = (alt: string | undefined): string =>
@@ -174,6 +175,7 @@ export default function Hero({
   const paragraphColor = heroContent?.paragraphColor || '#4b5563';
   const showEligibilityForm = heroContent?.showEligibilityForm !== false;
   const showHeroButtons = heroContent?.showHeroButtons !== false;
+  const hideMobileContent = heroContent?.hideMobileContent === true;
 
   const resolvedDesktopSlides =
     desktopSlides.length > 0
@@ -351,7 +353,7 @@ export default function Hero({
             {resolvedMobileSlides.length === 0 && <div className="absolute inset-0 z-[1] bg-[#edf6ff]/65" />}
           </div>
         </div>
-        {showContent && <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/25 via-[#07111f]/60 to-[#07111f]/95 md:hidden" />}
+        {showContent && !hideMobileContent && <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/25 via-[#07111f]/60 to-[#07111f]/95 md:hidden" />}
 
         {/* Carousel indicator hidden per design */}
 
@@ -360,16 +362,18 @@ export default function Hero({
 
           {showContent && <>
           {/* Mobile-only: trust badge pinned at the very top-left, above the (independently shifted) content block */}
-          <motion.div
-            {...riseIn(0.05)}
-            className="md:hidden self-start flex max-w-[calc(100%-4rem)] items-center gap-2 bg-white/95 px-3 py-2 rounded-xl"
-          >
-            <ShieldCheck className="w-5 h-5 text-[#002147]" />
-            <span className="font-bold text-[#002147] text-xs sm:text-sm">Academic Credit Transfer Guidance</span>
-          </motion.div>
+          {!hideMobileContent && (
+            <motion.div
+              {...riseIn(0.05)}
+              className="md:hidden self-start flex max-w-[calc(100%-4rem)] items-center gap-2 bg-white/95 px-3 py-2 rounded-xl"
+            >
+              <ShieldCheck className="w-5 h-5 text-[#002147]" />
+              <span className="font-bold text-[#002147] text-xs sm:text-sm">Academic Credit Transfer Guidance</span>
+            </motion.div>
+          )}
 
           {/* 1: Content + paragraph */}
-          <div className={`flex flex-col items-start justify-center text-left h-full ${showEligibilityForm ? 'md:flex-[1.3]' : 'md:flex-1 max-w-2xl'}`}>
+          <div className={`${hideMobileContent ? 'hidden md:flex' : 'flex'} flex-col items-start justify-center text-left h-full ${showEligibilityForm ? 'md:flex-[1.3]' : 'md:flex-1 max-w-2xl'}`}>
 
             {/* Trust badge card — desktop/tablet, unchanged */}
             <motion.div
@@ -442,7 +446,7 @@ export default function Hero({
           {/* 3: Check My Eligibility Now form, with accent glow + doodles — hidden on mobile, replaced by a tap-to-open widget below */}
           </>}
 
-          {showEligibilityForm && (
+          {showEligibilityForm && !hideMobileContent && (
             <motion.div
               {...riseIn(showContent ? 0.4 : 0.1)}
               className={`md:hidden w-full rounded-[1.5rem] border-[3px] border-[#002147]/70 bg-white p-4 ${showContent ? 'mt-7' : 'mt-[42svh] mb-3'}`}
