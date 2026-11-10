@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Montserrat } from 'next/font/google';
 import './globals.css';
 import SmoothScroll from '@/components/SmoothScroll';
@@ -95,6 +96,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={montserrat.className} suppressHydrationWarning>
+        <Script async src="https://www.googletagmanager.com/gtm.js?id=GTM-WQL7S8RD" />
+        <Script id="google-tag-manager">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+          `}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
