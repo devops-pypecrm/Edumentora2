@@ -140,8 +140,8 @@ export default function EnquiryForm({
       </div>
 
       <div className="relative md:col-span-2">
-        <input type="text" id="company" name="company" placeholder="Company" className={fieldClass} />
-        <label htmlFor="company" className={labelClass}>Company</label>
+        <input type="text" id="company" name="company" placeholder="Program" className={fieldClass} required />
+        <label htmlFor="company" className={labelClass}>Program</label>
       </div>
 
       <div className="relative md:col-span-2">

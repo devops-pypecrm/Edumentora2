@@ -89,8 +89,8 @@ export default function EligibilityForm({ className = 'space-y-6' }: Eligibility
           </div>
 
           <div className="relative md:col-span-2">
-            <input type="text" id="company" name="company" placeholder="Company" className="peer w-full px-3.5 pt-4 pb-1 text-sm lg:pt-5 lg:pb-1.5 text-[#002147] font-medium rounded-xl border border-slate-200 bg-white shadow-sm placeholder-transparent" />
-            <label htmlFor="company" className="absolute left-3.5 top-1.5 text-[10px] font-semibold text-[#002147] peer-placeholder-shown:text-sm peer-placeholder-shown:font-normal peer-placeholder-shown:top-2.5 pointer-events-none">Company</label>
+            <input type="text" id="company" name="company" placeholder="Program" className="peer w-full px-3.5 pt-4 pb-1 text-sm lg:pt-5 lg:pb-1.5 text-[#002147] font-medium rounded-xl border border-slate-200 bg-white shadow-sm placeholder-transparent" required />
+            <label htmlFor="company" className="absolute left-3.5 top-1.5 text-[10px] font-semibold text-[#002147] peer-placeholder-shown:text-sm peer-placeholder-shown:font-normal peer-placeholder-shown:top-2.5 pointer-events-none">Program</label>
           </div>
 
           <div className="relative md:col-span-2">
