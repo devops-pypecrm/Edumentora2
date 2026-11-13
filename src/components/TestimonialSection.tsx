@@ -7,6 +7,7 @@ import Link from 'next/link';
 import ScrollReveal from './ScrollReveal';
 import HomeGalleryClient from './HomeGalleryClient';
 import ReelPlayer from './ReelPlayer';
+import LazyMount from './LazyMount';
 
 const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
@@ -222,6 +223,8 @@ export default function TestimonialSection({ reviews = [], galleryImages = [], p
                                 <img
                                   src={displayTestimonials[currentIndex].image}
                                   alt={displayTestimonials[currentIndex].name}
+                                  width={64}
+                                  height={64}
                                   className="w-full h-full object-cover"
                                 />
                               ) : (
@@ -305,7 +308,9 @@ export default function TestimonialSection({ reviews = [], galleryImages = [], p
                   className="shrink-0 w-full aspect-[9/16] bg-black rounded-xl overflow-hidden shadow-md relative group cursor-pointer"
                   onClick={() => setActiveVideoSrc(src)}
                 >
-                  <ReelPlayer src={src} className="w-full h-full object-cover" />
+                  <LazyMount className="w-full h-full">
+                    <ReelPlayer src={src} className="w-full h-full object-cover" />
+                  </LazyMount>
                   {/* Blocks direct interaction with the inline thumbnail — the video only ever plays via the left-column swap */}
                   <div className="absolute inset-0 z-10" />
                 </div>
@@ -322,7 +327,9 @@ export default function TestimonialSection({ reviews = [], galleryImages = [], p
                   className="shrink-0 w-full aspect-[9/16] bg-black rounded-xl overflow-hidden shadow-md relative group cursor-pointer"
                   onClick={() => setActiveVideoSrc(src)}
                 >
-                  <ReelPlayer src={src} className="w-full h-full object-cover" />
+                  <LazyMount className="w-full h-full">
+                    <ReelPlayer src={src} className="w-full h-full object-cover" />
+                  </LazyMount>
                   {/* Blocks direct interaction with the inline thumbnail — the video only ever plays via the left-column swap */}
                   <div className="absolute inset-0 z-10" />
                 </div>

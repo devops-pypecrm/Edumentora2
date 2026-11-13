@@ -37,6 +37,8 @@ export default function ApprenticeshipLearningProgram() {
             <img
               src="/apprenticeship-hero.png"
               alt="Apprenticeship program at Edumentora"
+              width={1024}
+              height={1024}
               className="object-cover w-full h-full transform hover:scale-105 transition-transform duration-700 ease-in-out"
             />
           </div>
@@ -131,6 +133,8 @@ export default function ApprenticeshipLearningProgram() {
             <img
               src="/apprenticeship-professionals.png"
               alt="Working professionals studying"
+              width={1024}
+              height={1024}
               className="object-cover w-full h-full transform hover:scale-105 transition-transform duration-700 ease-in-out"
             />
           </div>

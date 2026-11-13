@@ -154,6 +154,8 @@ export default function UniversitiesClient({ universities }: { universities: Uni
                     <img 
                       src={item.mainImage} 
                       alt={item.name} 
+                      width={640}
+                      height={360}
                       className="object-cover w-full h-full transform transition-transform duration-700 group-hover:scale-105" 
                     />
                   ) : (
@@ -164,7 +166,7 @@ export default function UniversitiesClient({ universities }: { universities: Uni
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300"></div>
                   {item.logo && (
                     <div className="absolute top-4 right-4 z-10 w-14 h-14 rounded-xl bg-white shadow-[0_4px_14px_rgba(0,0,0,0.2)] p-1.5 flex items-center justify-center overflow-hidden">
-                      <img src={item.logo} alt={`${item.name} logo`} className="w-full h-full object-contain" />
+                      <img src={item.logo} alt={`${item.name} logo`} width={56} height={56} className="w-full h-full object-contain" />
                     </div>
                   )}
                 </div>

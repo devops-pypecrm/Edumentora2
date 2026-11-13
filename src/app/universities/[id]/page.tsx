@@ -131,6 +131,8 @@ export default async function UniversityDetailPage(props: { params: Promise<{ id
               <img 
                 src={university.mainImage} 
                 alt={university.name} 
+                width={1200}
+                height={654}
                 className="w-full h-full object-cover" 
               />
             </div>

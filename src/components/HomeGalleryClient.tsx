@@ -66,6 +66,8 @@ export default function HomeGalleryClient({ images }: { images: string[] }) {
               <img 
                 src={img} 
                 alt={`Gallery image ${i}`}
+                width={360}
+                height={240}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
             </div>

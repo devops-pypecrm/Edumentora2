@@ -92,7 +92,7 @@ export default function StatsSection({ universities = [] }: { universities?: Sta
               100% { stroke-dashoffset: -24; }
             }
             .stats-connector-line {
-              animation: statsConnectorFlow 1.2s linear infinite;
+              /* Flowing dashes turned off for performance (non-composited animation). To bring them back, restore: animation: statsConnectorFlow 1.2s linear infinite; */
             }
             @media (prefers-reduced-motion: reduce) {
               .stats-connector-line { animation: none; }
@@ -164,6 +164,8 @@ export default function StatsSection({ universities = [] }: { universities?: Sta
                           <img
                             src={logo.logo}
                             alt={logo.name}
+                            width={128}
+                            height={128}
                             className="w-full h-full object-contain"
                             loading="lazy"
                             decoding="async"

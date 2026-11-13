@@ -18,6 +18,8 @@ export default function GalleryImage({ src, alt, className }: { src: string; alt
     <img
       src={src}
       alt={alt}
+      width={1200}
+      height={800}
       className={className}
       loading="lazy"
       onError={() => setFailed(true)}

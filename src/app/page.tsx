@@ -15,6 +15,7 @@ import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { PrismaClient } from '@prisma/client';
 import { aggregateRatingJsonLd, pageMetadata } from '@/lib/seo';
+import { toImageRoute } from '@/lib/dataUrlImage';
 
 const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
 const prisma = globalForPrisma.prisma || new PrismaClient();
@@ -35,8 +36,8 @@ export const metadata = {
   title: { absolute: 'Credit Transfer Institute in Kerala | Edumentora' },
 };
 
-// The boundary lets the layout (and LogoIntro in it) reach the browser straight
-// away, instead of waiting on the database queries in HomeContent.
+// The boundary lets the layout reach the browser straight away, instead of
+// waiting on the database queries in HomeContent.
 export default function Home() {
   return (
     <Suspense fallback={null}>
@@ -57,7 +58,7 @@ async function HomeContent() {
       }),
       prisma.heroConfig.findUnique({ where: { id: 'homepage-hero' } }),
     ]);
-    heroSlides = slides;
+    heroSlides = slides.map((s) => ({ ...s, imageUrl: toImageRoute(`/api/images/hero-slides/${s.id}`, s.imageUrl) }));
     showHeroContent = heroConfig?.showContent ?? true;
   } catch (error) {
     console.error('Failed to fetch hero slides:', error);
@@ -137,7 +138,10 @@ async function HomeContent() {
     const galleries = await prisma.gallery.findMany({
       orderBy: { createdAt: 'desc' },
     });
-    galleryImages = galleries.flatMap(g => g.images).slice(0, 8);
+    galleryImages = galleries
+      .flatMap(g => g.images.map((image, index) => ({ galleryId: g.id, image, index })))
+      .slice(0, 8)
+      .map(({ galleryId, image, index }) => toImageRoute(`/api/images/gallery/${galleryId}/${index}`, image));
   } catch (error) {
     console.error("Failed to fetch galleries:", error);
   }
@@ -159,7 +163,8 @@ async function HomeContent() {
       orderBy: { createdAt: 'asc' },
       select: { id: true, name: true, logo: true },
     });
-    statUniversities = unis.filter(u => !!u.logo) as { id: string; name: string; logo: string }[];
+    statUniversities = (unis.filter(u => !!u.logo) as { id: string; name: string; logo: string }[])
+      .map(u => ({ ...u, logo: toImageRoute(`/api/images/university-logos/${u.id}`, u.logo) }));
   } catch (error) {
     console.error("Failed to fetch universities:", error);
   }

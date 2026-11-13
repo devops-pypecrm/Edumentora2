@@ -29,11 +29,14 @@ export default function StudentsLoginPage() {
               src="/favcon/edumentora_favcon.png"
               alt=""
               aria-hidden="true"
+              width={1536}
+              height={1024}
               className="absolute select-none"
               style={{
                 left: doodle.left,
                 top: doodle.top,
                 width: doodle.width,
+                height: 'auto',
                 transform: `rotate(${doodle.rotate})`,
                 opacity: doodle.opacity,
                 filter: index % 2 === 0 ? 'saturate(1.4) brightness(1.2) contrast(1.1)' : 'saturate(1.1) brightness(1.15)',

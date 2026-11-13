@@ -190,6 +190,19 @@ export default function Hero({
   const [activeDesktopSlide, setActiveDesktopSlide] = useState(0);
   const [activeMobileSlide, setActiveMobileSlide] = useState(0);
 
+  // The first slide loads straight away; the remaining slides are preloaded
+  // only once the page has finished loading, so they don't compete with it.
+  const [preloadSlides, setPreloadSlides] = useState(false);
+  useEffect(() => {
+    if (document.readyState === 'complete') {
+      setPreloadSlides(true);
+      return;
+    }
+    const onLoad = () => setPreloadSlides(true);
+    window.addEventListener('load', onLoad);
+    return () => window.removeEventListener('load', onLoad);
+  }, []);
+
   const visibleDesktopIndex =
     resolvedDesktopSlides.length > 0 ? activeDesktopSlide % resolvedDesktopSlides.length : 0;
   const visibleMobileIndex =
@@ -267,8 +280,8 @@ export default function Hero({
               <>
                 {/* Preload every desktop slide */}
                 <div className="hidden" aria-hidden="true">
-                  {resolvedDesktopSlides.map((slide) => (
-                    <img key={slide.id} src={slide.imageUrl} alt="" />
+                  {preloadSlides && resolvedDesktopSlides.map((slide) => (
+                    <img key={slide.id} src={slide.imageUrl} alt="" width={1600} height={900} />
                   ))}
                 </div>
                 <AnimatePresence initial={false} mode="sync">
@@ -276,6 +289,8 @@ export default function Hero({
                     key={resolvedDesktopSlides[visibleDesktopIndex].id}
                     src={resolvedDesktopSlides[visibleDesktopIndex].imageUrl}
                     alt={cleanAlt(resolvedDesktopSlides[visibleDesktopIndex].altText)}
+                    width={1600}
+                    height={900}
                     initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, x: '4%' }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: '-4%' }}
@@ -291,11 +306,14 @@ export default function Hero({
                     key={index}
                     src="/favcon/edumentora_favcon.png"
                     alt=""
+                    width={1536}
+                    height={1024}
                     className="absolute select-none"
                     style={{
                       left: doodle.left,
                       top: doodle.top,
                       width: doodle.width,
+                      height: 'auto',
                       transform: `rotate(${doodle.rotate})`,
                       opacity: doodle.opacity,
                       filter: index % 2 === 0 ? 'saturate(1.4) brightness(1.2) contrast(1.1)' : 'saturate(1.1) brightness(1.15)',
@@ -313,8 +331,8 @@ export default function Hero({
               <>
                 {/* Preload every mobile slide */}
                 <div className="hidden" aria-hidden="true">
-                  {resolvedMobileSlides.map((slide) => (
-                    <img key={slide.id} src={slide.imageUrl} alt="" />
+                  {preloadSlides && resolvedMobileSlides.map((slide) => (
+                    <img key={slide.id} src={slide.imageUrl} alt="" width={900} height={1600} />
                   ))}
                 </div>
                 <AnimatePresence initial={false} mode="sync">
@@ -322,6 +340,8 @@ export default function Hero({
                     key={resolvedMobileSlides[visibleMobileIndex].id}
                     src={resolvedMobileSlides[visibleMobileIndex].imageUrl}
                     alt={cleanAlt(resolvedMobileSlides[visibleMobileIndex].altText)}
+                    width={900}
+                    height={1600}
                     initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, x: '4%' }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: '-4%' }}
@@ -337,11 +357,14 @@ export default function Hero({
                     key={index}
                     src="/favcon/edumentora_favcon.png"
                     alt=""
+                    width={1536}
+                    height={1024}
                     className="absolute select-none"
                     style={{
                       left: doodle.left,
                       top: doodle.top,
                       width: doodle.width,
+                      height: 'auto',
                       transform: `rotate(${doodle.rotate})`,
                       opacity: doodle.opacity,
                       filter: index % 2 === 0 ? 'saturate(1.4) brightness(1.2) contrast(1.1)' : 'saturate(1.1) brightness(1.15)',

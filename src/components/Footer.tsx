@@ -204,9 +204,11 @@ export default function Footer() {
             {/* Brand Logo, Text, and Contact Section */}
             <div className="flex flex-col items-start space-y-6 pl-4 max-w-sm">
               <Link href="/" className="bg-white p-3 rounded-xl shadow-xl inline-block transform hover:scale-105 transition-transform duration-300">
-                <img 
-                  src="/favcon/edumentora_favcon.png" 
-                  alt="Edumentora doodle logo" 
+                <Image
+                  src="/favcon/edumentora_favcon.png"
+                  alt="Edumentora doodle logo"
+                  width={96}
+                  height={64}
                   className="h-16 w-auto object-contain"
                 />
               </Link>

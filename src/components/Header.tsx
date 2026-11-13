@@ -158,6 +158,8 @@ export default function Header() {
           <img
             src="/favcon/edumentora_logo.webp"
             alt="Edumentora logo"
+            width={97}
+            height={40}
             className="w-auto h-8 min-[720px]:h-9 xl:h-[40px] object-contain"
           />
         </Link>
