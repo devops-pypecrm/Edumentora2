@@ -75,3 +75,20 @@ export async function deleteBlog(id: string) {
   revalidatePath('/blog');
   revalidatePath('/blog', 'layout');
 }
+
+// Saves only the heading/paragraph blocks (used by the "Add Links" button in
+// the blog list). Title, date, image and other fields are left as they are.
+export async function updateBlogLinks(id: string, mainDis: { subHeading: string; subPara: string }[]) {
+  if (!id || !Array.isArray(mainDis)) return;
+
+  await prisma.blog.update({
+    where: { id },
+    data: {
+      mainDis: mainDis.map((block) => ({ subHeading: block.subHeading ?? '', subPara: block.subPara ?? '' })),
+    },
+  });
+
+  revalidatePath('/admin/blogs');
+  revalidatePath('/blog');
+  revalidatePath('/blog', 'layout');
+}

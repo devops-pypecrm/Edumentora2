@@ -13,6 +13,7 @@ import { postComment } from './actions';
 import type { Metadata } from 'next';
 import { pageMetadata, articleJsonLd, breadcrumbJsonLd } from '@/lib/seo';
 import { blogPath, resolveBlogId, BLOG_SLUGS, UNIVERSITY_SLUGS } from '@/lib/slugs';
+import { parseBlogLinks, stripBlogLinks } from '@/lib/blogLinks';
 
 const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
 const prisma = globalForPrisma.prisma || new PrismaClient();
@@ -37,23 +38,24 @@ function readableHref(href: string) {
   return href;
 }
 
+// "[words](link)" becomes a real link. Site pages (/path) use <Link>; links
+// added in admin → Blogs → Add Links can also point to other websites
+// (https://...), and those are plain <a href> anchors.
 function renderInlineLinks(text: string, keyPrefix: string) {
-  const linkPattern = /\[([^\]]+)\]\((\/[^)]+)\)/g;
-  const nodes: React.ReactNode[] = [];
-  let lastIndex = 0;
-  let match: RegExpExecArray | null;
-  let i = 0;
-  while ((match = linkPattern.exec(text)) !== null) {
-    if (match.index > lastIndex) nodes.push(text.slice(lastIndex, match.index));
-    nodes.push(
-      <Link key={`${keyPrefix}-link-${i++}`} href={readableHref(match[2])} className="text-[#F9010D] font-semibold underline decoration-[#F9010D] underline-offset-2 hover:text-[#F9010D]">
-        {match[1]}
+  const linkClass = 'text-[#F9010D] font-semibold underline decoration-[#F9010D] underline-offset-2 hover:text-[#F9010D]';
+  return parseBlogLinks(text).map((segment, i) => {
+    if (segment.type === 'text') return <React.Fragment key={`${keyPrefix}-t-${i}`}>{segment.text}</React.Fragment>;
+    const href = readableHref(segment.href);
+    return href.startsWith('/') ? (
+      <Link key={`${keyPrefix}-link-${i}`} href={href} className={linkClass}>
+        {segment.text}
       </Link>
+    ) : (
+      <a key={`${keyPrefix}-link-${i}`} href={href} className={linkClass}>
+        {segment.text}
+      </a>
     );
-    lastIndex = linkPattern.lastIndex;
-  }
-  if (lastIndex < text.length) nodes.push(text.slice(lastIndex));
-  return nodes;
+  });
 }
 
 function BlogParagraph({ subPara, blockKey }: { subPara: string; blockKey: string }) {
@@ -159,7 +161,7 @@ export async function generateMetadata(props: { params: Promise<{ id: string }> 
   const blog = await prisma.blog.findUnique({ where: { id } });
   if (!blog) return {};
 
-  const excerpt = blog.mainDis.find((block) => block.subPara)?.subPara ?? blog.sectionDis;
+  const excerpt = stripBlogLinks(blog.mainDis.find((block) => block.subPara)?.subPara ?? blog.sectionDis);
 
   return pageMetadata({
     title: blog.sectionDis,
@@ -202,7 +204,7 @@ export default async function BlogDetailPage(props: { params: Promise<{ id: stri
     orderBy: { createdAt: 'desc' },
   });
 
-  const excerpt = blog.mainDis.find((block) => block.subPara)?.subPara ?? blog.sectionDis;
+  const excerpt = stripBlogLinks(blog.mainDis.find((block) => block.subPara)?.subPara ?? blog.sectionDis);
   const articleLd = articleJsonLd({
     headline: blog.sectionDis,
     description: excerpt.length > 300 ? `${excerpt.slice(0, 297)}...` : excerpt,
@@ -284,7 +286,7 @@ export default async function BlogDetailPage(props: { params: Promise<{ id: stri
                   <div key={index} className="mb-10 last:mb-0">
                     {block.subHeading && (
                       <h2 className="text-2xl md:text-3xl font-bold text-[#002147] mb-4">
-                        {block.subHeading}
+                        {renderInlineLinks(block.subHeading, `block-${index}-h`)}
                       </h2>
                     )}
                     {block.subPara && (

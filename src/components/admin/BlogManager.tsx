@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useTransition, useState } from 'react';
-import { createBlog, updateBlog, deleteBlog } from '@/app/admin/blogs/actions';
-import { Plus, Trash2, Calendar, LayoutList, Upload, X, Pencil } from 'lucide-react';
+import { createBlog, updateBlog, deleteBlog, updateBlogLinks } from '@/app/admin/blogs/actions';
+import { Plus, Trash2, Calendar, LayoutList, Upload, X, Pencil, Link2 } from 'lucide-react';
+import BlogLinkEditor from '@/components/admin/BlogLinkEditor';
 
 type BlogSection = {
   subHeading: string;
@@ -75,6 +76,30 @@ export default function BlogManager({ initialBlogs }: { initialBlogs: Blog[] }) 
         deleteBlog(id);
       });
     }
+  };
+
+  // "Add Links" button in the blog list: edits links in every heading and
+  // paragraph of one blog and saves only those blocks.
+  const [linksBlog, setLinksBlog] = useState<Blog | null>(null);
+  const [linksDraft, setLinksDraft] = useState<BlogSection[]>([]);
+
+  const openLinksEditor = (blog: Blog) => {
+    setLinksBlog(blog);
+    setLinksDraft(blog.mainDis.map((block) => ({ subHeading: block.subHeading ?? '', subPara: block.subPara ?? '' })));
+  };
+
+  const handleSaveLinks = () => {
+    if (!linksBlog) return;
+    startTransition(async () => {
+      try {
+        await updateBlogLinks(linksBlog.id, linksDraft);
+        setLinksBlog(null);
+        alert('Links saved successfully!');
+      } catch (error) {
+        console.error('Error saving links:', error);
+        alert('Failed to save links! Please try again.');
+      }
+    });
   };
 
   const addMainDisSection = () => {
@@ -217,6 +242,15 @@ export default function BlogManager({ initialBlogs }: { initialBlogs: Blog[] }) 
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>
+                      <button
+                        onClick={() => openLinksEditor(blog)}
+                        disabled={isPending}
+                        className="text-gray-400 hover:text-[#002147] hover:bg-blue-50 p-2 rounded-lg transition-colors"
+                        title="Add Links"
+                        aria-label="Add Links"
+                      >
+                        <Link2 className="w-4 h-4" />
+                      </button>
                     </td>
                   </tr>
                 ))
@@ -332,6 +366,11 @@ export default function BlogManager({ initialBlogs }: { initialBlogs: Blog[] }) 
                               rows={3}
                               className="w-full px-4 py-2 border border-gray-200 text-[#002147] placeholder-[#002147]/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#002147]/20 focus:border-[#002147] resize-none"
                             />
+                            <BlogLinkEditor
+                              subHeading={section.subHeading}
+                              subPara={section.subPara}
+                              onChange={(field, value) => updateMainDisSection(index, field, value)}
+                            />
                           </div>
 
                           {mainDis.length > 1 && (
@@ -367,6 +406,72 @@ export default function BlogManager({ initialBlogs }: { initialBlogs: Blog[] }) 
                     {editingBlog ? 'Update Blog' : 'Publish Blog'}
                   </button>
                 </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Add Links Modal — every heading and paragraph of one blog */}
+      {linksBlog && (
+        <div
+          data-lenis-prevent
+          className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-[2px]"
+          style={{ overscrollBehavior: 'contain' }}
+        >
+          <div className="flex min-h-full items-start justify-center p-4 sm:p-8">
+            <div className="w-full max-w-3xl rounded-2xl bg-white shadow-2xl">
+              <div className="flex items-start justify-between gap-4 border-b border-gray-100 p-6">
+                <div>
+                  <h2 className="text-xl font-bold text-[#002147]">Add Links</h2>
+                  <p className="mt-1 text-sm text-gray-500 line-clamp-1">{linksBlog.sectionDis}</p>
+                  <p className="mt-2 text-xs text-gray-500">
+                    Select any word or line in a heading or paragraph below, paste the link and click <b>Add Link</b>. Then click <b>Save Links</b>.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setLinksBlog(null)}
+                  className="rounded-lg p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-700"
+                  aria-label="Close"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+
+              <div className="space-y-4 p-6">
+                {linksDraft.map((block, index) => (
+                  <div key={index}>
+                    <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-gray-400">Block {index + 1}</p>
+                    <BlogLinkEditor
+                      alwaysOpen
+                      subHeading={block.subHeading}
+                      subPara={block.subPara}
+                      onChange={(field, value) =>
+                        setLinksDraft((current) => current.map((b, i) => (i === index ? { ...b, [field]: value } : b)))
+                      }
+                    />
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex justify-end gap-3 border-t border-gray-100 p-6">
+                <button
+                  type="button"
+                  onClick={() => setLinksBlog(null)}
+                  className="rounded-xl border border-gray-200 px-6 py-3 font-medium text-gray-600 hover:bg-gray-50"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  disabled={isPending}
+                  onClick={handleSaveLinks}
+                  className="flex items-center gap-2 rounded-xl bg-[#F9010D] px-8 py-3 font-medium text-white hover:bg-[#F9010D]/90 disabled:opacity-70"
+                >
+                  <Link2 className="h-5 w-5" />
+                  {isPending ? 'Saving...' : 'Save Links'}
+                </button>
               </div>
             </div>
           </div>

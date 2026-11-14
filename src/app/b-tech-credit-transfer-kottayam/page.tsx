@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import EnquiryForm from '@/components/EnquiryForm';
 import { pageMetadata } from '@/lib/seo';
+import DistrictSeoContent from '@/components/DistrictSeoContent';
 
 export const metadata = pageMetadata({
   title: 'B Tech Credit Transfer Kottayam',
@@ -24,6 +25,9 @@ export default function BTechCreditTransferPage() {
         subtitle="Continue your education confidently with credit transfer guidance in Kottayam."
         isGradientText={true}
       />
+
+      {/* Extra SEO content for this location */}
+      <DistrictSeoContent district="kottayam" />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 pb-16 grid lg:grid-cols-12 gap-10 lg:gap-16">
         <div className="lg:col-span-7 space-y-5 text-[#3b3226]">

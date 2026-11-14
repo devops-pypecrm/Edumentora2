@@ -7,6 +7,7 @@ import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import EnquiryForm from '@/components/EnquiryForm';
 import { pageMetadata } from '@/lib/seo';
+import DistrictSeoContent from '@/components/DistrictSeoContent';
 
 export const metadata = pageMetadata({
   title: 'B Tech Credit Transfer Pathanamthitta',
@@ -49,6 +50,9 @@ export default function BTechCreditTransferPage() {
         </div>
       </div>
 
+
+      {/* Extra SEO content for this location */}
+      <DistrictSeoContent district="pathanamthitta" />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 pb-16">
         <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-300 w-full">

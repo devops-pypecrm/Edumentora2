@@ -8,6 +8,7 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import EnquiryForm from '@/components/EnquiryForm';
 import { pageMetadata, breadcrumbJsonLd, faqPageJsonLd } from '@/lib/seo';
 import ErnakulamFaq from './ErnakulamFaq';
+import DistrictSeoContent from '@/components/DistrictSeoContent';
 
 export const metadata = pageMetadata({
   title: 'B.Tech Credit Transfer in Ernakulam',
@@ -173,6 +174,9 @@ export default function Page() {
         </p>
         <ErnakulamFaq faqs={FAQS} />
       </div>
+
+      {/* Extra SEO content for this location */}
+      <DistrictSeoContent district="ernakulam" extrasOnly />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 pb-16">
         <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-300 w-full">
