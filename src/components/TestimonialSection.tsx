@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m as motion, AnimatePresence } from 'framer-motion';
 import { Star, ChevronLeft, ChevronRight, User, ArrowRight, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import ScrollReveal from './ScrollReveal';

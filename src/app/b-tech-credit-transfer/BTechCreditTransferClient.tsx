@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m as motion, AnimatePresence } from 'framer-motion';
 import { GraduationCap, Briefcase, Award, ArrowRight, ClipboardCheck, Landmark, TrendingUp, Layers, ChevronDown, Clock, Wallet, Shuffle, ShieldCheck, Minus } from 'lucide-react';
 import PageBanner from '@/components/PageBanner';
 import Header from '@/components/Header';

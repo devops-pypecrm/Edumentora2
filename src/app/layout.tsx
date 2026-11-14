@@ -85,7 +85,8 @@ const organizationJsonLd = {
   ],
 };
 
-import PopupForm from '@/components/PopupForm';
+import LazyPopupForm from '@/components/LazyPopupForm';
+import MotionProvider from '@/components/MotionProvider';
 
 export default function RootLayout({
   children,
@@ -95,8 +96,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={montserrat.className} suppressHydrationWarning>
-        <Script async src="https://www.googletagmanager.com/gtm.js?id=GTM-WQL7S8RD" />
-        <Script id="google-tag-manager">
+        {/* lazyOnload: Tag Manager starts once the page has finished loading,
+            so it doesn't slow down the first load. */}
+        <Script async src="https://www.googletagmanager.com/gtm.js?id=GTM-WQL7S8RD" strategy="lazyOnload" />
+        <Script id="google-tag-manager" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -112,8 +115,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd()) }}
         />
         <SmoothScroll>
-          {children}
-          <PopupForm />
+          <MotionProvider>
+            {children}
+            <LazyPopupForm />
+          </MotionProvider>
         </SmoothScroll>
       </body>
     </html>

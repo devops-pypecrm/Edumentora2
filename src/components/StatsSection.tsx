@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { motion, AnimatePresence, useInView, animate } from 'framer-motion';
+import { m as motion, AnimatePresence, useInView, animate } from 'framer-motion';
 import Link from 'next/link';
 import { Award, Briefcase } from 'lucide-react';
 

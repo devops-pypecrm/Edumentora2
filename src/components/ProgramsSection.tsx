@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 import Link from 'next/link';
 import { BriefcaseBusiness, GraduationCap, Settings2, BookOpenCheck, ArrowRight, Download } from 'lucide-react';
 import BrochureDownload from '@/components/BrochureDownload';

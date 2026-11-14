@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { motion, useReducedMotion, AnimatePresence } from 'framer-motion';
+import { m as motion, useReducedMotion, AnimatePresence } from 'framer-motion';
 import { ClipboardCheck, ShieldCheck, Bell } from 'lucide-react';
 import EligibilityForm from '@/components/EligibilityForm';
 

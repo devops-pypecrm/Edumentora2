@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { motion, animate, useInView } from 'framer-motion';
+import { m as motion, animate, useInView } from 'framer-motion';
 
 function AnimatedValue({ value, start }: { value: string; start: boolean }) {
   const match = value.match(/^([\d,]+)(.*)$/);

@@ -3,7 +3,7 @@
 import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import { Phone, Volume2, VolumeX } from 'lucide-react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { m as motion, useScroll, useTransform } from 'framer-motion';
 
 export default function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null);
