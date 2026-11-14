@@ -45,7 +45,7 @@ export default function DiplomaCreditTransferPage() {
             </h3>
             <p className="text-base leading-relaxed text-justify">
               Diploma holders exploring their options sometimes come across two different terms — academic credit transfer and lateral entry — and it helps to know they are not automatically the same process. Lateral entry generally refers to a specific admission pathway, typically direct admission into the second year of a B.Tech program for diploma holders. Academic credit transfer, on the other hand, generally applies to students who have already started a degree program and want previously completed academic work evaluated and recognized at another institution, rather than beginning a new degree. Which pathway is relevant depends on your own academic background — not every diploma holder automatically qualifies for lateral entry, and not every diploma-level qualification can be transferred as credits, since eligibility and the specific academic process can vary by institution and program. You can read a more detailed comparison in{' '}
-              <Link href="/blog/6a96c7cc70298b504074e813" className="text-[#F9010D] font-semibold underline decoration-[#F9010D] underline-offset-2 hover:text-[#F9010D]">
+              <Link href="/blog/credit-transfer-vs-lateral-entry" className="text-[#F9010D] font-semibold underline decoration-[#F9010D] underline-offset-2 hover:text-[#F9010D]">
                 Credit Transfer vs Lateral Entry: What&apos;s the Difference?
               </Link>
               {' '}Diploma holders specifically considering a move into engineering can also see our{' '}

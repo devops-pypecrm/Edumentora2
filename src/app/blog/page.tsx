@@ -8,6 +8,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Calendar, ArrowRight } from 'lucide-react';
 import { pageMetadata } from '@/lib/seo';
+import { blogPath } from '@/lib/slugs';
 
 export const metadata = pageMetadata({
   title: 'Blog',
@@ -88,7 +89,7 @@ export default async function BlogPage() {
                   
                   <div className="mt-auto pt-6">
                     <Link 
-                      href={`/blog/${blog.id}`}
+                      href={blogPath(blog.id)}
                       className="inline-flex items-center gap-2 text-[#F9010D] font-bold hover:text-[#002147] transition-colors group/link"
                     >
                       Read Full Article 

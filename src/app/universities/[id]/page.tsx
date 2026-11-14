@@ -5,8 +5,9 @@ import LocationsSection from '@/components/LocationsSection';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import PageBanner from '@/components/PageBanner';
 import { PrismaClient } from '@prisma/client';
-import { notFound } from 'next/navigation';
-import { 
+import { notFound, permanentRedirect } from 'next/navigation';
+import { universityPath, resolveUniversityId } from '@/lib/slugs';
+import {
   MapPin, 
   Award, 
   ArrowLeft, 
@@ -32,7 +33,7 @@ if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
 export const revalidate = 3600;
 
 export async function generateMetadata(props: { params: Promise<{ id: string }> }): Promise<Metadata> {
-  const { id } = await props.params;
+  const id = resolveUniversityId((await props.params).id);
   if (!id) return {};
 
   const university = await prisma.university.findUnique({ where: { id } });
@@ -43,13 +44,20 @@ export async function generateMetadata(props: { params: Promise<{ id: string }> 
   return pageMetadata({
     title: university.name,
     description: description.length > 160 ? `${description.slice(0, 157)}...` : description,
-    path: `/universities/${id}`,
+    path: universityPath(id),
   });
 }
 
 export default async function UniversityDetailPage(props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
-  const { id } = params;
+  // The URL can be the readable name (e.g. glocal-university) or the old
+  // database ID; both resolve to the same university.
+  const id = resolveUniversityId(params.id);
+
+  // Old ID links permanently redirect to the readable URL.
+  if (universityPath(id) !== `/universities/${params.id}`) {
+    permanentRedirect(universityPath(id));
+  }
 
   if (!id) {
     notFound();
@@ -74,7 +82,7 @@ export default async function UniversityDetailPage(props: { params: Promise<{ id
   const breadcrumbLd = breadcrumbJsonLd([
     { name: 'Home', path: '/' },
     { name: 'Universities', path: '/universities' },
-    { name: university.name, path: `/universities/${id}` },
+    { name: university.name, path: universityPath(id) },
   ]);
   const courseLd = courseJsonLd(university, universityPrograms);
   const courseListLd = courseListJsonLd(university, universityPrograms);

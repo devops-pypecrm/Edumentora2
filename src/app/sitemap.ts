@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { PrismaClient } from '@prisma/client';
 import { SITE_URL } from '@/lib/seo';
+import { blogPath, universityPath } from '@/lib/slugs';
 
 const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
 const prisma = globalForPrisma.prisma || new PrismaClient();
@@ -56,7 +57,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     const blogs = await prisma.blog.findMany({ select: { id: true, updatedAt: true } });
     blogEntries = blogs.map((b) => ({
-      url: `${SITE_URL}/blog/${b.id}`,
+      url: `${SITE_URL}${blogPath(b.id)}`,
       lastModified: b.updatedAt,
     }));
   } catch {
@@ -66,7 +67,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     const universities = await prisma.university.findMany({ select: { id: true } });
     universityEntries = universities.map((u) => ({
-      url: `${SITE_URL}/universities/${u.id}`,
+      url: `${SITE_URL}${universityPath(u.id)}`,
     }));
   } catch {
     // DB unreachable at build time — ship the static routes only

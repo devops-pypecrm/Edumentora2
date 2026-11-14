@@ -2,6 +2,7 @@
 
 import { PrismaClient } from '@prisma/client';
 import { revalidatePath } from 'next/cache';
+import { universityPath } from '@/lib/slugs';
 
 const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
 const prisma = globalForPrisma.prisma || new PrismaClient();
@@ -11,6 +12,7 @@ function revalidateAll(universityId?: string) {
   revalidatePath('/admin/university-programs');
   revalidatePath('/universities');
   if (universityId) revalidatePath(`/universities/${universityId}`);
+  if (universityId) revalidatePath(universityPath(universityId));
 }
 
 export async function createUniversityProgram(formData: FormData) {

@@ -8,10 +8,11 @@ import { PrismaClient } from '@prisma/client';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Calendar, ArrowLeft, Send } from 'lucide-react';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import { postComment } from './actions';
 import type { Metadata } from 'next';
 import { pageMetadata, articleJsonLd, breadcrumbJsonLd } from '@/lib/seo';
+import { blogPath, resolveBlogId } from '@/lib/slugs';
 
 const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
 const prisma = globalForPrisma.prisma || new PrismaClient();
@@ -138,7 +139,7 @@ function BlogParagraph({ subPara, blockKey }: { subPara: string; blockKey: strin
 }
 
 export async function generateMetadata(props: { params: Promise<{ id: string }> }): Promise<Metadata> {
-  const { id } = await props.params;
+  const id = resolveBlogId((await props.params).id);
   if (!id || id.length !== 24) return {};
 
   const blog = await prisma.blog.findUnique({ where: { id } });
@@ -149,13 +150,20 @@ export async function generateMetadata(props: { params: Promise<{ id: string }> 
   return pageMetadata({
     title: blog.sectionDis,
     description: excerpt.length > 160 ? `${excerpt.slice(0, 157)}...` : excerpt,
-    path: `/blog/${id}`,
+    path: blogPath(id),
   });
 }
 
 export default async function BlogDetailPage(props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
-  const { id } = params;
+  // The URL can be the readable name (e.g. what-is-academic-credit-transfer)
+  // or the old database ID; both resolve to the same post.
+  const id = resolveBlogId(params.id);
+
+  // Old ID links permanently redirect to the readable URL.
+  if (blogPath(id) !== `/blog/${params.id}`) {
+    permanentRedirect(blogPath(id));
+  }
 
   if (!id || id.length !== 24) {
     notFound();
@@ -188,12 +196,12 @@ export default async function BlogDetailPage(props: { params: Promise<{ id: stri
     author: blog.author,
     datePublished: blog.date,
     dateModified: blog.updatedAt,
-    path: `/blog/${id}`,
+    path: blogPath(id),
   });
   const breadcrumbLd = breadcrumbJsonLd([
     { name: 'Home', path: '/' },
     { name: 'Blog', path: '/blog' },
-    { name: blog.sectionDis, path: `/blog/${id}` },
+    { name: blog.sectionDis, path: blogPath(id) },
   ]);
 
   return (
@@ -285,7 +293,7 @@ export default async function BlogDetailPage(props: { params: Promise<{ id: stri
                 </h3>
                 <div className="space-y-6">
                   {recentBlogs.map((recent) => (
-                    <Link key={recent.id} href={`/blog/${recent.id}`} className="group flex gap-4 items-start">
+                    <Link key={recent.id} href={blogPath(recent.id)} className="group flex gap-4 items-start">
                       {recent.mainImage ? (
                         <div className="relative w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
                           <Image

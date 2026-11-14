@@ -71,7 +71,7 @@ export default function BTechCreditTransferPage() {
           B Tech Credit Transfer Services in Kerala for Dropout & Backlog Students
         </Link>
         <Link
-          href="/blog/6a7ac6153f54f002c1660622"
+          href="/blog/btech-discontinued-after-2-or-3-years"
           className="block w-full text-gray-700 hover:text-blue-600 hover:underline text-sm md:text-base transition-colors font-medium"
         >
           B.Tech Discontinued After 2 or 3 Years? Know Your Options.
@@ -83,7 +83,7 @@ export default function BTechCreditTransferPage() {
           Eligibility and Benefits of B.Tech Credit Transfer
         </Link>
         <Link
-          href="/blog/6a798b2c3e640d6933a2cdf2"
+          href="/blog/what-is-academic-credit-transfer"
           className="block w-full text-gray-700 hover:text-blue-600 hover:underline text-sm md:text-base transition-colors font-medium"
         >
           What Is Academic Credit Transfer?
@@ -119,13 +119,13 @@ export default function BTechCreditTransferPage() {
             B Tech Credit Transfer Services in Kerala for Dropout & Backlog Students
           </Link>
           <Link
-            href="/blog/6a7ac48b884d9293cd497181"
+            href="/blog/is-btech-credit-transfer-right-for-you"
             className="block w-full text-gray-700 hover:text-blue-600 hover:underline text-sm md:text-base transition-colors font-medium"
           >
             B.Tech Credit Transfer: Is It Right for You?
           </Link>
           <Link
-            href="/blog/6a7ac6153f54f002c1660622"
+            href="/blog/btech-discontinued-after-2-or-3-years"
             className="block w-full text-gray-700 hover:text-blue-600 hover:underline text-sm md:text-base transition-colors font-medium"
           >
             B.Tech Discontinued After 2 or 3 Years? Know Your Options.
@@ -137,7 +137,7 @@ export default function BTechCreditTransferPage() {
             Eligibility and Benefits of B.Tech Credit Transfer
           </Link>
           <Link
-            href="/blog/6a798b2c3e640d6933a2cdf2"
+            href="/blog/what-is-academic-credit-transfer"
             className="block w-full text-gray-700 hover:text-blue-600 hover:underline text-sm md:text-base transition-colors font-medium"
           >
             What Is Academic Credit Transfer?

@@ -2,6 +2,7 @@
 
 import { PrismaClient } from '@prisma/client';
 import { revalidatePath } from 'next/cache';
+import { blogPath } from '@/lib/slugs';
 
 const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
 const prisma = globalForPrisma.prisma || new PrismaClient();
@@ -30,6 +31,7 @@ export async function postComment(formData: FormData): Promise<void> {
     });
 
     revalidatePath(`/blog/${blogId}`);
+    revalidatePath(blogPath(blogId));
   } catch (error) {
     console.error('Error posting comment:', error);
     throw new Error('Failed to post comment');

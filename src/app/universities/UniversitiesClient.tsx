@@ -8,6 +8,7 @@ import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import PageBanner from '@/components/PageBanner';
 import BrochureDownload from '@/components/BrochureDownload';
+import { universityPath } from '@/lib/slugs';
 import {
   Building2, 
   Award, 
@@ -231,7 +232,7 @@ export default function UniversitiesClient({ universities }: { universities: Uni
 
                   {/* Bottom: Buttons */}
                   <div className="mt-auto flex gap-3 pt-2">
-                    <Link href={`/universities/${item.id}`} className="flex-1 bg-[#F9010D] hover:bg-[#F9010D]/90 text-white text-[14px] font-semibold py-3 px-4 rounded-xl flex items-center justify-center transition-colors shadow-sm">
+                    <Link href={universityPath(item.id)} className="flex-1 bg-[#F9010D] hover:bg-[#F9010D]/90 text-white text-[14px] font-semibold py-3 px-4 rounded-xl flex items-center justify-center transition-colors shadow-sm">
                       View Details & Programs
                     </Link>
                     <BrochureDownload
