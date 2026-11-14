@@ -163,7 +163,7 @@ export default function StatsSection({ universities = [] }: { universities?: Sta
                         <div className="bg-white rounded-[24px] w-full h-full flex items-center justify-center shadow-[0_8px_20px_rgba(0,0,0,0.04)] border border-[#ECECEC] hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] transition-all duration-300 p-4">
                           <img
                             src={logo.logo}
-                            alt={logo.name}
+                            alt={`${logo.name.trim()} logo`}
                             width={128}
                             height={128}
                             className="w-full h-full object-contain"

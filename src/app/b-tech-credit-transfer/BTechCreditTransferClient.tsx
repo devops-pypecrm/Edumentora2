@@ -125,7 +125,7 @@ export default function BTechCreditTransferClient({ faqs }: { faqs: Faq[] }) {
               <div className="relative w-full h-[400px] md:h-[460px] rounded-[2.5rem] overflow-hidden shadow-[0_20px_45px_-20px_rgba(0,33,71,0.25)] border border-gray-100 z-10 bg-white">
                 <Image
                   src="/image-008.png"
-                  alt="Students on campus progressing toward graduation and their certificates"
+                  alt="B.Tech credit transfer graduate"
                   fill
                   className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 50vw"

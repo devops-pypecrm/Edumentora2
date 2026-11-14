@@ -2,7 +2,6 @@
 
 import { PrismaClient } from '@prisma/client';
 import { revalidatePath } from 'next/cache';
-import { universityPath } from '@/lib/slugs';
 
 const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
 const prisma = globalForPrisma.prisma || new PrismaClient();
@@ -142,7 +141,7 @@ export async function updateUniversity(id: string, formData: FormData) {
   revalidatePath('/admin/university');
   revalidatePath('/universities');
   revalidatePath(`/universities/${id}`);
-  revalidatePath(universityPath(id));
+  revalidatePath('/universities/[id]', 'page');
   revalidatePath('/');
 }
 
@@ -154,7 +153,7 @@ export async function deleteUniversity(id: string) {
   revalidatePath('/admin/university');
   revalidatePath('/universities');
   revalidatePath(`/universities/${id}`);
-  revalidatePath(universityPath(id));
+  revalidatePath('/universities/[id]', 'page');
   revalidatePath('/');
 }
 
@@ -167,7 +166,7 @@ export async function removeBrochure(universityId: string) {
 
   revalidatePath('/admin/university');
   revalidatePath(`/universities/${universityId}`);
-  revalidatePath(universityPath(universityId));
+  revalidatePath('/universities/[id]', 'page');
 }
 
 export async function addCertificates(id: string, base64Images: string[]) {
@@ -184,7 +183,7 @@ export async function addCertificates(id: string, base64Images: string[]) {
 
   revalidatePath('/admin/university');
   revalidatePath(`/universities/${id}`);
-  revalidatePath(universityPath(id));
+  revalidatePath('/universities/[id]', 'page');
 }
 
 export async function removeCertificate(id: string, urlToRemove: string, currentCertificates: string[]) {
@@ -201,5 +200,5 @@ export async function removeCertificate(id: string, urlToRemove: string, current
 
   revalidatePath('/admin/university');
   revalidatePath(`/universities/${id}`);
-  revalidatePath(universityPath(id));
+  revalidatePath('/universities/[id]', 'page');
 }

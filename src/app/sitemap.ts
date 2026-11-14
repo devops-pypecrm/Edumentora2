@@ -55,9 +55,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   let universityEntries: MetadataRoute.Sitemap = [];
 
   try {
-    const blogs = await prisma.blog.findMany({ select: { id: true, updatedAt: true } });
+    const blogs = await prisma.blog.findMany({ select: { id: true, sectionDis: true, updatedAt: true } });
     blogEntries = blogs.map((b) => ({
-      url: `${SITE_URL}${blogPath(b.id)}`,
+      url: `${SITE_URL}${blogPath(b.id, b.sectionDis)}`,
       lastModified: b.updatedAt,
     }));
   } catch {
@@ -65,9 +65,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   try {
-    const universities = await prisma.university.findMany({ select: { id: true } });
+    const universities = await prisma.university.findMany({ select: { id: true, name: true } });
     universityEntries = universities.map((u) => ({
-      url: `${SITE_URL}${universityPath(u.id)}`,
+      url: `${SITE_URL}${universityPath(u.id, u.name)}`,
     }));
   } catch {
     // DB unreachable at build time — ship the static routes only

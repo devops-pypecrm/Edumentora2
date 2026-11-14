@@ -156,7 +156,7 @@ export default function Page() {
           <div className="relative w-full h-full min-h-[300px] rounded-2xl overflow-hidden shadow-sm border border-gray-200">
             <Image
               src="/btech-credit-transfer.png"
-              alt="B.Tech credit transfer guidance for engineering students in Ernakulam"
+              alt="B.Tech credit transfer Ernakulam"
               fill
               className="object-cover object-top"
               sizes="(max-width: 768px) 100vw, 400px"

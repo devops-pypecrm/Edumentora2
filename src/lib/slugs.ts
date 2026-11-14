@@ -1,7 +1,8 @@
 // Readable URL names (slugs) for blog posts and universities.
 // The key is the database ID, the value is the name used in the URL.
 // Old ID-based URLs still work and permanently redirect to these names.
-// To give another blog or university a readable URL, add a line here.
+// Anything not listed here (e.g. a new blog added from the admin panel) gets
+// a readable URL made from its title/name automatically.
 
 export const BLOG_SLUGS: Record<string, string> = {
   '6a798b2c3e640d6933a2cdf2': 'what-is-academic-credit-transfer',
@@ -20,7 +21,21 @@ export const UNIVERSITY_SLUGS: Record<string, string> = {
   '6a679ea1c7da20d58dbec435': 'glocal-university',
   '6a679ea1c7da20d58dbec436': 'arni-university',
   '6a679ea1c7da20d58dbec437': 'maya-devi-university',
+  '6a679ea1c7da20d58dbec438': 'manipur-international-university',
+  '6a746c8b0795eddde1a2a5e7': 'adamas-university',
+  '6a746ff40795eddde1a2a5eb': 'sage-university',
 };
+
+/** Turns a title into a URL name, e.g. "Is B.Tech Right?" -> "is-btech-right". */
+export const slugify = (text: string) =>
+  text
+    .toLowerCase()
+    .replace(/&/g, ' and ')
+    .replace(/[.'’]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
+const isObjectId = (value: string) => /^[0-9a-f]{24}$/i.test(value);
 
 const invert = (map: Record<string, string>) =>
   Object.fromEntries(Object.entries(map).map(([id, slug]) => [slug, id]));
@@ -28,14 +43,37 @@ const invert = (map: Record<string, string>) =>
 const BLOG_IDS = invert(BLOG_SLUGS);
 const UNIVERSITY_IDS = invert(UNIVERSITY_SLUGS);
 
-/** URL path for a blog post: the readable name if it has one, otherwise its ID. */
-export const blogPath = (id: string) => `/blog/${BLOG_SLUGS[id] ?? id}`;
+const slugFor = (map: Record<string, string>, id: string, name?: string | null) =>
+  map[id] ?? (name && slugify(name)) ?? id;
 
-/** URL path for a university: the readable name if it has one, otherwise its ID. */
-export const universityPath = (id: string) => `/universities/${UNIVERSITY_SLUGS[id] ?? id}`;
+/** URL path for a blog post, from the list above or made from its title. */
+export const blogPath = (id: string, title?: string | null) => `/blog/${slugFor(BLOG_SLUGS, id, title)}`;
 
-/** Turns the URL segment (readable name or ID) back into the database ID. */
-export const resolveBlogId = (segment: string) => BLOG_IDS[segment] ?? segment;
+/** URL path for a university, from the list above or made from its name. */
+export const universityPath = (id: string, name?: string | null) =>
+  `/universities/${slugFor(UNIVERSITY_SLUGS, id, name)}`;
 
-/** Turns the URL segment (readable name or ID) back into the database ID. */
-export const resolveUniversityId = (segment: string) => UNIVERSITY_IDS[segment] ?? segment;
+/**
+ * Turns the URL segment (readable name or old ID) back into the database ID.
+ * `loadAll` is only called for names made automatically from a title.
+ */
+async function resolveId(
+  segment: string,
+  known: Record<string, string>,
+  loadAll: () => Promise<{ id: string; name: string }[]>,
+): Promise<string | null> {
+  if (known[segment]) return known[segment];
+  if (isObjectId(segment)) return segment;
+  const items = await loadAll();
+  return items.find((item) => slugify(item.name) === segment)?.id ?? null;
+}
+
+export const resolveBlogId = (
+  segment: string,
+  loadAll: () => Promise<{ id: string; name: string }[]>,
+) => resolveId(segment, BLOG_IDS, loadAll);
+
+export const resolveUniversityId = (
+  segment: string,
+  loadAll: () => Promise<{ id: string; name: string }[]>,
+) => resolveId(segment, UNIVERSITY_IDS, loadAll);

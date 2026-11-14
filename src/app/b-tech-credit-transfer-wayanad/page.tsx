@@ -39,7 +39,7 @@ export default function BTechCreditTransferPage() {
           <div className="relative w-full h-full min-h-[300px] rounded-2xl overflow-hidden shadow-sm border border-gray-200">
             <Image
               src="/apprenticeship-professionals.png"
-              alt="Credit Transfer Student in Wayanad"
+              alt="B.Tech credit transfer Wayanad"
               fill
               className="object-cover object-top"
               sizes="(max-width: 768px) 100vw, 400px"

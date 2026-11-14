@@ -222,7 +222,7 @@ export default function TestimonialSection({ reviews = [], galleryImages = [], p
                               {displayTestimonials[currentIndex].image ? (
                                 <img
                                   src={displayTestimonials[currentIndex].image}
-                                  alt={displayTestimonials[currentIndex].name}
+                                  alt={`${displayTestimonials[currentIndex].name} student review`}
                                   width={64}
                                   height={64}
                                   className="w-full h-full object-cover"

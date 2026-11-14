@@ -65,7 +65,7 @@ export default function UGCreditTransferPage() {
           <div className="relative w-full h-full min-h-[350px] rounded-2xl overflow-hidden shadow-sm border border-gray-200">
             <Image
               src="/ug_credit_transfer.png"
-              alt="Undergraduate Student on Campus"
+              alt="UG credit transfer Kerala"
               fill
               className="object-cover object-top"
               sizes="(max-width: 768px) 100vw, 400px"

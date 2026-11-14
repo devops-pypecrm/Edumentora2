@@ -65,7 +65,7 @@ export default function HomeGalleryClient({ images }: { images: string[] }) {
               <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300 z-10"></div>
               <img 
                 src={img} 
-                alt={`Gallery image ${i}`}
+                alt={`Edumentora events ${i + 1}`}
                 width={360}
                 height={240}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"

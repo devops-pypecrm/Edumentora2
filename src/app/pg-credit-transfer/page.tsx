@@ -61,7 +61,7 @@ export default function PGCreditTransferPage() {
           <div className="relative w-full h-full min-h-[350px] rounded-2xl overflow-hidden shadow-sm border border-gray-200">
             <Image
               src="/pg_credit_transfer.png"
-              alt="Postgraduate Student on Campus"
+              alt="PG credit transfer Kerala"
               fill
               className="object-cover object-top"
               sizes="(max-width: 768px) 100vw, 400px"

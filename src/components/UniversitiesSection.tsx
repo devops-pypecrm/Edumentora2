@@ -55,7 +55,7 @@ export default function UniversitiesSection() {
               className="flex flex-col items-center justify-center text-center p-6 w-[220px] shrink-0 hover:scale-105 transition-transform duration-300 cursor-pointer grayscale hover:grayscale-0"
             >
               <div className="relative w-28 h-28 mb-4 bg-white rounded-2xl shadow-lg flex items-center justify-center overflow-hidden">
-                <Image src={uni.image} alt={uni.name} fill className="object-contain p-3" />
+                <Image src={uni.image} alt={`${uni.name} logo`} fill className="object-contain p-3" />
               </div>
               <h3 className={`font-bold ${uni.id === 1 ? 'text-sm' : 'text-lg'} text-white uppercase tracking-wider`}>
                 {uni.name}

@@ -36,7 +36,7 @@ export default function ApprenticeshipLearningProgram() {
           <div className="relative h-[300px] md:h-[400px] w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20">
             <img
               src="/apprenticeship-hero.png"
-              alt="Apprenticeship program at Edumentora"
+              alt="Apprenticeship program Kerala"
               width={1024}
               height={1024}
               className="object-cover w-full h-full transform hover:scale-105 transition-transform duration-700 ease-in-out"
@@ -132,7 +132,7 @@ export default function ApprenticeshipLearningProgram() {
           <div className="relative h-[600px] w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-[#002147]/15">
             <img
               src="/apprenticeship-professionals.png"
-              alt="Working professionals studying"
+              alt="Work integrated learning program"
               width={1024}
               height={1024}
               className="object-cover w-full h-full transform hover:scale-105 transition-transform duration-700 ease-in-out"

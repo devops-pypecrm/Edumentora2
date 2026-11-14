@@ -95,17 +95,25 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      {/* Google Tag Manager — added once here in the shared layout, so it is
+          in the HTML of every page. Do not add it to individual pages. */}
+      <head>
+        <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-WQL7S8RD"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){
+    dataLayer.push(arguments);
+  }
+
+  gtag('js', new Date());
+`,
+          }}
+        />
+      </head>
       <body className={montserrat.className} suppressHydrationWarning>
-        {/* lazyOnload: Tag Manager starts once the page has finished loading,
-            so it doesn't slow down the first load. */}
-        <Script async src="https://www.googletagmanager.com/gtm.js?id=GTM-WQL7S8RD" strategy="lazyOnload" />
-        <Script id="google-tag-manager" strategy="lazyOnload">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-          `}
-        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}

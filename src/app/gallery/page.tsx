@@ -77,7 +77,7 @@ export default async function Page() {
                           {/* Image */}
                           <GalleryImage
                             src={image}
-                            alt={`Edumentora ${gallery.section} — photo ${index + 1}`}
+                            alt={`Edumentora events ${index + 1}`}
                             className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
                           />
                           

@@ -65,7 +65,7 @@ export default function DiplomaCreditTransferPage() {
           <div className="relative w-full h-full min-h-[350px] rounded-2xl overflow-hidden shadow-sm border border-gray-200">
             <Image
               src="/diploma_credit_transfer.png"
-              alt="Diploma Student on Campus"
+              alt="Diploma credit transfer Kerala"
               fill
               className="object-cover object-top"
               sizes="(max-width: 768px) 100vw, 400px"

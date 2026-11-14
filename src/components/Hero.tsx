@@ -132,7 +132,13 @@ export type HeroContentConfig = {
 };
 
 const cleanAlt = (alt: string | undefined): string =>
-  alt ? alt.replace(/^\[(MOBILE|DESKTOP)\]\s*/i, '').trim() || 'Hero slide' : 'Hero slide';
+  {
+  const cleaned = alt ? alt.replace(/^\[(MOBILE|DESKTOP)\]\s*/i, '').trim() : '';
+  // Generic names from the uploader are replaced with keyword text.
+  return cleaned && !/^(homepage|mobile|desktop)?\s*hero (image|slide)$/i.test(cleaned)
+    ? cleaned
+    : 'Credit transfer universities Kerala';
+};
 
 export default function Hero({
   notifications = [],

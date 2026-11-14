@@ -89,7 +89,7 @@ export default async function BlogPage() {
                   
                   <div className="mt-auto pt-6">
                     <Link 
-                      href={blogPath(blog.id)}
+                      href={blogPath(blog.id, blog.sectionDis)}
                       className="inline-flex items-center gap-2 text-[#F9010D] font-bold hover:text-[#002147] transition-colors group/link"
                     >
                       Read Full Article 

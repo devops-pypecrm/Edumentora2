@@ -11,15 +11,15 @@ export default function AboutInstituteSection() {
 
         {/* Masthead-style headline with double rule, like a newspaper front page */}
         <div className="border-t-4 border-b border-[#2b2418] pt-3 pb-2 mb-2">
-          <motion.h2
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="font-serif text-3xl md:text-5xl font-bold leading-tight text-center"
           >
-            Credit Transfer Institute in<br className="hidden md:block" /> Kerala for B.Tech Students
-          </motion.h2>
+            Credit Transfer Institute in<br className="hidden md:block" /> Kerala for Students
+          </motion.h1>
         </div>
         <div className="border-b-2 border-[#2b2418] mb-10" />
 

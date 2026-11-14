@@ -12,7 +12,7 @@ import { notFound, permanentRedirect } from 'next/navigation';
 import { postComment } from './actions';
 import type { Metadata } from 'next';
 import { pageMetadata, articleJsonLd, breadcrumbJsonLd } from '@/lib/seo';
-import { blogPath, resolveBlogId } from '@/lib/slugs';
+import { blogPath, resolveBlogId, BLOG_SLUGS, UNIVERSITY_SLUGS } from '@/lib/slugs';
 
 const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
 const prisma = globalForPrisma.prisma || new PrismaClient();
@@ -27,6 +27,16 @@ export const revalidate = 3600;
 // Existing blog content contains neither "|" nor "[...](...)" (verified
 // against the current dataset), so this is purely additive — every
 // previously-published post renders exactly as before.
+// Links written inside a post's text with an old ID (e.g. /blog/6a7ac6...)
+// are shown with the readable URL instead. The stored text is unchanged.
+function readableHref(href: string) {
+  const blogMatch = href.match(/^\/blog\/([0-9a-f]{24})(.*)$/i);
+  if (blogMatch && BLOG_SLUGS[blogMatch[1]]) return `/blog/${BLOG_SLUGS[blogMatch[1]]}${blogMatch[2]}`;
+  const uniMatch = href.match(/^\/universities\/([0-9a-f]{24})(.*)$/i);
+  if (uniMatch && UNIVERSITY_SLUGS[uniMatch[1]]) return `/universities/${UNIVERSITY_SLUGS[uniMatch[1]]}${uniMatch[2]}`;
+  return href;
+}
+
 function renderInlineLinks(text: string, keyPrefix: string) {
   const linkPattern = /\[([^\]]+)\]\((\/[^)]+)\)/g;
   const nodes: React.ReactNode[] = [];
@@ -36,7 +46,7 @@ function renderInlineLinks(text: string, keyPrefix: string) {
   while ((match = linkPattern.exec(text)) !== null) {
     if (match.index > lastIndex) nodes.push(text.slice(lastIndex, match.index));
     nodes.push(
-      <Link key={`${keyPrefix}-link-${i++}`} href={match[2]} className="text-[#F9010D] font-semibold underline decoration-[#F9010D] underline-offset-2 hover:text-[#F9010D]">
+      <Link key={`${keyPrefix}-link-${i++}`} href={readableHref(match[2])} className="text-[#F9010D] font-semibold underline decoration-[#F9010D] underline-offset-2 hover:text-[#F9010D]">
         {match[1]}
       </Link>
     );
@@ -138,8 +148,12 @@ function BlogParagraph({ subPara, blockKey }: { subPara: string; blockKey: strin
   return <>{elements}</>;
 }
 
+// Used only when a URL name was made automatically from a blog title.
+const loadBlogTitles = async () =>
+  (await prisma.blog.findMany({ select: { id: true, sectionDis: true } })).map((b) => ({ id: b.id, name: b.sectionDis }));
+
 export async function generateMetadata(props: { params: Promise<{ id: string }> }): Promise<Metadata> {
-  const id = resolveBlogId((await props.params).id);
+  const id = await resolveBlogId((await props.params).id, loadBlogTitles);
   if (!id || id.length !== 24) return {};
 
   const blog = await prisma.blog.findUnique({ where: { id } });
@@ -150,7 +164,7 @@ export async function generateMetadata(props: { params: Promise<{ id: string }> 
   return pageMetadata({
     title: blog.sectionDis,
     description: excerpt.length > 160 ? `${excerpt.slice(0, 157)}...` : excerpt,
-    path: blogPath(id),
+    path: blogPath(id, blog.sectionDis),
   });
 }
 
@@ -158,12 +172,7 @@ export default async function BlogDetailPage(props: { params: Promise<{ id: stri
   const params = await props.params;
   // The URL can be the readable name (e.g. what-is-academic-credit-transfer)
   // or the old database ID; both resolve to the same post.
-  const id = resolveBlogId(params.id);
-
-  // Old ID links permanently redirect to the readable URL.
-  if (blogPath(id) !== `/blog/${params.id}`) {
-    permanentRedirect(blogPath(id));
-  }
+  const id = await resolveBlogId(params.id, loadBlogTitles);
 
   if (!id || id.length !== 24) {
     notFound();
@@ -175,6 +184,11 @@ export default async function BlogDetailPage(props: { params: Promise<{ id: stri
 
   if (!blog) {
     notFound();
+  }
+
+  // Old ID links permanently redirect to the readable URL.
+  if (blogPath(id, blog.sectionDis) !== `/blog/${params.id}`) {
+    permanentRedirect(blogPath(id, blog.sectionDis));
   }
 
   const recentBlogs = await prisma.blog.findMany({
@@ -196,12 +210,12 @@ export default async function BlogDetailPage(props: { params: Promise<{ id: stri
     author: blog.author,
     datePublished: blog.date,
     dateModified: blog.updatedAt,
-    path: blogPath(id),
+    path: blogPath(id, blog.sectionDis),
   });
   const breadcrumbLd = breadcrumbJsonLd([
     { name: 'Home', path: '/' },
     { name: 'Blog', path: '/blog' },
-    { name: blog.sectionDis, path: blogPath(id) },
+    { name: blog.sectionDis, path: blogPath(id, blog.sectionDis) },
   ]);
 
   return (
@@ -293,7 +307,7 @@ export default async function BlogDetailPage(props: { params: Promise<{ id: stri
                 </h3>
                 <div className="space-y-6">
                   {recentBlogs.map((recent) => (
-                    <Link key={recent.id} href={blogPath(recent.id)} className="group flex gap-4 items-start">
+                    <Link key={recent.id} href={blogPath(recent.id, recent.sectionDis)} className="group flex gap-4 items-start">
                       {recent.mainImage ? (
                         <div className="relative w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
                           <Image

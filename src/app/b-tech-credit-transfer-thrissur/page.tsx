@@ -40,7 +40,7 @@ export default function BTechCreditTransferPage() {
           <div className="relative w-full h-full min-h-[300px] rounded-2xl overflow-hidden shadow-sm border border-gray-200">
             <Image
               src="/btech_transfer_thrissur.png"
-              alt="Credit Transfer Student in Thrissur"
+              alt="B.Tech credit transfer Thrissur"
               fill
               className="object-cover object-top"
               sizes="(max-width: 768px) 100vw, 400px"

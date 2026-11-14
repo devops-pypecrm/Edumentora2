@@ -49,7 +49,7 @@ export default function BestBTechCreditTransferServicesPage() {
           <div className="relative w-full h-[220px] md:h-[280px] rounded-2xl overflow-hidden shadow-sm border border-gray-200">
             <Image
               src="/student-portrait.png"
-              alt="B Tech Credit Transfer Services in Kerala"
+              alt="B.Tech dropout credit transfer Kerala"
               fill
               className="object-cover object-top"
               sizes="(max-width: 768px) 100vw, 400px"

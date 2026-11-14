@@ -179,7 +179,7 @@ export default function Footer() {
               <Link href="/" className="bg-white p-2 rounded-xl shadow-xl inline-block transform hover:scale-105 transition-transform duration-300">
                 <Image
                   src="/favcon/edumentora_favcon.png"
-                  alt="Edumentora doodle logo"
+                  alt="Edumentora logo"
                   width={72}
                   height={48}
                   className="h-12 w-auto object-contain"

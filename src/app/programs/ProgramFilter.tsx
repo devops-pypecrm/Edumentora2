@@ -333,7 +333,7 @@ export default function ProgramFilter({ programs }: { programs: Program[] }) {
                     <div className="relative rounded-2xl overflow-hidden shadow-xl group aspect-[4/3]">
                       <img
                         src={program.heroImage}
-                        alt={program.heading}
+                        alt={`${program.topic} Kerala`}
                         width={800}
                         height={600}
                         className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
@@ -459,7 +459,7 @@ export default function ProgramFilter({ programs }: { programs: Program[] }) {
                               {w.type === 'image' && (
                                 <div className="w-full h-full rounded-xl overflow-hidden shadow-sm relative group/img -m-6 md:-m-8" style={{ width: 'calc(100% + 3rem)' }}>
                                   {w.data?.url ? (
-                                    <img src={w.data.url} alt="Program Image" width={800} height={600} className="w-full h-full object-cover transform transition-transform duration-700 group-hover/img:scale-105" />
+                                    <img src={w.data.url} alt={`${program.topic} Kerala`} width={800} height={600} className="w-full h-full object-cover transform transition-transform duration-700 group-hover/img:scale-105" />
                                   ) : (
                                     <div className="w-full h-full bg-gray-100 flex items-center justify-center text-gray-400">
                                       <span className="text-sm font-semibold">Image Placeholder</span>

@@ -32,8 +32,12 @@ if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
 
 export const revalidate = 3600;
 
+// Used only when a URL name was made automatically from a university name.
+const loadUniversityNames = async () =>
+  await prisma.university.findMany({ select: { id: true, name: true } });
+
 export async function generateMetadata(props: { params: Promise<{ id: string }> }): Promise<Metadata> {
-  const id = resolveUniversityId((await props.params).id);
+  const id = await resolveUniversityId((await props.params).id, loadUniversityNames);
   if (!id) return {};
 
   const university = await prisma.university.findUnique({ where: { id } });
@@ -44,7 +48,7 @@ export async function generateMetadata(props: { params: Promise<{ id: string }> 
   return pageMetadata({
     title: university.name,
     description: description.length > 160 ? `${description.slice(0, 157)}...` : description,
-    path: universityPath(id),
+    path: universityPath(id, university.name),
   });
 }
 
@@ -52,12 +56,7 @@ export default async function UniversityDetailPage(props: { params: Promise<{ id
   const params = await props.params;
   // The URL can be the readable name (e.g. glocal-university) or the old
   // database ID; both resolve to the same university.
-  const id = resolveUniversityId(params.id);
-
-  // Old ID links permanently redirect to the readable URL.
-  if (universityPath(id) !== `/universities/${params.id}`) {
-    permanentRedirect(universityPath(id));
-  }
+  const id = await resolveUniversityId(params.id, loadUniversityNames);
 
   if (!id) {
     notFound();
@@ -74,6 +73,11 @@ export default async function UniversityDetailPage(props: { params: Promise<{ id
     notFound();
   }
 
+  // Old ID links permanently redirect to the readable URL.
+  if (universityPath(id, university.name) !== `/universities/${params.id}`) {
+    permanentRedirect(universityPath(id, university.name));
+  }
+
   const universityPrograms = await prisma.universityProgram.findMany({
     where: { universityId: id },
     orderBy: { createdAt: 'asc' },
@@ -82,7 +86,7 @@ export default async function UniversityDetailPage(props: { params: Promise<{ id
   const breadcrumbLd = breadcrumbJsonLd([
     { name: 'Home', path: '/' },
     { name: 'Universities', path: '/universities' },
-    { name: university.name, path: universityPath(id) },
+    { name: university.name, path: universityPath(id, university.name) },
   ]);
   const courseLd = courseJsonLd(university, universityPrograms);
   const courseListLd = courseListJsonLd(university, universityPrograms);
@@ -138,7 +142,7 @@ export default async function UniversityDetailPage(props: { params: Promise<{ id
             <div className="w-full h-[300px] md:h-[500px] relative bg-gray-100">
               <img 
                 src={university.mainImage} 
-                alt={university.name} 
+                alt={`${university.name.trim()} campus`} 
                 width={1200}
                 height={654}
                 className="w-full h-full object-cover" 

@@ -40,7 +40,7 @@ export default function BTechCreditTransferPage() {
           <div className="relative w-full h-full min-h-[300px] rounded-2xl overflow-hidden shadow-sm border border-gray-200">
             <Image
               src="/btech_transfer_pathanamthitta.png"
-              alt="Credit Transfer Student in Pathanamthitta"
+              alt="B.Tech credit transfer Pathanamthitta"
               fill
               className="object-cover object-top"
               sizes="(max-width: 768px) 100vw, 400px"
