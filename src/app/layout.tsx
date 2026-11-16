@@ -86,6 +86,7 @@ const organizationJsonLd = {
 };
 
 import LazyPopupForm from '@/components/LazyPopupForm';
+import LogoIntro from '@/components/LogoIntro';
 import MotionProvider from '@/components/MotionProvider';
 
 export default function RootLayout({
@@ -122,6 +123,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd()) }}
         />
+        <LogoIntro />
         <SmoothScroll>
           <MotionProvider>
             {children}
