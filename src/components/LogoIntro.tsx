@@ -36,8 +36,8 @@ const LETTERS_START = 2.7;
 const LETTER_STAGGER = 0.09;
 
 // Milliseconds from first paint. The logo always plays to MIN_HOLD (5s once the
-// 0.6s fade is included), then stays up until the page's HTML has arrived behind
-// it, but never past MAX_HOLD. Images and videos don't hold it up.
+// 0.6s fade is included), then stays up until the hero (HTML and its visible
+// slide image) has loaded behind it, but never past MAX_HOLD.
 const MIN_HOLD = 4400;
 const REDUCED_MOTION_MIN_HOLD = 800;
 const MAX_HOLD = 8000;
@@ -51,6 +51,25 @@ const pageLoaded = () =>
     if (document.readyState !== 'loading') resolve();
     else document.addEventListener('DOMContentLoaded', () => resolve(), { once: true });
   });
+
+// The hero loads behind the logo while it plays. Once the page's HTML is in,
+// wait for the hero image the visitor will actually see (desktop or mobile
+// slide) to finish loading, so the hero is complete when the logo fades out.
+const heroLoaded = () =>
+  pageLoaded().then(
+    () =>
+      new Promise<void>((resolve) => {
+        const image = Array.from(document.querySelectorAll<HTMLImageElement>('img.hero-carousel-image')).find(
+          (img) => img.offsetParent !== null,
+        );
+        if (!image || image.complete) {
+          resolve();
+          return;
+        }
+        image.addEventListener('load', () => resolve(), { once: true });
+        image.addEventListener('error', () => resolve(), { once: true });
+      }),
+  );
 
 export default function LogoIntro() {
   const pathname = usePathname();
@@ -73,7 +92,7 @@ export default function LogoIntro() {
     const minHold = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? REDUCED_MOTION_MIN_HOLD : MIN_HOLD;
 
     let cancelled = false;
-    Promise.all([wait(minHold - elapsed), Promise.race([pageLoaded(), wait(MAX_HOLD - elapsed)])]).then(() => {
+    Promise.all([wait(minHold - elapsed), Promise.race([heroLoaded(), wait(MAX_HOLD - elapsed)])]).then(() => {
       if (cancelled) return;
       if (elapsed >= FAILSAFE) setVisible(false);
       else setExiting(true);

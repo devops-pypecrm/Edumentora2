@@ -7,9 +7,14 @@ const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
 const prisma = globalForPrisma.prisma || new PrismaClient();
 if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
 
-export type FaqType = 'ABOUT' | 'BTECH';
+export type FaqType = 'ABOUT' | 'BTECH' | 'HOME';
 
 function revalidateFor(type: FaqType) {
+  if (type === 'HOME') {
+    revalidatePath('/admin/faq/home');
+    revalidatePath('/');
+    return;
+  }
   revalidatePath(type === 'ABOUT' ? '/admin/faq/about' : '/admin/faq/btech');
   revalidatePath(type === 'ABOUT' ? '/about-us' : '/b-tech-credit-transfer');
 }

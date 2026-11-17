@@ -14,7 +14,8 @@ import TestimonialSection from '@/components/TestimonialSection';
 import Footer from '@/components/Footer';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { PrismaClient } from '@prisma/client';
-import { aggregateRatingJsonLd, pageMetadata } from '@/lib/seo';
+import { aggregateRatingJsonLd, faqPageJsonLd, pageMetadata } from '@/lib/seo';
+import HomeFaqSection from '@/components/HomeFaqSection';
 import { toImageRoute } from '@/lib/dataUrlImage';
 
 const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
@@ -180,10 +181,26 @@ async function HomeContent() {
     console.error("Failed to fetch notifications:", error);
   }
 
+  // Home FAQ (Admin → FAQ → Home FAQ), shown below "Ready To Grow with Edumentora".
+  let homeFaqs: { id: string; q: string; a: string }[] = [];
+  try {
+    const faqs = await prisma.faq.findMany({ where: { type: 'HOME' }, orderBy: { createdAt: 'asc' } });
+    homeFaqs = faqs.map((f) => ({ id: f.id, q: f.question, a: f.answer }));
+  } catch (error) {
+    console.error("Failed to fetch home FAQs:", error);
+  }
+  const faqJsonLd = faqPageJsonLd(homeFaqs);
+
   const ratingJsonLd = aggregateRatingJsonLd(reviews);
 
   return (
     <main className="home-section-alternation min-h-screen bg-white font-[Poppins]">
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       {ratingJsonLd && (
         <script
           type="application/ld+json"
@@ -208,6 +225,7 @@ async function HomeContent() {
       <MissionVisionSection />
       <TestimonialSection reviews={reviews} galleryImages={galleryImages} promoVideos={promoVideos} successVideos={successVideos} />
       <ContactSection />
+      <HomeFaqSection faqs={homeFaqs} />
       <SeoContentSection />
       <Footer />
       <FloatingWhatsApp />

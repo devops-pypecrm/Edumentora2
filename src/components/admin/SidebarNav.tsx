@@ -25,6 +25,7 @@ const links = [
 const faqLinks = [
   { href: '/admin/faq/about', label: 'About FAQ' },
   { href: '/admin/faq/btech', label: 'Btech FAQ' },
+  { href: '/admin/faq/home', label: 'Home FAQ' },
 ];
 
 export default function SidebarNav({ collapsed = false }: { collapsed?: boolean }) {
